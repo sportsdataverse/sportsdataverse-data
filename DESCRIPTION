@@ -25,10 +25,10 @@ Imports:
     qs (>= 0.25.1),
     rlang
 Remotes:
-    BillPetti/baseballr
-    sportsdataverse/cfbfastR
-    sportsdataverse/fastRhockey
-    sportsdataverse/hoopR
+    BillPetti/baseballr,
+    sportsdataverse/cfbfastR,
+    sportsdataverse/fastRhockey,
+    sportsdataverse/hoopR,
     sportsdataverse/wehoop
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
