@@ -12,6 +12,8 @@ sportsdataverse_upload(...)
 \item{files}{vector of filepaths to upload}
 
 \item{tag}{release name}
+
+\item{pkg_function}{related package function name}
 }
 \description{
 Upload to sportsdataverse release

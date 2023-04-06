@@ -10,7 +10,7 @@ sportsdataverse_save(
   sportsdataverse_type,
   release_tag,
   .token = gh::gh_token(),
-  file_types = c("rds", "csv", "parquet", "qs")
+  file_types = c("rds", "csv", "parquet")
 )
 }
 \arguments{
