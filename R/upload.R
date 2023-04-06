@@ -119,5 +119,5 @@ sportsdataverse_save <- function(data_frame,
 
   .file_names <- file.path(temp_dir, paste0(file_name, .filetypes))
 
-  sportsdataverse_upload(.file_names, tag = release_tag, .token = .token)
+  sportsdataverse_upload(.file_names, tag = release_tag, pkg_function = pkg_function, .token = .token)
 }
