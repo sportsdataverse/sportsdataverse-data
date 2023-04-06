@@ -9,6 +9,7 @@ sportsdataverse_save(
   file_name,
   sportsdataverse_type,
   release_tag,
+  pkg_function,
   .token = gh::gh_token(),
   file_types = c("rds", "csv", "parquet")
 )
@@ -21,6 +22,8 @@ sportsdataverse_save(
 \item{sportsdataverse_type}{metadata: name/information to add to data}
 
 \item{release_tag}{name of release to upload to}
+
+\item{pkg_function}{related package function name}
 
 \item{.token}{a GitHub token, defaults to gh::gh_token()}
 

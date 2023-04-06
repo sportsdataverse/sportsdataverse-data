@@ -61,6 +61,7 @@ update_package_function <- function(tag, pkg_function) {
 #' @param file_name file_name to upload as, without the file extension
 #' @param sportsdataverse_type metadata: name/information to add to data
 #' @param release_tag name of release to upload to
+#' @param pkg_function related package function name
 #' @param .token a GitHub token, defaults to gh::gh_token()
 #' @param file_types one or more of c("rds","csv","parquet","qs","csv.gz")
 #'
@@ -69,6 +70,7 @@ sportsdataverse_save <- function(data_frame,
                           file_name,
                           sportsdataverse_type,
                           release_tag,
+                          pkg_function,
                           .token = gh::gh_token(),
                           file_types = c("rds", "csv", "parquet")
 ) {
@@ -78,11 +80,13 @@ sportsdataverse_save <- function(data_frame,
     is.character(file_name),
     is.character(sportsdataverse_type),
     is.character(release_tag),
+    is.character(pkg_function),
     is.character(.token),
     is.character(file_types),
     length(file_name) == 1,
     length(sportsdataverse_type) == 1,
     length(release_tag) == 1,
+    length(pkg_function) == 1,
     length(.token) == 1,
     length(file_types) >= 1
   )
