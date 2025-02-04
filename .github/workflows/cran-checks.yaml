@@ -13,30 +13,30 @@ jobs:
 
     steps:
       - name: Get CRAN checks - hoopR
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: hoopR
       - name: Get CRAN checks - wehoop
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: wehoop
       - name: Get CRAN checks - fastRhockey
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: fastRhockey
       - name: Get CRAN checks - baseballr
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: baseballr
       - name: Get CRAN checks - worldfootballR
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: worldfootballR
       - name: Get CRAN checks - sportyR
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: sportyR
       - name: Get CRAN checks - oddsapiR
-        uses: flrsh-dev/cran-checks/check-pkg@main
+        uses: ricochet-rs/cran-checks/check-pkg@main
         with:
           pkg: oddsapiR          
