@@ -2,7 +2,7 @@
   if (Sys.getenv("SPORTSDATAVERSE.UPLOAD.INSIST", "true") == "true") {
     pause_base <- Sys.getenv("SPORTSDATAVERSE.UPLOAD.PAUSE_BASE", 0.05) |> as.numeric()
     pause_min <- Sys.getenv("SPORTSDATAVERSE.UPLOAD.PASUE_MIN", 1) |> as.numeric()
-    max_times <- Sys.getenv("SPORTSDATAVERSE.UPLOAD.MAX_TIMES", 10) |> as.numeric()
+    max_times <- Sys.getenv("SPORTSDATAVERSE.UPLOAD.MAX_TIMES", 20) |> as.numeric()
     quiet <- Sys.getenv("SPORTSDATAVERSE.UPLOAD.QUIET", TRUE) |> as.logical()
 
     retry_rate <- purrr::rate_backoff(

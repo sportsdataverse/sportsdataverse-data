@@ -1,6 +1,6 @@
 Package: sportsdataversedata
 Title: sportsdataverse data storage functions
-Version: 0.0.9
+Version: 0.0.10
 Authors@R: 
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre"))
 Description: This repository holds automated data releases for sportsdataverse
@@ -32,4 +32,4 @@ Remotes:
     sportsdataverse/wehoop
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
