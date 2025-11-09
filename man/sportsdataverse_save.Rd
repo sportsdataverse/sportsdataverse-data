@@ -11,7 +11,8 @@ sportsdataverse_save(
   release_tag,
   pkg_function,
   .token = gh::gh_token(),
-  file_types = c("rds", "csv", "parquet")
+  file_types = c("rds", "csv", "parquet"),
+  repo = "sportsdataverse/sportsdataverse-data"
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ sportsdataverse_save(
 \item{.token}{a GitHub token, defaults to gh::gh_token()}
 
 \item{file_types}{one or more of c("rds","csv","parquet","qs","csv.gz")}
+
+\item{repo}{repository to upload to, default: \code{"sportsdataverse/sportsdataverse-data"}}
 }
 \description{
 This functions attaches sportsdataverse attributes like type and timestamp, saves

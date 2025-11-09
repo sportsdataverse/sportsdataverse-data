@@ -7,13 +7,17 @@
 sportsdataverse_upload(...)
 }
 \arguments{
-\item{...}{other args passed to \code{piggyback::pb_upload()}}
+\item{...}{currently not used}
 
 \item{files}{vector of filepaths to upload}
 
 \item{tag}{release name}
 
 \item{pkg_function}{related package function name}
+
+\item{repo}{repository to upload to, default: \code{"sportsdataverse/sportsdataverse-data"}}
+
+\item{overwrite}{If \code{TRUE} (the default) existing files will be overwritten}
 }
 \description{
 Upload to sportsdataverse release
