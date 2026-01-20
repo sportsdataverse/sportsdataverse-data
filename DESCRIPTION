@@ -23,7 +23,6 @@ Imports:
     memoise,
     piggyback (>= 0.1.4),
     purrr (>= 0.3.4),
-    qs (>= 0.25.1),
     rlang
 Remotes:
     BillPetti/baseballr,
