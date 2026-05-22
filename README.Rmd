@@ -6,7 +6,7 @@ output:
     html_preview: false
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit README.Rmd and re-render with rmarkdown::render("README.Rmd"). -->
+<!-- README.md is generated from README.Rmd. Please edit README.Rmd and re-render with rmarkdown::render("README.Rmd"). Re-rendering needs network access: the "Data releases" section enumerates this repository's releases live via the GitHub API. -->
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -24,22 +24,22 @@ knitr::opts_chunk$set(
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
 <!-- badges: end -->
 
-This repository hosts the helper functions that publish the **automated data
-releases** for the [SportsDataverse](https://sportsdataverse.org) ecosystem,
-and serves as the **automation status hub** for those pipelines.
+This repository is the **release store and automation status hub** for the
+[SportsDataverse](https://sportsdataverse.org) ecosystem. Every processed
+SportsDataverse dataset is published here as a GitHub release, and this page
+tracks the live health and freshness of every pipeline that produces them.
 
-Every SportsDataverse dataset is refreshed by a pair of GitHub Actions
-pipelines: a `*-raw` repository scrapes a source API on a seasonal schedule,
-then dispatches an event to a `*-data` repository that cleans the data and
-commits the processed files. The tables below show the live health of every
-pipeline.
+Each dataset is refreshed by a pair of GitHub Actions pipelines: a `*-raw`
+repository scrapes a source API on a seasonal schedule, then dispatches an
+event to a `*-data` repository that cleans the data and publishes it here as
+release assets.
 
 ## Automation status
 
-The badges below are **live** — each GitHub Actions workflow badge shows the
-result of that pipeline's most recent run, and each *Last updated* badge
-shows when the data repository last received a commit. A red workflow badge
-means the latest run of that pipeline failed.
+These badges show whether each pipeline's **scrape** and **processing**
+workflows are currently passing — a red badge means that workflow's most
+recent run failed. For when each dataset was last *refreshed*, see
+[Data releases](#data-releases) below.
 
 ```{r inventory}
 inventory <- data.frame(
@@ -96,24 +96,13 @@ workflow_badge <- function(repo, wf) {
   )
 }
 
-# A live shields.io "last commit" badge for a data repository.
-updated_badge <- function(repo) {
-  sprintf(
-    paste0(
-      "[![last commit](https://img.shields.io/github/last-commit/",
-      "sportsdataverse/%s?label=updated&style=flat-square)](%s/%s/commits)"
-    ),
-    repo, org, repo
-  )
-}
-
 repo_link <- function(repo) sprintf("[`%s`](%s/%s)", repo, org, repo)
 
 for (sp in c("Basketball", "Football", "Hockey")) {
   sub <- inventory[inventory$sport == sp, ]
   cat("\n### ", sp, "\n\n", sep = "")
-  cat("| Dataset | Status (scrape &rarr; process) | Schedule | Last updated |\n")
-  cat("|:--|:--|:--|:--|\n")
+  cat("| Dataset | Status (scrape &rarr; process) | Schedule |\n")
+  cat("|:--|:--|:--|\n")
   for (i in seq_len(nrow(sub))) {
     r <- sub[i, ]
     dataset <- sprintf(
@@ -124,19 +113,153 @@ for (sp in c("Basketball", "Football", "Hockey")) {
       workflow_badge(r$raw_repo, r$raw_wf), "<br/>",
       workflow_badge(r$data_repo, r$data_wf)
     )
-    cat(sprintf(
-      "| %s | %s | %s | %s |\n",
-      dataset, status, r$schedule, updated_badge(r$data_repo)
-    ))
+    cat(sprintf("| %s | %s | %s |\n", dataset, status, r$schedule))
   }
 }
 cat("\n")
 ```
 
-> **What "Last updated" measures.** SportsDataverse data repositories publish
-> processed data as committed files — none currently use GitHub release
-> assets — so the most recent commit time is an accurate proxy for when fresh
-> data was last published.
+## Data releases
+
+Every processed dataset is published as a GitHub release of this repository,
+tagged by dataset name. On each upload, `sportsdataverse_upload()` attaches a
+`timestamp.json` asset recording when the data was last refreshed.
+
+The **Last updated** badge below reads that `timestamp.json` live, so it
+always reflects the current state of the release. A release that has data
+assets but no `timestamp.json` (uploaded before timestamps were added) shows
+its release date instead. Release tags that have no data assets yet are
+collapsed into a list at the end of this section. A clearly stale date is the
+signal that a dataset is no longer being refreshed.
+
+```{r data-releases, results = "asis"}
+# Enumerate this repository's releases live via the GitHub API. gh is already
+# an Imports dependency of the package. This call requires network access at
+# render time; if it fails, rendering stops with gh's own error message.
+releases <- gh::gh(
+  "/repos/sportsdataverse/sportsdataverse-data/releases",
+  per_page = 100,
+  .limit = 1000
+)
+
+release_tbl <- data.frame(
+  tag = vapply(releases, function(r) r$tag_name, character(1)),
+  published = vapply(
+    releases, function(r) r$published_at %||% NA_character_, character(1)
+  ),
+  n_assets = vapply(releases, function(r) length(r$assets), integer(1)),
+  # timestamp.json presence is read from the assets already returned above —
+  # no extra HTTP request per release.
+  has_timestamp = vapply(releases, function(r) {
+    "timestamp.json" %in% vapply(r$assets, function(a) a$name, character(1))
+  }, logical(1)),
+  stringsAsFactors = FALSE
+)
+
+# A live shields.io badge that reads the `last_updated` field of a release's
+# timestamp.json asset.
+timestamp_badge <- function(tag) {
+  asset <- sprintf(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/%s/timestamp.json",
+    tag
+  )
+  enc <- utils::URLencode(asset, reserved = TRUE)
+  sprintf(
+    "![updated](https://img.shields.io/badge/dynamic/json?url=%s&query=%%24.last_updated&label=updated&style=flat-square)",
+    enc
+  )
+}
+
+release_link <- function(tag) {
+  sprintf(
+    "[`%s`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/%s)",
+    tag, tag
+  )
+}
+
+updated_cell <- function(tag, has_timestamp, n_assets, published) {
+  if (has_timestamp) {
+    return(timestamp_badge(tag))
+  }
+  if (n_assets == 0) {
+    return("*no data published*")
+  }
+  if (is.na(published)) {
+    return("*data present, no timestamp*")
+  }
+  sprintf("*released %s &mdash; no timestamp*", substr(published, 1, 10))
+}
+
+# Ordered sport -> source grouping. Prefixes are mutually exclusive, so the
+# first matching prefix classifies a release.
+sources <- list(
+  list(sport = "Basketball", label = "ESPN WNBA",                       prefix = "espn_wnba_"),
+  list(sport = "Basketball", label = "WNBA Stats",                      prefix = "wnba_stats_"),
+  list(sport = "Basketball", label = "ESPN women's college basketball", prefix = "espn_womens_college_basketball_"),
+  list(sport = "Basketball", label = "ESPN NBA",                        prefix = "espn_nba_"),
+  list(sport = "Basketball", label = "ESPN men's college basketball",   prefix = "espn_mens_college_basketball_"),
+  list(sport = "Basketball", label = "NBA Stats",                       prefix = "nba_stats_"),
+  list(sport = "Football",   label = "cfbfastR",                        prefix = "cfbfastR_cfb_"),
+  list(sport = "Football",   label = "ESPN college football",           prefix = "espn_cfb_"),
+  list(sport = "Hockey",     label = "NHL",                             prefix = "nhl_"),
+  list(sport = "Hockey",     label = "PWHL",                            prefix = "pwhl_"),
+  list(sport = "Baseball",   label = "NCAA baseball (archival)",         prefix = "ncaa_baseball_")
+)
+
+emit_release_table <- function(rows) {
+  cat("| Release | Last updated |\n|:--|:--|\n")
+  for (i in seq_len(nrow(rows))) {
+    cat(sprintf(
+      "| %s | %s |\n",
+      release_link(rows$tag[i]),
+      updated_cell(
+        rows$tag[i], rows$has_timestamp[i], rows$n_assets[i], rows$published[i]
+      )
+    ))
+  }
+  cat("\n")
+}
+
+# Split data-bearing releases from empty placeholder tags. Empty tags have no
+# timestamp to show, so they are listed compactly instead of given table rows.
+active <- release_tbl[release_tbl$n_assets > 0, ]
+empty <- release_tbl[release_tbl$n_assets == 0, ]
+
+current_sport <- ""
+classified <- character(0)
+for (s in sources) {
+  rows <- active[startsWith(active$tag, s$prefix), ]
+  if (nrow(rows) == 0) next
+  classified <- c(classified, rows$tag)
+  rows <- rows[order(rows$tag), ]
+  if (s$sport != current_sport) {
+    cat("\n### ", s$sport, "\n", sep = "")
+    current_sport <- s$sport
+  }
+  cat("\n#### ", s$label, "\n\n", sep = "")
+  emit_release_table(rows)
+}
+
+# Surface any data-bearing release whose tag did not match a known source
+# prefix, so a new data family is never silently dropped from the page.
+leftover <- active[!active$tag %in% classified, ]
+if (nrow(leftover) > 0) {
+  cat("\n### Other\n\n")
+  emit_release_table(leftover[order(leftover$tag), ])
+}
+
+if (nrow(empty) > 0) {
+  cat(sprintf(
+    paste0(
+      "\n<details>\n<summary><b>%d release tags have no data assets yet",
+      "</b> (placeholder or retired datasets)</summary>\n\n"
+    ),
+    nrow(empty)
+  ))
+  cat(paste0("- `", sort(empty$tag), "`", collapse = "\n"))
+  cat("\n\n</details>\n")
+}
+```
 
 ## How the pipeline works
 
@@ -145,22 +268,23 @@ flowchart LR
   API["Source APIs<br/>ESPN, NBA/WNBA Stats, NCAA, NHL, PWHL"]
   RAW["*-raw repo<br/>scheduled scrape"]
   DATA["*-data repo<br/>R processing"]
-  FILES["Committed data files<br/>parquet, csv, rds"]
+  REL["sportsdataverse-data releases<br/>parquet, csv, rds + timestamp.json"]
   LOAD["load_* functions<br/>in the R packages"]
   API --> RAW
   RAW -->|"repository_dispatch"| DATA
-  DATA --> FILES
-  FILES --> LOAD
+  DATA -->|"sportsdataverse_upload()"| REL
+  REL --> LOAD
 ```
 
 1. **Scrape** — the `*-raw` repository runs on a seasonal `cron` schedule and
    pulls fresh JSON from the source API.
 2. **Dispatch** — on success it fires a `repository_dispatch` event (for
    example `daily_wnba_data`) at the matching `*-data` repository.
-3. **Process** — the `*-data` repository runs its R processing workflow,
-   cleans and tidies the data, and commits the updated files.
-4. **Consume** — the per-sport R packages read those files through their
-   `load_*()` functions.
+3. **Process and publish** — the `*-data` repository runs its R processing
+   workflow, cleans and tidies the data, and uploads it here as release
+   assets — one release per dataset, each stamped with a `timestamp.json`.
+4. **Consume** — the per-sport R packages read those release assets through
+   their `load_*()` functions.
 
 ## Update schedule
 
@@ -201,8 +325,8 @@ each sport's competitive window so dormant APIs are not scraped.
 
 ## Consuming the data
 
-Read the processed data through each sport's R package rather than from this
-repository directly:
+Read the processed data through each sport's R package rather than from the
+release assets directly:
 
 | Package | League(s) | Example loaders |
 |:--|:--|:--|
@@ -217,4 +341,6 @@ Some data repositories in the SportsDataverse organization are **not** on an
 active schedule and are kept for archival access only — for example
 `hoopR-nba-stats-data`, `baseballr-data`, `sportsdataverse-baseball-data`,
 `softballR-data`, `sdv-racing-data-repository`, and the legacy `hoopR-data`
-and `wehoop-data` archives. Treat data from these as historical snapshots.
+and `wehoop-data` archives. Release tags above with a clearly stale *Last
+updated* date are likewise no longer being refreshed. Treat data from these
+as historical snapshots.
