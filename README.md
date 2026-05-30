@@ -1,12 +1,4 @@
 
-  - [SportsDataverse Data](#sportsdataverse-data)
-      - [Automation status](#automation-status)
-      - [Data releases](#data-releases)
-      - [How the pipeline works](#how-the-pipeline-works)
-      - [Update schedule](#update-schedule)
-      - [Consuming the data](#consuming-the-data)
-      - [Dormant and archived datasets](#dormant-and-archived-datasets)
-
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd and re-render with rmarkdown::render("README.Rmd"). Re-rendering needs network access: the "Data releases" section enumerates this repository's releases live via the GitHub API. -->
 
 # SportsDataverse Data
@@ -59,6 +51,49 @@ releases](#data-releases) below.
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- |
 | **NHL**<br/>[`fastRhockey-nhl-raw`](https://github.com/sportsdataverse/fastRhockey-nhl-raw) → [`fastRhockey-nhl-data`](https://github.com/sportsdataverse/fastRhockey-nhl-data)      | [![status](https://github.com/sportsdataverse/fastRhockey-nhl-raw/actions/workflows/scrape_nhl_raw.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-nhl-raw/actions/workflows/scrape_nhl_raw.yml)<br/>[![status](https://github.com/sportsdataverse/fastRhockey-nhl-data/actions/workflows/daily_nhl.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-nhl-data/actions/workflows/daily_nhl.yml)         | Daily, Oct–Jun |
 | **PWHL**<br/>[`fastRhockey-pwhl-raw`](https://github.com/sportsdataverse/fastRhockey-pwhl-raw) → [`fastRhockey-pwhl-data`](https://github.com/sportsdataverse/fastRhockey-pwhl-data) | [![status](https://github.com/sportsdataverse/fastRhockey-pwhl-raw/actions/workflows/scrape_pwhl_raw.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-raw/actions/workflows/scrape_pwhl_raw.yml)<br/>[![status](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl.yml) | Daily, Nov–May |
+
+### Trigger workflows
+
+After each `*-raw` push lands, a small `repository_dispatch` workflow
+fires the matching `*-data` pipeline. These are the bridges between the
+scrape and processing badges above:
+
+| Pipeline                       | Trigger workflow                                                                                                                                   | Status                                                                                                                                                                                                                                          |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **NHL**                        | [`fastRhockey_nhl_data_trigger.yml`](https://github.com/sportsdataverse/fastRhockey-nhl-raw/actions/workflows/fastRhockey_nhl_data_trigger.yml)    | [![status](https://github.com/sportsdataverse/fastRhockey-nhl-raw/actions/workflows/fastRhockey_nhl_data_trigger.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-nhl-raw/actions/workflows/fastRhockey_nhl_data_trigger.yml)     |
+| **PWHL**                       | [`fastRhockey_pwhl_data_trigger.yml`](https://github.com/sportsdataverse/fastRhockey-pwhl-raw/actions/workflows/fastRhockey_pwhl_data_trigger.yml) | [![status](https://github.com/sportsdataverse/fastRhockey-pwhl-raw/actions/workflows/fastRhockey_pwhl_data_trigger.yml/badge.svg)](https://github.com/sportsdataverse/fastRhockey-pwhl-raw/actions/workflows/fastRhockey_pwhl_data_trigger.yml) |
+| **WNBA**                       | [`wehoop_wnba_data_trigger.yml`](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_data_trigger.yml)                | [![status](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_data_trigger.yml/badge.svg)](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_data_trigger.yml)                     |
+| **Women’s college basketball** | [`wehoop_wbb_data_trigger.yaml`](https://github.com/sportsdataverse/wehoop-wbb-raw/actions/workflows/wehoop_wbb_data_trigger.yaml)                 | [![status](https://github.com/sportsdataverse/wehoop-wbb-raw/actions/workflows/wehoop_wbb_data_trigger.yaml/badge.svg)](https://github.com/sportsdataverse/wehoop-wbb-raw/actions/workflows/wehoop_wbb_data_trigger.yaml)                       |
+| **WNBA Draft**                 | [`wehoop_wnba_draft_trigger.yml`](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_draft_trigger.yml)              | [![status](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_draft_trigger.yml/badge.svg)](https://github.com/sportsdataverse/wehoop-wnba-raw/actions/workflows/wehoop_wnba_draft_trigger.yml)                   |
+| **NBA**                        | [`hoopR_nba_data_trigger.yaml`](https://github.com/sportsdataverse/hoopR-nba-raw/actions/workflows/hoopR_nba_data_trigger.yaml)                    | [![status](https://github.com/sportsdataverse/hoopR-nba-raw/actions/workflows/hoopR_nba_data_trigger.yaml/badge.svg)](https://github.com/sportsdataverse/hoopR-nba-raw/actions/workflows/hoopR_nba_data_trigger.yaml)                           |
+| **Men’s college basketball**   | [`hoopR_mbb_data_trigger.yaml`](https://github.com/sportsdataverse/hoopR-mbb-raw/actions/workflows/hoopR_mbb_data_trigger.yaml)                    | [![status](https://github.com/sportsdataverse/hoopR-mbb-raw/actions/workflows/hoopR_mbb_data_trigger.yaml/badge.svg)](https://github.com/sportsdataverse/hoopR-mbb-raw/actions/workflows/hoopR_mbb_data_trigger.yaml)                           |
+| **College football**           | [`cfbfastR_data_trigger.yaml`](https://github.com/sportsdataverse/cfbfastR-raw/actions/workflows/cfbfastR_data_trigger.yaml)                       | [![status](https://github.com/sportsdataverse/cfbfastR-raw/actions/workflows/cfbfastR_data_trigger.yaml/badge.svg)](https://github.com/sportsdataverse/cfbfastR-raw/actions/workflows/cfbfastR_data_trigger.yaml)                               |
+
+### On-demand and annual workflows
+
+These pipelines do not run on a daily cron. They are dispatched manually
+or on a long cycle (annual, by event). Included here so every active
+workflow that uploads to or feeds `sportsdataverse-data` is discoverable
+from one place.
+
+| Pipeline                                       | Repo / workflow                                                                                                                 | Cadence                                                 | Status                                                                                                                                                                                              |
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **KenPom (paywalled, data committed in-repo)** | [`hoopR-kp-data` » `update_kenpom.yml`](https://github.com/sportsdataverse/hoopR-kp-data/actions/workflows/update_kenpom.yml)   | Manual dispatch                                         | [![status](https://github.com/sportsdataverse/hoopR-kp-data/actions/workflows/update_kenpom.yml/badge.svg)](https://github.com/sportsdataverse/hoopR-kp-data/actions/workflows/update_kenpom.yml)   |
+| **College football rosters**                   | [`cfbfastR-data` » `update_rosters.yml`](https://github.com/sportsdataverse/cfbfastR-data/actions/workflows/update_rosters.yml) | Annual (cron currently commented out; runs on dispatch) | [![status](https://github.com/sportsdataverse/cfbfastR-data/actions/workflows/update_rosters.yml/badge.svg)](https://github.com/sportsdataverse/cfbfastR-data/actions/workflows/update_rosters.yml) |
+
+### R-package CI
+
+The source R-package repositories sit one step beyond
+`sportsdataverse-data` (their `load_*()` helpers consume releases
+published here). Their CI runs are included so any package-side
+regression that would block the next release is visible from the same
+hub.
+
+| Package                                                         | R CMD check                                                                                                                                                                                 | pkgdown                                                                                                                                                                             | Other                                                                                                                                                               |
+| :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) | [![status](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml) | [![status](https://github.com/sportsdataverse/fastRhockey/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/pkgdown.yaml) | —                                                                                                                                                                   |
+| [`hoopR`](https://github.com/sportsdataverse/hoopR)             | [![status](https://github.com/sportsdataverse/hoopR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sportsdataverse/hoopR/actions/workflows/R-CMD-check.yaml)             | [![status](https://github.com/sportsdataverse/hoopR/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/sportsdataverse/hoopR/actions/workflows/pkgdown.yaml)             | —                                                                                                                                                                   |
+| [`wehoop`](https://github.com/sportsdataverse/wehoop)           | [![status](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)           | [![status](https://github.com/sportsdataverse/wehoop/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/sportsdataverse/wehoop/actions/workflows/pkgdown.yaml)           | [![status](https://github.com/sportsdataverse/wehoop/actions/workflows/rhub.yaml/badge.svg)](https://github.com/sportsdataverse/wehoop/actions/workflows/rhub.yaml) |
 
 ## Data releases
 
@@ -150,11 +185,18 @@ refreshed.
 
 | Release                                                                                                             | Last updated                                                                                                                                                                                                                                     |
 | :------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`nhl_game_info`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_game_info)               | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_game_info%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)        |
+| [`nhl_game_rosters`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_game_rosters)         | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_game_rosters%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)     |
+| [`nhl_goalie_boxscores`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_goalie_boxscores) | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_goalie_boxscores%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square) |
+| [`nhl_linescore`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_linescore)               | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_linescore%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)        |
 | [`nhl_pbp_full`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_pbp_full)                 | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_pbp_full%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)         |
 | [`nhl_pbp_lite`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_pbp_lite)                 | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_pbp_lite%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)         |
 | [`nhl_player_boxscores`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_player_boxscores) | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_player_boxscores%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square) |
 | [`nhl_rosters`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_rosters)                   | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_rosters%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)          |
 | [`nhl_schedules`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_schedules)               | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_schedules%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)        |
+| [`nhl_scratches`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_scratches)               | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_scratches%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)        |
+| [`nhl_shifts`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_shifts)                     | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_shifts%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)           |
+| [`nhl_skater_boxscores`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_skater_boxscores) | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_skater_boxscores%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square) |
 | [`nhl_team_boxscores`](https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/nhl_team_boxscores)     | ![updated](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fsportsdataverse%2Fsportsdataverse-data%2Freleases%2Fdownload%2Fnhl_team_boxscores%2Ftimestamp.json&query=%24.last_updated&label=updated&style=flat-square)   |
 
 #### PWHL
@@ -188,7 +230,7 @@ refreshed.
 
 <details>
 
-<summary><b>29 release tags have no data assets yet</b> (placeholder or
+<summary><b>32 release tags have no data assets yet</b> (placeholder or
 retired datasets)</summary>
 
   - `espn_cfb_player_boxscores`
@@ -206,8 +248,11 @@ retired datasets)</summary>
   - `nba_stats_schedules`
   - `nba_stats_team_boxscores`
   - `nhl_officials`
+  - `nhl_penalties`
+  - `nhl_scoring`
   - `nhl_shootout`
   - `nhl_shots_by_period`
+  - `nhl_three_stars`
   - `wnba_stats_coaches`
   - `wnba_stats_draft`
   - `wnba_stats_game_rosters`

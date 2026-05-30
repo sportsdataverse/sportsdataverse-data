@@ -119,6 +119,108 @@ for (sp in c("Basketball", "Football", "Hockey")) {
 cat("\n")
 ```
 
+### Trigger workflows
+
+After each `*-raw` push lands, a small `repository_dispatch` workflow
+fires the matching `*-data` pipeline. These are the bridges between the
+scrape and processing badges above:
+
+```{r triggers, results = "asis"}
+triggers <- data.frame(
+  league = c(
+    "NHL", "PWHL", "WNBA", "Women's college basketball",
+    "WNBA Draft", "NBA", "Men's college basketball", "College football"
+  ),
+  repo = c(
+    "fastRhockey-nhl-raw", "fastRhockey-pwhl-raw",
+    "wehoop-wnba-raw", "wehoop-wbb-raw", "wehoop-wnba-raw",
+    "hoopR-nba-raw", "hoopR-mbb-raw", "cfbfastR-raw"
+  ),
+  wf = c(
+    "fastRhockey_nhl_data_trigger.yml", "fastRhockey_pwhl_data_trigger.yml",
+    "wehoop_wnba_data_trigger.yml", "wehoop_wbb_data_trigger.yaml",
+    "wehoop_wnba_draft_trigger.yml",
+    "hoopR_nba_data_trigger.yaml", "hoopR_mbb_data_trigger.yaml",
+    "cfbfastR_data_trigger.yaml"
+  ),
+  stringsAsFactors = FALSE
+)
+
+cat("| Pipeline | Trigger workflow | Status |\n")
+cat("|:--|:--|:--|\n")
+for (i in seq_len(nrow(triggers))) {
+  r <- triggers[i, ]
+  cat(sprintf(
+    "| **%s** | [`%s`](%s/%s/actions/workflows/%s) | %s |\n",
+    r$league, r$wf, org, r$repo, r$wf,
+    workflow_badge(r$repo, r$wf)
+  ))
+}
+cat("\n")
+```
+
+### On-demand and annual workflows
+
+These pipelines do not run on a daily cron. They are dispatched
+manually or on a long cycle (annual, by event). Included here so every
+active workflow that uploads to or feeds `sportsdataverse-data` is
+discoverable from one place.
+
+```{r ondemand, results = "asis"}
+ondemand <- data.frame(
+  league = c("KenPom (paywalled, data committed in-repo)", "College football rosters"),
+  repo   = c("hoopR-kp-data", "cfbfastR-data"),
+  wf     = c("update_kenpom.yml", "update_rosters.yml"),
+  cadence = c("Manual dispatch", "Annual (cron currently commented out; runs on dispatch)"),
+  stringsAsFactors = FALSE
+)
+
+cat("| Pipeline | Repo / workflow | Cadence | Status |\n")
+cat("|:--|:--|:--|:--|\n")
+for (i in seq_len(nrow(ondemand))) {
+  r <- ondemand[i, ]
+  cat(sprintf(
+    "| **%s** | [`%s` &raquo; `%s`](%s/%s/actions/workflows/%s) | %s | %s |\n",
+    r$league, r$repo, r$wf, org, r$repo, r$wf, r$cadence,
+    workflow_badge(r$repo, r$wf)
+  ))
+}
+cat("\n")
+```
+
+### R-package CI
+
+The source R-package repositories sit one step beyond
+`sportsdataverse-data` (their `load_*()` helpers consume releases
+published here). Their CI runs are included so any package-side
+regression that would block the next release is visible from the same
+hub.
+
+```{r pkgci, results = "asis"}
+pkgci <- data.frame(
+  pkg = c("fastRhockey", "hoopR", "wehoop"),
+  rcc  = c("R-CMD-check.yaml", "R-CMD-check.yaml", "R-CMD-check.yaml"),
+  pkd  = c("pkgdown.yaml", "pkgdown.yaml", "pkgdown.yaml"),
+  extras = c(NA, NA, "rhub.yaml"),
+  stringsAsFactors = FALSE
+)
+
+cat("| Package | R CMD check | pkgdown | Other |\n")
+cat("|:--|:--|:--|:--|\n")
+for (i in seq_len(nrow(pkgci))) {
+  r <- pkgci[i, ]
+  extras_cell <- if (is.na(r$extras)) "&mdash;" else workflow_badge(r$pkg, r$extras)
+  cat(sprintf(
+    "| %s | %s | %s | %s |\n",
+    repo_link(r$pkg),
+    workflow_badge(r$pkg, r$rcc),
+    workflow_badge(r$pkg, r$pkd),
+    extras_cell
+  ))
+}
+cat("\n")
+```
+
 ## Data releases
 
 Every processed dataset is published as a GitHub release of this repository,
