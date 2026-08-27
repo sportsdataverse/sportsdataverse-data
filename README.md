@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit README.Rmd and re-render with rmarkdown::render("README.Rmd"). Re-rendering needs network access: the "Data releases" section enumerates this repository's releases live via the GitHub API. -->
 
-# SportsDataverse Data
+# SportsDataverse Data <a href='https://sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/sportsdataverse-data/main/man/figures/logo.png' align="right" width="20%" min-width="100px"/></a>
 
 <!-- badges: start -->
 
