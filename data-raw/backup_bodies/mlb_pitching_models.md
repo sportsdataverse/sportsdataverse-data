@@ -1,1 +1,0 @@
-MLB pitching models per season: xERA (MAE <= 0.30 vs Savant xERA), arsenal-level Stuff+ (rank gate >= 0.20) and pitcher-level Command+ (directional gate only -- see the model card). SIERA-like and pitch tunneling are deliberately EXCLUDED (unfitted coefficients / no public oracle). Built by sdv-py's pitching suite over Baseball Savant.

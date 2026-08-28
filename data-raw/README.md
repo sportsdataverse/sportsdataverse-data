@@ -62,7 +62,7 @@ exists to find:
 3. **Hand-written notes survive.** Any prior description over 250 characters is
    kept verbatim under `## Dataset notes`. Twenty-five releases carry column
    dictionaries, model cards and methodology warnings that must not be
-   regenerated away; `backup_bodies/` holds every prior description.
+   regenerated away; `backup_bodies.json` holds every prior description.
 4. **Idempotent publish.** Re-running sends only what changed.
 
 ## Traps worth remembering
@@ -80,7 +80,10 @@ exists to find:
 
 ## Restoring a release description
 
+Every description as it stood before this generator first ran is in
+`backup_bodies.json`, keyed by tag:
+
 ```sh
-gh release edit <tag> -R sportsdataverse/sportsdataverse-data \
-  --notes-file backup_bodies/<tag>.md
+./restore_body.sh espn_cfb_pbp     # put one tag back
+./restore_body.sh --list           # tags with a stored prior description
 ```

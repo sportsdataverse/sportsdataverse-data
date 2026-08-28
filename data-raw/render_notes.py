@@ -27,6 +27,11 @@ RMAP = json.load(open(SP / "r_tag_loaders.json"))
 CAT = json.load(open(SP / "db_catalog.json"))
 ORCH = json.load(open(SP / "orch_pipelines.json"))
 WORKFLOWS = json.load(open(SP / "workflows.json"))
+#: Every release description as it stood before this generator first ran, keyed
+#: by tag. Long entries are hand-written per-dataset prose (column dictionaries,
+#: model cards, methodology warnings) and are re-emitted verbatim rather than
+#: regenerated away — see the `## Dataset notes` section below.
+BACKUP = json.load(open(SP / "backup_bodies.json"))
 
 BY_LOADER = defaultdict(list)
 for d in CAT:
@@ -173,8 +178,20 @@ def wf_rows(repos: list[str], tag_health: dict) -> list[str]:
             if w["file"] in SKIP_WF or not w["crons"]:
                 continue
             blob = (w["file"] + " " + w["name"]).lower()
-            if any(x in blob for x in ("preview", "postweek", "figure", "skeet",
-                                       "parity", "trigger", "cran", "codeql", "lint")):
+            if any(
+                x in blob
+                for x in (
+                    "preview",
+                    "postweek",
+                    "figure",
+                    "skeet",
+                    "parity",
+                    "trigger",
+                    "cran",
+                    "codeql",
+                    "lint",
+                )
+            ):
                 continue
             link = repo_link(repo, f".github/workflows/{w['file']}", w["file"])
             if not link:
@@ -284,7 +301,7 @@ def render(tag: str) -> str:
     L.append("")
 
     # ---- preserved hand-written notes (column dictionaries, methodology warnings)
-    prior = (SP / "backup_bodies" / f"{tag}.md").read_text(errors="replace").strip() if (SP / "backup_bodies" / f"{tag}.md").exists() else ""
+    prior = BACKUP.get(tag, "").strip()
     if len(prior) > 250:
         L.append("## Dataset notes")
         L.append("")
@@ -349,7 +366,11 @@ def render(tag: str) -> str:
     pys = PYMAP.get(tag, [])
     for mod, fn, sig in pys[:4]:
         # curated entries carry a ready-made call example; scanned ones carry a signature
-        args = sig.replace("SEASON", str(ls)) if ("SEASON" in sig or '"sdv"' in sig) else f"seasons=[{ls}]"
+        args = (
+            sig.replace("SEASON", str(ls))
+            if ("SEASON" in sig or '"sdv"' in sig)
+            else f"seasons=[{ls}]"
+        )
         rows.append(f"| Python | `from {mod} import {fn}`<br>`{fn}({args})` |")
     if not pys:
         rows.append(
@@ -364,7 +385,11 @@ def render(tag: str) -> str:
         )
 
     tables = sorted(
-        {(d["league"], d["name"], d["partition_col"]) for _m, fn, _s in pys for d in BY_LOADER.get(fn, [])}
+        {
+            (d["league"], d["name"], d["partition_col"])
+            for _m, fn, _s in pys
+            for d in BY_LOADER.get(fn, [])
+        }
     )
     for lg, nm, pcol in tables[:4]:
         rows.append(
@@ -466,7 +491,9 @@ def render(tag: str) -> str:
             L.append("")
     dc = droplet_cron(sorted(repos))
     if dc:
-        L.append("**Droplet cron** — this pipeline also runs from the SportsDataverse host:")
+        L.append(
+            "**Droplet cron** — this pipeline also runs from the SportsDataverse host:"
+        )
         L.append("")
         L.append("```cron")
         L += dc[:4]
@@ -500,8 +527,11 @@ def render(tag: str) -> str:
         )
     loader_files = {m.split(".")[-1] for m, _f, _s in pys}
     generic = {"config", "discover", "engines", "utils", "helpers", "constants", "cli"}
-    extra = [m for m in sorted(rec.get("py_modules", []))
-             if m not in loader_files and m not in generic]
+    extra = [
+        m
+        for m in sorted(rec.get("py_modules", []))
+        if m not in loader_files and m not in generic
+    ]
     if extra:
         dep.append(
             "- **`sportsdataverse-py`** — also read outside the loaders by "

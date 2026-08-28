@@ -1,1 +1,0 @@
-WNBA Team Boxscores Data (from ESPN)

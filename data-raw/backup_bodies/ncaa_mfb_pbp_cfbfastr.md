@@ -1,1 +1,0 @@
-ncaa_mfb_pbp_cfbfastr (NCAA MFB dataset, Python-built).

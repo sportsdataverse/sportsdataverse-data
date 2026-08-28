@@ -1,1 +1,0 @@
-NCAA Women's College Basketball Standings Data (from ESPN)

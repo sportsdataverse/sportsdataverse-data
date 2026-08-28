@@ -1,1 +1,0 @@
-MLB fielding models per season: outs above average per (fielder, position) (full-season Pearson 0.605 vs Savant OAA) and catcher framing (0.468 vs Savant). Catcher throwing/blocking and baserunning are deliberately EXCLUDED -- the public per-pitch feed lacks the tracking data (documented data ceiling). Built by sdv-py's mlb_fielding_oaa / mlb_catcher_framing over Baseball Savant.

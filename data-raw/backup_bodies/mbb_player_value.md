@@ -1,1 +1,0 @@
-Men's college basketball per-player-season box Plus/Minus (offense/defense/total, team-constrained so minutes-weighted player scores sum to the team's adjusted efficiency margin). Built by sdv-py `mbb_box_bpm()` over the released ESPN player boxscores.

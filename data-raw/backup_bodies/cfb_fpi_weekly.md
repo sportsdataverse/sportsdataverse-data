@@ -1,1 +1,0 @@
-cfb_fpi_weekly (CFB dataset, Python-built).

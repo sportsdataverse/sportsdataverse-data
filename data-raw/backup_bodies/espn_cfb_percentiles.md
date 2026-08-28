@@ -1,1 +1,0 @@
-College Football season per-metric percentiles (team offense).

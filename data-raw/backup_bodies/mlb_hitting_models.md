@@ -1,1 +1,0 @@
-MLB expected hitting stats per batter-season: xwOBA/xBA/xSLG (spearman >= 0.95 vs Savant same-input), expected home runs (full-season spearman >= 0.90), and as-of batter projections with aging curves. Built by sdv-py's mlb_expected_stats / mlb_expected_home_runs / mlb_batter_projection over Baseball Savant.

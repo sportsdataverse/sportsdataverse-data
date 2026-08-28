@@ -1,1 +1,0 @@
-PHF play-by-play, seasons 2016 and 2020–2023. 2017–2019 pbp was never published by the league (permanent gap). PHF (Premier Hockey Federation) — frozen dataset; the league ceased operations in June 2023. Migrated from the fastRhockey-data git tree (phf/*/parquet) on 2026-07-11.

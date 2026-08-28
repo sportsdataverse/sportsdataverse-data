@@ -1,1 +1,0 @@
-ESPN x Fox x Yahoo CFB identity crosswalks (teams / schedule / rosters), per season. Built by cfbfastR-cfb-data scripts/build_cfb_crosswalk.py (sportsdataverse-py); read by sportsdataverse.cfb.load_cfb_*_crosswalk().

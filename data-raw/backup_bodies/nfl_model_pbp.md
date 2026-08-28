@@ -1,1 +1,0 @@
-NFL compiled play-by-play (EP/WP/QBR enriched; Python-built).

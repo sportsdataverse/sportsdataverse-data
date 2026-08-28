@@ -1,1 +1,0 @@
-College Football per-play participants.

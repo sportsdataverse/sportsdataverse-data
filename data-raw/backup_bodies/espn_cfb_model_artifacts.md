@@ -1,1 +1,0 @@
-All CFB model artifacts (EP/WP/QBR/CPOE/fourth-down .ubj + RB-eval .pkl) + model cards.

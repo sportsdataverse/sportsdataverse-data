@@ -1,1 +1,0 @@
-ESPN NBA draft results per season (overall pick, round, drafted player, team). Compiled by hoopR-nba-data/R/espn_nba_08_draft_creation.R from hoopR-nba-raw. Loader: hoopR::load_nba_draft().

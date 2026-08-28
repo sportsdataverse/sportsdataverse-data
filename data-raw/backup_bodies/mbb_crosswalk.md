@@ -1,1 +1,0 @@
-Cached team/schedule/player crosswalk artifacts (keyed on espn_team_id) consumed by the MBB load_*_crosswalk() loaders.

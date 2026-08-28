@@ -1,1 +1,0 @@
-PWHL xG-enriched shots, one row per on-net shot per season: identity, rink-feet geometry (distance/angle), strength context, outcome, and a coordinate-logistic xG with per-strength Platt calibration. Built by sdv-py `pwhl_shot_xg()` over the committed play-by-play; the model is re-fit on all pooled seasons each publish.

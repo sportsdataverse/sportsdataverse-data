@@ -1,1 +1,0 @@
-ncaa_mfb_pbp (NCAA MFB dataset, Python-built).

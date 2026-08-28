@@ -1,1 +1,0 @@
-College Football per-quarter linescores.

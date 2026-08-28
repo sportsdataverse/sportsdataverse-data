@@ -1,1 +1,0 @@
-NFL model artifacts (EP/WP-spread/WP-naive/CP .ubj) + model cards.

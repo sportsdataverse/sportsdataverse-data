@@ -1,1 +1,0 @@
-Per-season ESPN NBA team statistics (general/offensive/defensive categories, long format). Compiled by hoopR-nba-data/R/espn_nba_06_team_season_stats_creation.R from hoopR-nba-raw. Loader: hoopR::load_nba_team_stats().

@@ -1,1 +1,0 @@
-WNBA Standings Data (from ESPN)

@@ -1,1 +1,0 @@
-nfl_ratings_weekly (auto-created by nfl_model_publish).

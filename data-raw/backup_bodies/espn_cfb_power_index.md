@@ -1,1 +1,0 @@
-College Football FPI / power index (recent seasons).
