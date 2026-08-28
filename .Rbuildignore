@@ -5,3 +5,8 @@
 ^dev$
 ^.github$
 ^docs$
+^data-raw$
+^\.omc$
+^\.ruff_cache$
+^\.heartbeat$
+^\.Rhistory$

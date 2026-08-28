@@ -1,0 +1,1551 @@
+{
+ "espn_mens_college_basketball_pbp": [
+  [
+   "hoopR",
+   "load_mbb_pbp",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_team_boxscores": [
+  [
+   "hoopR",
+   "load_mbb_team_box",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_player_boxscores": [
+  [
+   "hoopR",
+   "load_mbb_player_box",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_schedules": [
+  [
+   "hoopR",
+   "load_mbb_schedule",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_rosters": [
+  [
+   "hoopR",
+   "load_mbb_rosters",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_player_season_stats": [
+  [
+   "hoopR",
+   "load_mbb_player_stats",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_team_season_stats": [
+  [
+   "hoopR",
+   "load_mbb_team_stats",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_standings": [
+  [
+   "hoopR",
+   "load_mbb_standings",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_game_rosters": [
+  [
+   "hoopR",
+   "load_mbb_game_rosters",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_officials": [
+  [
+   "hoopR",
+   "load_mbb_officials",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_player_core": [
+  [
+   "hoopR",
+   "load_mbb_player_core",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_mens_college_basketball_shots": [
+  [
+   "hoopR",
+   "load_mbb_shots",
+   "load_mbb.R"
+  ]
+ ],
+ "espn_nba_pbp": [
+  [
+   "hoopR",
+   "load_nba_pbp",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_team_boxscores": [
+  [
+   "hoopR",
+   "load_nba_team_box",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_player_boxscores": [
+  [
+   "hoopR",
+   "load_nba_player_box",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_schedules": [
+  [
+   "hoopR",
+   "load_nba_schedule",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_standings": [
+  [
+   "hoopR",
+   "load_nba_standings",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_game_rosters": [
+  [
+   "hoopR",
+   "load_nba_game_rosters",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_officials": [
+  [
+   "hoopR",
+   "load_nba_officials",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_draft": [
+  [
+   "hoopR",
+   "load_nba_draft",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_player_season_stats": [
+  [
+   "hoopR",
+   "load_nba_player_stats",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_team_season_stats": [
+  [
+   "hoopR",
+   "load_nba_team_stats",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_rosters": [
+  [
+   "hoopR",
+   "load_nba_rosters",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_player_core": [
+  [
+   "hoopR",
+   "load_nba_player_core",
+   "load_nba.R"
+  ]
+ ],
+ "espn_nba_shots": [
+  [
+   "hoopR",
+   "load_nba_shots",
+   "load_nba.R"
+  ]
+ ],
+ "ncaa_mbb_pbp": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_pbp",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_shots": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_shots",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_lineups": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_lineups",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_matchup_stints": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_matchup_stints",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_possessions": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_possessions",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_rapm_within_team": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_rapm_within_team",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_rapm": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_rapm",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_player_box": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_player_box",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_team_box": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_team_box",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_rosters": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_rosters",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_team_rosters": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_team_rosters",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_schedule": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_schedule",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "ncaa_mbb_team_ids": [
+  [
+   "hoopR",
+   "load_ncaa_mbb_team_ids",
+   "load_ncaa_mbb.R"
+  ]
+ ],
+ "nba_crosswalk": [
+  [
+   "hoopR",
+   "load_nba_player_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "hoopR",
+   "load_nba_schedule_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "hoopR",
+   "load_nba_team_crosswalk",
+   "load_crosswalk.R"
+  ]
+ ],
+ "mbb_crosswalk": [
+  [
+   "hoopR",
+   "load_mbb_player_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "hoopR",
+   "load_mbb_schedule_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "hoopR",
+   "load_mbb_team_crosswalk",
+   "load_crosswalk.R"
+  ]
+ ],
+ "nba_player_impact": [
+  [
+   "hoopR",
+   "load_nba_player_impact",
+   "load_models.R"
+  ]
+ ],
+ "mbb_player_value": [
+  [
+   "hoopR",
+   "load_mbb_player_value",
+   "load_models.R"
+  ]
+ ],
+ "mbb_ratings": [
+  [
+   "hoopR",
+   "load_mbb_ratings",
+   "load_models.R"
+  ]
+ ],
+ "nba_stats_coaches": [
+  [
+   "hoopR",
+   "load_nba_stats_coaches",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_draft": [
+  [
+   "hoopR",
+   "load_nba_stats_draft",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_game_lineups": [
+  [
+   "hoopR",
+   "load_nba_stats_game_lineups",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_game_rosters": [
+  [
+   "hoopR",
+   "load_nba_stats_game_rosters",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_lineups": [
+  [
+   "hoopR",
+   "load_nba_stats_lineups",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_officials": [
+  [
+   "hoopR",
+   "load_nba_stats_officials",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_pbp": [
+  [
+   "hoopR",
+   "load_nba_stats_pbp",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_player_boxscores": [
+  [
+   "hoopR",
+   "load_nba_stats_player_boxscores",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_player_game_logs": [
+  [
+   "hoopR",
+   "load_nba_stats_player_game_logs",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_player_season_stats": [
+  [
+   "hoopR",
+   "load_nba_stats_player_season_stats",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_possessions": [
+  [
+   "hoopR",
+   "load_nba_stats_possessions",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_rosters": [
+  [
+   "hoopR",
+   "load_nba_stats_rosters",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_schedules": [
+  [
+   "hoopR",
+   "load_nba_stats_schedule",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_shots": [
+  [
+   "hoopR",
+   "load_nba_stats_shots",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_standings": [
+  [
+   "hoopR",
+   "load_nba_stats_standings",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_team_boxscores": [
+  [
+   "hoopR",
+   "load_nba_stats_team_boxscores",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_team_season_stats": [
+  [
+   "hoopR",
+   "load_nba_stats_team_season_stats",
+   "load_nba_stats.R"
+  ]
+ ],
+ "nba_stats_leaguedash": [
+  [
+   "hoopR",
+   "load_nba_stats_leaguedash",
+   "load_nba_stats.R"
+  ]
+ ],
+ "espn_wnba_pbp": [
+  [
+   "wehoop",
+   "load_wnba_pbp",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_team_boxscores": [
+  [
+   "wehoop",
+   "load_wnba_team_box",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_player_boxscores": [
+  [
+   "wehoop",
+   "load_wnba_player_box",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_schedules": [
+  [
+   "wehoop",
+   "load_wnba_schedule",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_rosters": [
+  [
+   "wehoop",
+   "load_wnba_rosters",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_player_season_stats": [
+  [
+   "wehoop",
+   "load_wnba_player_stats",
+   "load_wnba.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_player_stats_manifest",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_team_season_stats": [
+  [
+   "wehoop",
+   "load_wnba_team_stats",
+   "load_wnba.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_team_stats_manifest",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_standings": [
+  [
+   "wehoop",
+   "load_wnba_standings",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_draft": [
+  [
+   "wehoop",
+   "load_wnba_draft",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_shots": [
+  [
+   "wehoop",
+   "load_wnba_shots",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_game_rosters": [
+  [
+   "wehoop",
+   "load_wnba_game_rosters",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_officials": [
+  [
+   "wehoop",
+   "load_wnba_officials",
+   "load_wnba.R"
+  ]
+ ],
+ "espn_wnba_player_core": [
+  [
+   "wehoop",
+   "load_wnba_player_core",
+   "load_wnba.R"
+  ]
+ ],
+ "ncaa_wbb_pbp": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_pbp",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_shots": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_shots",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_lineups": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_lineups",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_matchup_stints": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_matchup_stints",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_possessions": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_possessions",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_rapm_within_team": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_rapm_within_team",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_rapm": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_rapm",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_player_box": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_player_box",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_team_box": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_team_box",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_rosters": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_rosters",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_team_rosters": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_team_rosters",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_schedule": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_schedule",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "ncaa_wbb_team_ids": [
+  [
+   "wehoop",
+   "load_ncaa_wbb_team_ids",
+   "load_ncaa_wbb.R"
+  ]
+ ],
+ "wnba_crosswalk": [
+  [
+   "wehoop",
+   "load_wnba_player_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_schedule_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_team_crosswalk",
+   "load_crosswalk.R"
+  ]
+ ],
+ "wbb_crosswalk": [
+  [
+   "wehoop",
+   "load_wbb_player_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "wehoop",
+   "load_wbb_schedule_crosswalk",
+   "load_crosswalk.R"
+  ],
+  [
+   "wehoop",
+   "load_wbb_team_crosswalk",
+   "load_crosswalk.R"
+  ]
+ ],
+ "wnba_player_impact": [
+  [
+   "wehoop",
+   "load_wnba_player_impact",
+   "load_models.R"
+  ]
+ ],
+ "wbb_player_value": [
+  [
+   "wehoop",
+   "load_wbb_player_value",
+   "load_models.R"
+  ]
+ ],
+ "wbb_ratings": [
+  [
+   "wehoop",
+   "load_wbb_ratings",
+   "load_models.R"
+  ]
+ ],
+ "espn_womens_college_basketball_pbp": [
+  [
+   "wehoop",
+   "load_wbb_pbp",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_team_boxscores": [
+  [
+   "wehoop",
+   "load_wbb_team_box",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_player_boxscores": [
+  [
+   "wehoop",
+   "load_wbb_player_box",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_schedules": [
+  [
+   "wehoop",
+   "load_wbb_schedule",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_rosters": [
+  [
+   "wehoop",
+   "load_wbb_rosters",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_player_season_stats": [
+  [
+   "wehoop",
+   "load_wbb_player_stats",
+   "load_wbb.R"
+  ],
+  [
+   "wehoop",
+   "load_wbb_player_stats_manifest",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_team_season_stats": [
+  [
+   "wehoop",
+   "load_wbb_team_stats",
+   "load_wbb.R"
+  ],
+  [
+   "wehoop",
+   "load_wbb_team_stats_manifest",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_standings": [
+  [
+   "wehoop",
+   "load_wbb_standings",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_shots": [
+  [
+   "wehoop",
+   "load_wbb_shots",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_game_rosters": [
+  [
+   "wehoop",
+   "load_wbb_game_rosters",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_officials": [
+  [
+   "wehoop",
+   "load_wbb_officials",
+   "load_wbb.R"
+  ]
+ ],
+ "espn_womens_college_basketball_player_core": [
+  [
+   "wehoop",
+   "load_wbb_player_core",
+   "load_wbb.R"
+  ]
+ ],
+ "wnba_stats_rosters": [
+  [
+   "wehoop",
+   "load_wnba_stats_rosters",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_coaches": [
+  [
+   "wehoop",
+   "load_wnba_stats_coaches",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_player_season_stats": [
+  [
+   "wehoop",
+   "load_wnba_stats_player_stats",
+   "load_wnba_stats.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_stats_player_stats_manifest",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_leaguedash": [
+  [
+   "wehoop",
+   "load_wnba_stats_leaguedash",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_lineups": [
+  [
+   "wehoop",
+   "load_wnba_stats_lineups",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_team_season_stats": [
+  [
+   "wehoop",
+   "load_wnba_stats_team_stats",
+   "load_wnba_stats.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_stats_team_stats_manifest",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_standings": [
+  [
+   "wehoop",
+   "load_wnba_stats_standings",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_draft": [
+  [
+   "wehoop",
+   "load_wnba_stats_draft",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_shots": [
+  [
+   "wehoop",
+   "load_wnba_stats_shots",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_game_rosters": [
+  [
+   "wehoop",
+   "load_wnba_stats_game_rosters",
+   "load_wnba_stats.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_stats_game_rosters_manifest",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_officials": [
+  [
+   "wehoop",
+   "load_wnba_stats_officials",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_player_game_logs": [
+  [
+   "wehoop",
+   "load_wnba_stats_player_game_logs",
+   "load_wnba_stats.R"
+  ],
+  [
+   "wehoop",
+   "load_wnba_stats_player_game_logs_manifest",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_schedules": [
+  [
+   "wehoop",
+   "load_wnba_stats_schedule",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_pbp": [
+  [
+   "wehoop",
+   "load_wnba_stats_pbp",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "wnba_stats_possessions": [
+  [
+   "wehoop",
+   "load_wnba_stats_possessions",
+   "load_wnba_stats.R"
+  ]
+ ],
+ "ncaa_mfb_pbp": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_pbp",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_pbp_cfbfastr": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_pbp_cfbfastr",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_drives": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_drives",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_linescore": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_linescore",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_officials": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_officials",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_player_stats": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_player_stats",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_rosters": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_rosters",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_schedule": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_schedule",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_team_stats": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_team_stats",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "ncaa_mfb_teams": [
+  [
+   "cfbfastR",
+   "load_ncaa_mfb_teams",
+   "load_ncaa_mfb.R"
+  ]
+ ],
+ "cfb_ratings": [
+  [
+   "cfbfastR",
+   "load_cfb_ratings",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_ratings_weekly": [
+  [
+   "cfbfastR",
+   "load_cfb_ratings_weekly",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_fpi_weekly": [
+  [
+   "cfbfastR",
+   "load_cfb_fpi_weekly",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_team_summaries_weekly": [
+  [
+   "cfbfastR",
+   "load_cfb_team_summaries_weekly",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_team_talent": [
+  [
+   "cfbfastR",
+   "load_cfb_team_talent",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_recruits": [
+  [
+   "cfbfastR",
+   "load_cfb_recruits",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_recruiting_proj": [
+  [
+   "cfbfastR",
+   "load_cfb_recruiting_proj",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_returning_production": [
+  [
+   "cfbfastR",
+   "load_cfb_returning_production",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "cfb_crosswalk": [
+  [
+   "cfbfastR",
+   "load_cfb_rosters_crosswalk",
+   "load_cfb_datasets.R"
+  ],
+  [
+   "cfbfastR",
+   "load_cfb_schedule_crosswalk",
+   "load_cfb_datasets.R"
+  ],
+  [
+   "cfbfastR",
+   "load_cfb_teams_crosswalk",
+   "load_cfb_datasets.R"
+  ]
+ ],
+ "espn_cfb_pbp": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_pbp",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_schedules": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_schedules",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_team_box": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_team_box",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_player_box": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_player_box",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_drives": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_drives",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_game_rosters": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_game_rosters",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_linescores": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_linescores",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_betting": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_betting",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_play_participants": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_play_participants",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_power_index": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_power_index",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_percentiles": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_percentiles",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_passing": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_passing",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_rushing": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_rushing",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_receiving": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_receiving",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_team_summaries": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_team_summaries",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_model_pbp": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_model_pbp",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_defensive": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_defensive",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_defensive_players": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_defensive_players",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_drives": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_drives",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_passing": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_passing",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_receiving": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_receiving",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_rushing": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_rushing",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_situational": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_situational",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_specialists": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_specialists",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_team": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_team",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_team_gamelog": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_team_gamelog",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "espn_cfb_adv_turnover": [
+  [
+   "cfbfastR",
+   "load_espn_cfb_adv_turnover",
+   "load_espn_cfb.R"
+  ]
+ ],
+ "cfbfastR_cfb_pbp": [
+  [
+   "cfbfastR",
+   "load_cfb_pbp",
+   "load_cfb_pbp.R"
+  ]
+ ],
+ "cfb_schedules": [
+  [
+   "cfbfastR",
+   "load_cfb_schedules",
+   "load_cfb.R"
+  ]
+ ],
+ "phf_pbp": [
+  [
+   "fastRhockey",
+   "load_phf_pbp",
+   "phf_pbp.R"
+  ]
+ ],
+ "nhl_pbp_full": [
+  [
+   "fastRhockey",
+   "load_nhl_pbp_full",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_pbp_lite": [
+  [
+   "fastRhockey",
+   "load_nhl_pbp_lite",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_team_boxscores": [
+  [
+   "fastRhockey",
+   "load_nhl_team_boxscores",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_player_boxscores": [
+  [
+   "fastRhockey",
+   "load_nhl_player_boxscores",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_skater_boxscores": [
+  [
+   "fastRhockey",
+   "load_nhl_skater_boxscores",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_goalie_boxscores": [
+  [
+   "fastRhockey",
+   "load_nhl_goalie_boxscores",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_schedules": [
+  [
+   "fastRhockey",
+   "load_nhl_schedule",
+   "nhl_loaders.R"
+  ],
+  [
+   "fastRhockey",
+   "load_nhl_schedules",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_rosters": [
+  [
+   "fastRhockey",
+   "load_nhl_rosters",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_game_rosters": [
+  [
+   "fastRhockey",
+   "load_nhl_game_rosters",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_game_info": [
+  [
+   "fastRhockey",
+   "load_nhl_game_info",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_scoring": [
+  [
+   "fastRhockey",
+   "load_nhl_scoring",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_penalties": [
+  [
+   "fastRhockey",
+   "load_nhl_penalties",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_three_stars": [
+  [
+   "fastRhockey",
+   "load_nhl_three_stars",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_scratches": [
+  [
+   "fastRhockey",
+   "load_nhl_scratches",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_linescore": [
+  [
+   "fastRhockey",
+   "load_nhl_linescore",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_shifts": [
+  [
+   "fastRhockey",
+   "load_nhl_shifts",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_officials": [
+  [
+   "fastRhockey",
+   "load_nhl_officials",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_shots_by_period": [
+  [
+   "fastRhockey",
+   "load_nhl_shots_by_period",
+   "nhl_loaders.R"
+  ]
+ ],
+ "nhl_shootout": [
+  [
+   "fastRhockey",
+   "load_nhl_shootout",
+   "nhl_loaders.R"
+  ]
+ ],
+ "pwhl_pbp": [
+  [
+   "fastRhockey",
+   "load_pwhl_pbp",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_player_boxscores": [
+  [
+   "fastRhockey",
+   "load_pwhl_player_boxscores",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_schedules": [
+  [
+   "fastRhockey",
+   "load_pwhl_schedule",
+   "pwhl_loaders.R"
+  ],
+  [
+   "fastRhockey",
+   "load_pwhl_schedules",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_rosters": [
+  [
+   "fastRhockey",
+   "load_pwhl_rosters",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_skater_boxscores": [
+  [
+   "fastRhockey",
+   "load_pwhl_skater_boxscores",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_goalie_boxscores": [
+  [
+   "fastRhockey",
+   "load_pwhl_goalie_boxscores",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_team_boxscores": [
+  [
+   "fastRhockey",
+   "load_pwhl_team_boxscores",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_game_info": [
+  [
+   "fastRhockey",
+   "load_pwhl_game_info",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_scoring_summary": [
+  [
+   "fastRhockey",
+   "load_pwhl_scoring_summary",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_penalty_summary": [
+  [
+   "fastRhockey",
+   "load_pwhl_penalty_summary",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_three_stars": [
+  [
+   "fastRhockey",
+   "load_pwhl_three_stars",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_officials": [
+  [
+   "fastRhockey",
+   "load_pwhl_officials",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_shots_by_period": [
+  [
+   "fastRhockey",
+   "load_pwhl_shots_by_period",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_shootout": [
+  [
+   "fastRhockey",
+   "load_pwhl_shootout",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_game_rosters": [
+  [
+   "fastRhockey",
+   "load_pwhl_game_rosters",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_shifts": [
+  [
+   "fastRhockey",
+   "load_pwhl_shifts",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "pwhl_xg_pbp": [
+  [
+   "fastRhockey",
+   "load_pwhl_xg_pbp",
+   "pwhl_loaders.R"
+  ]
+ ],
+ "ncaa_baseball_schedules": [
+  [
+   "baseballr",
+   "load_ncaa_baseball_schedule",
+   "load_ncaa_baseball_schedule.R"
+  ]
+ ],
+ "ncaa_baseball_teams": [
+  [
+   "baseballr",
+   "load_ncaa_baseball_teams",
+   "load_ncaa_baseball_teams.R"
+  ]
+ ],
+ "ncaa_baseball_pbp": [
+  [
+   "baseballr",
+   "load_ncaa_baseball_pbp",
+   "load_ncaa_baseball_pbp.R"
+  ]
+ ]
+}
