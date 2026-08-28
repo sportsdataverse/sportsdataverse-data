@@ -1,0 +1,936 @@
+{
+ "cfb": {
+  "sport": "cfb",
+  "label": "CFB \u00b7 cfbfastR",
+  "season_min": 2004,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build"
+  ],
+  "crons": [
+   "0 9 * 8 *",
+   "0 9 * 9-11 *",
+   "0 9 1-20 12 *",
+   "0 9 1-20 1 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "cfbfastR"
+  ],
+  "warehouse_sport": "cfb",
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw CFB",
+    "repo": "cfbfastR-cfb-raw",
+    "script": "scripts/daily_cfb_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:cfbfastR-cfb-raw"
+    ],
+    "note": "schedules + json per season; self-commits to cfbfastR-cfb-raw"
+   },
+   "raw.reprocess": {
+    "label": "Reprocess raw (no re-scrape)",
+    "repo": "cfbfastR-cfb-raw",
+    "script": "scripts/reprocess_cfb.sh",
+    "deps": [],
+    "rate_classes": [
+     "repo_writer:cfbfastR-cfb-raw"
+    ],
+    "note": "rebuild final/ from on-disk raw; pass extra ['-f'] to force"
+   },
+   "data.build": {
+    "label": "Build CFB datasets (R)",
+    "repo": "cfbfastR-cfb-data",
+    "script": "scripts/daily_cfb_R_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:cfbfastR-cfb-data"
+    ],
+    "note": "14 R creation scripts in order; per-game tryCatch"
+   },
+   "data.build_py": {
+    "label": "Build CFB datasets (Python)",
+    "repo": "cfbfastR-cfb-data",
+    "script": "scripts/daily_cfb_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:cfbfastR-cfb-data"
+    ],
+    "note": "python shadow of the R build"
+   }
+  }
+ },
+ "mbb": {
+  "sport": "mbb",
+  "label": "MBB \u00b7 hoopR",
+  "season_min": 2003,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build_py"
+  ],
+  "crons": [
+   "0 7 18-31 10 *",
+   "0 7 * 11-12 *",
+   "0 7 * 1-3 *",
+   "0 7 1-30 4 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "hoopR",
+   "sdv-py"
+  ],
+  "warehouse_sport": "mbb",
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw MBB",
+    "repo": "hoopR-mbb-raw",
+    "script": "scripts/daily_mbb_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:hoopR-mbb-raw"
+    ],
+    "note": "resilient run_scraper: one dead scraper -> RED, others still commit"
+   },
+   "data.build_r": {
+    "label": "Build MBB datasets (R)",
+    "repo": "hoopR-mbb-data",
+    "script": "scripts/daily_mbb_R_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:hoopR-mbb-data"
+    ],
+    "note": "12 R creation scripts incl. crosswalks (R-only)"
+   },
+   "data.build_py": {
+    "label": "Build MBB datasets (Python)",
+    "repo": "hoopR-mbb-data",
+    "script": "scripts/daily_mbb_python_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:hoopR-mbb-data"
+    ],
+    "note": "python shadow of build_r via mbb_data_build; crosswalks stay on R"
+   }
+  }
+ },
+ "nba_stats": {
+  "sport": "nba_stats",
+  "label": "NBA Stats \u00b7 hoopR",
+  "season_min": 1997,
+  "season_max": 2026,
+  "default_stages": [
+   "data.scrape"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [
+   "hoopR",
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "data.scrape": {
+    "label": "Scrape NBA stats",
+    "repo": "hoopR-nba-stats-data",
+    "script": "scripts/daily_nba_stats_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "stats_nba",
+     "repo_writer:hoopR-nba-stats-data"
+    ],
+    "note": "schedules (light) then heavy pbp; each commits independently"
+   },
+   "impact.backfill": {
+    "label": "Player-impact backfill",
+    "repo": "hoopR-nba-stats-data",
+    "script": "scripts/run_impact_backfill.sh",
+    "deps": [
+     "data.scrape"
+    ],
+    "rate_classes": [
+     "stats_nba",
+     "repo_writer:hoopR-nba-stats-data"
+    ],
+    "note": "resumable via per-game parquet cache ($SDV_PY_NBA_CACHE_DIR); pass extra ['--dry-run'] for a no-upload smoke run"
+   },
+   "data.build_py": {
+    "label": "Build NBA stats datasets (Python)",
+    "repo": "hoopR-nba-stats-data",
+    "script": "scripts/daily_nba_stats_python_processor.sh",
+    "deps": [],
+    "rate_classes": [],
+    "note": "v3 reshaper: build+publish nba_stats_* from the committed -raw store; droplet-safe (no stats.nba.com). Draft excluded until drafthistory is captured off-droplet."
+   }
+  }
+ },
+ "ncaa_mbb": {
+  "sport": "ncaa_mbb",
+  "label": "NCAA MBB \u00b7 stats.ncaa.org",
+  "season_min": 2010,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.discover",
+   "raw.capture",
+   "raw.parse",
+   "data.build"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.discover": {
+    "label": "Discover contest ids",
+    "repo": "ncaa-mbb-hoops-raw",
+    "script": "scripts/run_discover.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza"
+    ],
+    "note": "scrapes team pages -> mbb/schedule_master.parquet"
+   },
+   "raw.capture": {
+    "label": "Capture raw bundles",
+    "repo": "ncaa-mbb-hoops-raw",
+    "script": "scripts/run_capture.sh",
+    "deps": [
+     "raw.discover"
+    ],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "resumable + ban-hard-stops; pass extra ['--max-contests','1500'] to chunk"
+   },
+   "raw.parse": {
+    "label": "Parse captured bundles",
+    "repo": "ncaa-mbb-hoops-raw",
+    "script": "scripts/run_parse.sh",
+    "deps": [
+     "raw.capture"
+    ],
+    "rate_classes": [],
+    "note": "fully offline, no creds; parses all captured bundles at once"
+   },
+   "data.build": {
+    "label": "Build NCAA MBB datasets",
+    "repo": "ncaa-mbb-hoops-data",
+    "script": "scripts/run_build.sh",
+    "deps": [
+     "raw.parse"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-mbb-hoops-data"
+    ],
+    "note": "SEASON= env; use data.publish instead to also upload releases"
+   },
+   "data.publish": {
+    "label": "Build AND publish NCAA MBB releases",
+    "repo": "ncaa-mbb-hoops-data",
+    "script": "scripts/run_publish.sh",
+    "deps": [
+     "raw.parse"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-mbb-hoops-data"
+    ],
+    "note": "run_build + release upload; use INSTEAD of data.build when publishing"
+   }
+  }
+ },
+ "ncaa_mfb": {
+  "sport": "ncaa_mfb",
+  "label": "NCAA MFB \u00b7 stats.ncaa.org",
+  "season_min": 2013,
+  "season_max": 2025,
+  "default_stages": [
+   "raw.capture_fbs",
+   "raw.capture_fcs",
+   "raw.build",
+   "data.publish"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [
+   "sdv-py"
+  ],
+  "warehouse_sport": "ncaa_mfb",
+  "stages": {
+   "raw.capture_fbs": {
+    "label": "Discover + rosters + capture FBS bundles",
+    "repo": "ncaa-mfb-football-raw",
+    "script": "scripts/run_mfb_capture.sh",
+    "deps": [],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "NCAA_VENDOR=decodo_patchright; resumable, ban hard-stops"
+   },
+   "raw.capture_fcs": {
+    "label": "Discover + rosters + capture FCS bundles",
+    "repo": "ncaa-mfb-football-raw",
+    "script": "scripts/run_mfb_capture.sh",
+    "deps": [
+     "raw.capture_fbs"
+    ],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "serialized after FBS: same stats.ncaa.org budget"
+   },
+   "raw.build": {
+    "label": "Build raw season datasets (offline)",
+    "repo": "ncaa-mfb-football-raw",
+    "script": "scripts/run_05_datasets.sh",
+    "deps": [
+     "raw.capture_fcs"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-mfb-football-raw"
+    ],
+    "note": "HTML + bundles -> mfb/datasets/{ay}/*.parquet + QA frame"
+   },
+   "data.build": {
+    "label": "Re-key onto release layout",
+    "repo": "ncaa-mfb-football-data",
+    "script": "scripts/run_build.sh",
+    "deps": [
+     "raw.build"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-mfb-football-data"
+    ],
+    "note": "SEASON= env; use data.publish instead to also upload releases"
+   },
+   "data.publish": {
+    "label": "Build AND publish NCAA MFB releases",
+    "repo": "ncaa-mfb-football-data",
+    "script": "scripts/run_publish.sh",
+    "deps": [
+     "raw.build"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-mfb-football-data"
+    ],
+    "note": "run_build + release upload; use INSTEAD of data.build when publishing"
+   }
+  }
+ },
+ "wnba": {
+  "sport": "wnba",
+  "label": "WNBA \u00b7 wehoop",
+  "season_min": 2002,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build_py"
+  ],
+  "crons": [
+   "0 7 18-31 10 *",
+   "0 7 * 11-12 *",
+   "0 7 * 1-6 *",
+   "0 7 1-12 7 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "wehoop",
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw WNBA",
+    "repo": "wehoop-wnba-raw",
+    "script": "scripts/daily_wnba_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:wehoop-wnba-raw"
+    ],
+    "note": "same run_scraper template as mbb; self-commits to wehoop-wnba-raw"
+   },
+   "data.build_py": {
+    "label": "Build WNBA datasets (Python)",
+    "repo": "wehoop-wnba-data",
+    "script": "scripts/daily_wnba_data_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:wehoop-wnba-data"
+    ],
+    "note": "11 datasets via wnba_data_build; draft is annual-cadence, crosswalks stay on R"
+   },
+   "data.build_r": {
+    "label": "Build WNBA datasets (R)",
+    "repo": "wehoop-wnba-data",
+    "script": "scripts/daily_wnba_R_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:wehoop-wnba-data"
+    ],
+    "note": "legacy R creation scripts incl. crosswalks"
+   },
+   "raw.draft": {
+    "label": "Scrape WNBA draft (annual)",
+    "repo": "wehoop-wnba-raw",
+    "script": "scripts/annual_wnba_draft_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:wehoop-wnba-raw"
+    ],
+    "note": "annual cadence \u2014 run once after the draft, not daily"
+   }
+  }
+ },
+ "wbb": {
+  "sport": "wbb",
+  "label": "WBB \u00b7 wehoop",
+  "season_min": 2004,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build_py"
+  ],
+  "crons": [
+   "0 7 18-31 10 *",
+   "0 7 * 11-12 *",
+   "0 7 * 1-3 *",
+   "0 7 1-12 4 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "wehoop",
+   "sdv-py"
+  ],
+  "warehouse_sport": "wbb",
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw WBB",
+    "repo": "wehoop-wbb-raw",
+    "script": "scripts/daily_wbb_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:wehoop-wbb-raw"
+    ],
+    "note": "self-commits to wehoop-wbb-raw"
+   },
+   "data.build_py": {
+    "label": "Build WBB datasets (Python)",
+    "repo": "wehoop-wbb-data",
+    "script": "scripts/daily_wbb_data_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:wehoop-wbb-data"
+    ],
+    "note": "python shadow via wbb_data_build; crosswalks stay on R"
+   },
+   "data.build_r": {
+    "label": "Build WBB datasets (R)",
+    "repo": "wehoop-wbb-data",
+    "script": "scripts/daily_wbb_R_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:wehoop-wbb-data"
+    ],
+    "note": "legacy R creation scripts incl. crosswalks"
+   }
+  }
+ },
+ "nba": {
+  "sport": "nba",
+  "label": "NBA \u00b7 hoopR (ESPN)",
+  "season_min": 2002,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build_py"
+  ],
+  "crons": [
+   "0 7 18-31 10 *",
+   "0 7 * 11-12 *",
+   "0 7 * 1-6 *",
+   "0 7 1-12 7 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "hoopR",
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw NBA (ESPN)",
+    "repo": "hoopR-nba-raw",
+    "script": "scripts/daily_nba_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:hoopR-nba-raw"
+    ],
+    "note": "ESPN endpoints; self-commits to hoopR-nba-raw"
+   },
+   "data.build_py": {
+    "label": "Build NBA datasets (Python)",
+    "repo": "hoopR-nba-data",
+    "script": "scripts/daily_nba_python_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:hoopR-nba-data"
+    ],
+    "note": "python shadow of build_r; crosswalks stay on R"
+   },
+   "data.build_r": {
+    "label": "Build NBA datasets (R)",
+    "repo": "hoopR-nba-data",
+    "script": "scripts/daily_nba_R_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:hoopR-nba-data"
+    ],
+    "note": "legacy R creation scripts incl. crosswalks"
+   }
+  }
+ },
+ "nhl": {
+  "sport": "nhl",
+  "label": "NHL \u00b7 fastRhockey",
+  "season_min": 2011,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build"
+  ],
+  "crons": [
+   "0 8 * 10-12 *",
+   "0 8 * 1-4 *",
+   "0 8 * 5-6 *"
+  ],
+  "schedule_active": true,
+  "packages": [
+   "fastRhockey"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw NHL",
+    "repo": "fastRhockey-nhl-raw",
+    "script": "scripts/daily_nhl_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:fastRhockey-nhl-raw"
+    ],
+    "note": "self-commits to fastRhockey-nhl-raw"
+   },
+   "data.build": {
+    "label": "Build NHL datasets (Python)",
+    "repo": "fastRhockey-nhl-data",
+    "script": "scripts/daily_nhl_python_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:fastRhockey-nhl-data"
+    ],
+    "note": "python/nhl_data_build; same -s/-e contract and commit subjects as the R processor. Publishes parquet+rds+csv; rds/csv are release-only. Cut over 2026-07-22 once sdv-py #296 fixed the write_rds OOM that blocked it -- a full 2026 compile now runs under a 9GB cap (17 datasets, 2,416,905 rows). Roll back by pointing at scripts/daily_nhl_R_processor.sh; the two take the same arguments."
+   }
+  }
+ },
+ "pwhl": {
+  "sport": "pwhl",
+  "label": "PWHL \u00b7 fastRhockey",
+  "season_min": 2024,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "data.build"
+  ],
+  "crons": [
+   "0 8 * 11-12 *",
+   "0 8 * 1-3 *",
+   "0 8 * 4-5 *"
+  ],
+  "schedule_active": true,
+  "packages": [
+   "fastRhockey"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape raw PWHL",
+    "repo": "fastRhockey-pwhl-raw",
+    "script": "scripts/daily_pwhl_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:fastRhockey-pwhl-raw"
+    ],
+    "note": "league founded 2024; light slate, quick runs"
+   },
+   "data.build": {
+    "label": "Build PWHL datasets (Python)",
+    "repo": "fastRhockey-pwhl-data",
+    "script": "scripts/daily_pwhl_python_processor.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "repo_writer:fastRhockey-pwhl-data"
+    ],
+    "note": "python/pwhl_data_build; same -s/-e contract and commit subjects as the R processor. Publishes parquet+rds+csv; rds/csv are release-only. Roll back by pointing at scripts/daily_pwhl_R_processor.sh."
+   }
+  }
+ },
+ "ncaa_wbb": {
+  "sport": "ncaa_wbb",
+  "label": "NCAA WBB \u00b7 stats.ncaa.org",
+  "season_min": 2010,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.discover",
+   "raw.capture",
+   "raw.parse",
+   "data.build"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.discover": {
+    "label": "Discover contest ids",
+    "repo": "ncaa-wbb-hoops-raw",
+    "script": "scripts/run_discover.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza"
+    ],
+    "note": "scrapes team pages -> wbb/schedule_master.parquet"
+   },
+   "raw.capture": {
+    "label": "Capture raw bundles",
+    "repo": "ncaa-wbb-hoops-raw",
+    "script": "scripts/run_capture.sh",
+    "deps": [
+     "raw.discover"
+    ],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "resumable + ban-hard-stops; shares stats_ncaa with ncaa_mbb"
+   },
+   "raw.parse": {
+    "label": "Parse captured bundles",
+    "repo": "ncaa-wbb-hoops-raw",
+    "script": "scripts/run_parse.sh",
+    "deps": [
+     "raw.capture"
+    ],
+    "rate_classes": [],
+    "note": "fully offline; wbb repo's parse is league-implied (no --league flag)"
+   },
+   "data.build": {
+    "label": "Build NCAA WBB datasets",
+    "repo": "ncaa-wbb-hoops-data",
+    "script": "scripts/run_build.sh",
+    "deps": [
+     "raw.parse"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-wbb-hoops-data"
+    ],
+    "note": "SEASON= env; DATASET= to scope to one dataset"
+   },
+   "data.publish": {
+    "label": "Build AND publish NCAA WBB releases",
+    "repo": "ncaa-wbb-hoops-data",
+    "script": "scripts/run_publish.sh",
+    "deps": [
+     "raw.parse"
+    ],
+    "rate_classes": [
+     "repo_writer:ncaa-wbb-hoops-data"
+    ],
+    "note": "run_build + release upload; use INSTEAD of data.build when publishing"
+   }
+  }
+ },
+ "warehouse": {
+  "sport": "warehouse",
+  "label": "Warehouse \u00b7 Data API refresh",
+  "season_min": 2026,
+  "season_max": 2026,
+  "default_stages": [
+   "db.refresh"
+  ],
+  "crons": [
+   "0 12 * * 0"
+  ],
+  "schedule_active": false,
+  "packages": [],
+  "warehouse_sport": null,
+  "stages": {
+   "db.refresh": {
+    "label": "Refresh warehouse datasets",
+    "repo": "sdv-db",
+    "script": "backfill_cfbd_parity.sh",
+    "deps": [],
+    "rate_classes": [
+     "warehouse"
+    ],
+    "note": "sequential sdv-db ingest of the CFBD-parity catalog; sources /etc/sdv-db/sdv-db.env itself; logs to backfill_cfbd_parity.log in-repo; LONG (hours on cold data)"
+   },
+   "db.backup": {
+    "label": "Backup warehouse (pg_dump)",
+    "repo": "sdv-db",
+    "script": "scripts/backup.sh",
+    "deps": [],
+    "rate_classes": [
+     "warehouse"
+    ],
+    "note": "compressed logical dump, keeps last 7; optional insurance (DB is reproducible from the releases)"
+   }
+  }
+ },
+ "wnba_stats": {
+  "sport": "wnba_stats",
+  "label": "WNBA Stats \u00b7 wehoop",
+  "season_min": 1997,
+  "season_max": 2026,
+  "default_stages": [
+   "data.scrape"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [
+   "wehoop",
+   "sdv-py"
+  ],
+  "warehouse_sport": null,
+  "stages": {
+   "data.scrape": {
+    "label": "Scrape WNBA stats",
+    "repo": "wehoop-wnba-stats-data",
+    "script": "scripts/daily_wnba_stats_R_processor.sh",
+    "deps": [],
+    "rate_classes": [
+     "stats_wnba",
+     "repo_writer:wehoop-wnba-stats-data"
+    ],
+    "note": "stats.wnba.com daily scrape + dataset build"
+   },
+   "data.draft": {
+    "label": "WNBA stats draft (annual)",
+    "repo": "wehoop-wnba-stats-data",
+    "script": "scripts/annual_wnba_stats_draft_R_processor.sh",
+    "deps": [],
+    "rate_classes": [
+     "stats_wnba",
+     "repo_writer:wehoop-wnba-stats-data"
+    ],
+    "note": "annual cadence \u2014 run once after the draft"
+   },
+   "data.build_py": {
+    "label": "Build WNBA stats datasets (Python)",
+    "repo": "wehoop-wnba-stats-data",
+    "script": "scripts/daily_wnba_stats_python_processor.sh",
+    "deps": [],
+    "rate_classes": [],
+    "note": "python build+publish from the committed -raw store; droplet-safe (no stats.wnba.com calls). Manually triggerable; not in default_stages and no cron, by design."
+   }
+  }
+ },
+ "ncaa_baseball": {
+  "sport": "ncaa_baseball",
+  "label": "NCAA Baseball \u00b7 baseballr",
+  "season_min": 2013,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape",
+   "raw.pbp",
+   "data.build"
+  ],
+  "crons": [
+   "0 11 * 2-6 *",
+   "0 11 1 1,7-12 *"
+  ],
+  "schedule_active": false,
+  "packages": [
+   "baseballr"
+  ],
+  "warehouse_sport": "ncaa_baseball",
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape NCAA baseball schedules",
+    "repo": "baseballr-data",
+    "script": "scripts/daily_ncaa_baseball_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:baseballr-data"
+    ],
+    "note": "schedules first; pbp + build chain after"
+   },
+   "raw.pbp": {
+    "label": "Scrape NCAA baseball pbp",
+    "repo": "baseballr-data",
+    "script": "scripts/daily_ncaa_baseball_pbp_scraper.sh",
+    "deps": [
+     "raw.scrape"
+    ],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:baseballr-data"
+    ],
+    "note": "per-game pbp for scraped schedules"
+   },
+   "data.build": {
+    "label": "Build NCAA baseball datasets (R)",
+    "repo": "baseballr-data",
+    "script": "scripts/daily_ncaa_baseball_R_processor.sh",
+    "deps": [
+     "raw.pbp"
+    ],
+    "rate_classes": [
+     "repo_writer:baseballr-data"
+    ],
+    "note": "R creation scripts over the scraped raw"
+   },
+   "py.schedules": {
+    "label": "Discover teams + team pages (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_01_schedules_scrape.sh",
+    "deps": [],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "D-I..D-III team pages -> schedule master"
+   },
+   "py.rosters": {
+    "label": "Roster pages (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_04_rosters_scrape.sh",
+    "deps": [
+     "py.schedules"
+    ],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": ""
+   },
+   "py.games": {
+    "label": "Capture 5-tab game bundles (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_02_games_scrape.sh",
+    "deps": [
+     "py.schedules"
+    ],
+    "rate_classes": [
+     "stats_ncaa"
+    ],
+    "note": "D-I contests from the master; resumable, breaker hard-stops"
+   },
+   "py.xwalk": {
+    "label": "ESPN game-id crosswalk (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_06_xwalk_build.sh",
+    "deps": [
+     "py.games"
+    ],
+    "rate_classes": [],
+    "note": "offline after the scoreboard cache warms"
+   },
+   "py.parse": {
+    "label": "Parse bundles -> enriched payloads (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_03_games_parse.sh",
+    "deps": [
+     "py.xwalk"
+    ],
+    "rate_classes": [
+     "repo_writer:baseballr-data"
+    ],
+    "note": "offline; espn stamps come from the xwalk"
+   },
+   "py.datasets": {
+    "label": "Reference frames from persisted html (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_05_datasets_build.sh",
+    "deps": [
+     "py.parse"
+    ],
+    "rate_classes": [
+     "repo_writer:baseballr-data"
+    ],
+    "note": ""
+   },
+   "py.publish": {
+    "label": "Build AND publish season datasets (py)",
+    "repo": "baseballr-data",
+    "script": "scripts/run_07_datasets_publish.sh",
+    "deps": [
+     "py.datasets"
+    ],
+    "rate_classes": [
+     "repo_writer:baseballr-data"
+    ],
+    "note": "parquet+csv.gz+rds to the ncaa_baseball_* releases"
+   }
+  }
+ },
+ "cfb_models": {
+  "sport": "cfb_models",
+  "label": "CFB Models \u00b7 cfbfastR-models",
+  "season_min": 2014,
+  "season_max": 2026,
+  "default_stages": [
+   "raw.scrape"
+  ],
+  "crons": [],
+  "schedule_active": false,
+  "packages": [],
+  "warehouse_sport": null,
+  "stages": {
+   "raw.scrape": {
+    "label": "Scrape CFB model inputs",
+    "repo": "cfbfastR-models",
+    "script": "scripts/daily_cfb_scraper.sh",
+    "deps": [],
+    "rate_classes": [
+     "proxybonanza",
+     "repo_writer:cfbfastR-models"
+    ],
+    "note": "schedules + json into the models repo; self-commits per season"
+   }
+  }
+ }
+}

@@ -1,0 +1,1 @@
+Cached team/schedule/player crosswalk artifacts linking ESPN / WNBA Stats / Fox identities (keyed on espn_team_id), consumed by wehoop::load_wnba_*_crosswalk(). Built by wehoop-wnba-data/R/wnba_1[123]_*_creation.R.

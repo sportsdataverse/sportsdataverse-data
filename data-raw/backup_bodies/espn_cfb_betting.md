@@ -1,0 +1,1 @@
+College Football betting (resolved odds/lines).

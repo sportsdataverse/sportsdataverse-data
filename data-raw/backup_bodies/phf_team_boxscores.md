@@ -1,0 +1,1 @@
+PHF team box scores, seasons 2016–2023. PHF (Premier Hockey Federation) — frozen dataset; the league ceased operations in June 2023. Migrated from the fastRhockey-data git tree (phf/*/parquet) on 2026-07-11.

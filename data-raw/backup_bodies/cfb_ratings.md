@@ -1,0 +1,1 @@
+College Football opponent-adjusted team ratings, one row per team per season (SP+-style): offensive/defensive/special-teams EPA, FEI, tempo, dense ranks, and a net z-score. Built by sdv-py `cfb_ratings()` over the released `espn_cfb_pbp` play-by-play.

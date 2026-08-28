@@ -1,0 +1,1 @@
+MLB game-state tables per season: the empirical RE24 run-expectancy matrix (within 0.05 of the Tango reference), the win-expectancy state table, and per-play WPA/leverage (spearman >= 0.95 vs statsapi win probability, per-game WPA telescoping identity within 0.02). Built by sdv-py's mlb_run_expectancy / mlb_win_expectancy over statsapi pbp.

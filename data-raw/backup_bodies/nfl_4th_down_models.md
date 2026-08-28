@@ -1,0 +1,1 @@
+Faithful nfl4th model artifacts for the sdv-py NFL fourth-down surface: fd_model (76-class go gain distribution, xgboost), wp_model (nfl4th win-prob). Official nfl4th model_archive .ubj (byte-identical). Small models (two_pt, fg_model grid, punt_data) are bundled in the wheel.

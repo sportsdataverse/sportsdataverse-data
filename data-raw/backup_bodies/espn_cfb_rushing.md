@@ -1,0 +1,1 @@
+College Football season rushing leaders (per-team, opponent-adjusted).

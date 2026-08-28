@@ -1,0 +1,1 @@
+Per-season ESPN NBA player statistics (averages/totals/miscellaneous categories, long format). Compiled by hoopR-nba-data/R/espn_nba_05_player_season_stats_creation.R from hoopR-nba-raw athlete stats payloads; season slices taken from categories[].statistics[]. Identity joined from espn_nba_player_boxscores. Loader: hoopR::load_nba_player_stats().

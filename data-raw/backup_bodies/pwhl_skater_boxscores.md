@@ -1,0 +1,1 @@
+PWHL Skater Boxscores Data (from HockeyTech API)

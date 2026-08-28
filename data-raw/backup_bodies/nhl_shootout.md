@@ -1,0 +1,1 @@
+NHL Shootout Summary Data — one row per shootout attempt (from NHL API)

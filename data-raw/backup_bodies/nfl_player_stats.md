@@ -1,0 +1,1 @@
+SDV-native NFL player stats (week-level, REG+POST; aggregated from SDV-native play-by-play; Python-built).

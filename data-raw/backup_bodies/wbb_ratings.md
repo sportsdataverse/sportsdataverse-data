@@ -1,0 +1,1 @@
+Women's college basketball opponent-adjusted team ratings, one row per team per season: AdjO/AdjD/AdjEM/AdjTempo with dense ranks and an AdjEM z-score. Built by sdv-py `wbb_team_ratings()` over the released ESPN schedule + team boxscores.

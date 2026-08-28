@@ -1,0 +1,1544 @@
+{
+ "espn_wnba_pbp": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_pbp",
+   ""
+  ]
+ ],
+ "espn_wnba_player_boxscores": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_player_boxscore",
+   ""
+  ]
+ ],
+ "espn_wnba_schedules": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_schedule",
+   ""
+  ]
+ ],
+ "espn_wnba_team_boxscores": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_team_boxscore",
+   ""
+  ]
+ ],
+ "espn_wnba_draft": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_draft",
+   ""
+  ]
+ ],
+ "espn_wnba_game_rosters": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_game_rosters",
+   ""
+  ]
+ ],
+ "espn_wnba_officials": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_officials",
+   ""
+  ]
+ ],
+ "espn_wnba_player_season_stats": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_player_season_stats",
+   ""
+  ]
+ ],
+ "espn_wnba_rosters": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_rosters",
+   ""
+  ]
+ ],
+ "espn_wnba_shots": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_shots",
+   ""
+  ]
+ ],
+ "espn_wnba_standings": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_standings",
+   ""
+  ]
+ ],
+ "espn_wnba_team_season_stats": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_team_season_stats",
+   ""
+  ]
+ ],
+ "wnba_crosswalk": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_player_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_schedule_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_team_crosswalk",
+   ""
+  ]
+ ],
+ "espn_wnba_player_core": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_player_core",
+   ""
+  ]
+ ],
+ "wnba_player_impact": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_player_impact",
+   ""
+  ]
+ ],
+ "wnba_stats_coaches": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_coaches",
+   ""
+  ]
+ ],
+ "wnba_stats_draft": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_draft",
+   ""
+  ]
+ ],
+ "wnba_stats_game_rosters": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_game_rosters",
+   ""
+  ]
+ ],
+ "wnba_stats_officials": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_officials",
+   ""
+  ]
+ ],
+ "wnba_stats_pbp": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_pbp",
+   ""
+  ]
+ ],
+ "wnba_stats_possessions": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_possessions",
+   ""
+  ]
+ ],
+ "wnba_stats_game_lineups": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_game_lineups",
+   ""
+  ]
+ ],
+ "wnba_stats_player_boxscores": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_player_boxscores",
+   ""
+  ]
+ ],
+ "wnba_stats_player_game_logs": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_player_game_logs",
+   ""
+  ]
+ ],
+ "wnba_stats_rosters": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_rosters",
+   ""
+  ]
+ ],
+ "wnba_stats_schedules": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_schedules",
+   ""
+  ]
+ ],
+ "wnba_stats_shots": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_shots",
+   ""
+  ]
+ ],
+ "wnba_stats_team_boxscores": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_stats_team_boxscores",
+   ""
+  ]
+ ],
+ "nhl_pbp_full": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_pbp",
+   ""
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_pbp_full",
+   ""
+  ]
+ ],
+ "nhl_player_boxscores": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_player_boxscore",
+   ""
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_player_boxscores",
+   ""
+  ]
+ ],
+ "nhl_schedules": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_schedule",
+   ""
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_schedules",
+   ""
+  ]
+ ],
+ "nhl_team_boxscores": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_team_boxscore",
+   ""
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_team_boxscores",
+   ""
+  ]
+ ],
+ "nhl_game_info": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_game_info",
+   ""
+  ]
+ ],
+ "nhl_game_rosters": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_game_rosters",
+   ""
+  ]
+ ],
+ "nhl_goalie_boxscores": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_goalie_boxscores",
+   ""
+  ]
+ ],
+ "nhl_linescore": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_linescore",
+   ""
+  ]
+ ],
+ "nhl_officials": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_officials",
+   ""
+  ]
+ ],
+ "nhl_pbp_lite": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_pbp_lite",
+   ""
+  ]
+ ],
+ "nhl_penalties": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_penalties",
+   ""
+  ]
+ ],
+ "nhl_rosters": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_rosters",
+   ""
+  ]
+ ],
+ "nhl_scoring": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_scoring",
+   ""
+  ]
+ ],
+ "nhl_scratches": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_scratches",
+   ""
+  ]
+ ],
+ "nhl_shifts": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_shifts",
+   ""
+  ]
+ ],
+ "nhl_shootout": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_shootout",
+   ""
+  ]
+ ],
+ "nhl_shots_by_period": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_shots_by_period",
+   ""
+  ]
+ ],
+ "nhl_skater_boxscores": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_skater_boxscores",
+   ""
+  ]
+ ],
+ "nhl_three_stars": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_three_stars",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_pbp": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_pbp",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_player_boxscores": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_player_boxscore",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_schedules": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_schedule",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_team_boxscores": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_team_boxscore",
+   ""
+  ]
+ ],
+ "wbb_ratings": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_ratings",
+   ""
+  ]
+ ],
+ "wbb_player_value": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_player_value",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_game_rosters": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_game_rosters",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_officials": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_officials",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_player_season_stats": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_player_season_stats",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_rosters": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_rosters",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_shots": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_shots",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_standings": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_standings",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_team_season_stats": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_team_season_stats",
+   ""
+  ]
+ ],
+ "wbb_crosswalk": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_player_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_schedule_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_team_crosswalk",
+   ""
+  ]
+ ],
+ "espn_womens_college_basketball_player_core": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_player_core",
+   ""
+  ]
+ ],
+ "ncaa_wbb_pbp": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_pbp",
+   ""
+  ]
+ ],
+ "ncaa_wbb_schedule": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_schedule",
+   ""
+  ]
+ ],
+ "ncaa_wbb_player_box": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_player_box",
+   ""
+  ]
+ ],
+ "ncaa_wbb_team_box": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_team_box",
+   ""
+  ]
+ ],
+ "ncaa_wbb_rosters": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_rosters",
+   ""
+  ]
+ ],
+ "ncaa_wbb_team_rosters": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_team_rosters",
+   ""
+  ]
+ ],
+ "ncaa_wbb_team_ids": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_team_ids",
+   ""
+  ]
+ ],
+ "ncaa_wbb_possessions": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_possessions",
+   ""
+  ]
+ ],
+ "ncaa_wbb_lineups": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_lineups",
+   ""
+  ]
+ ],
+ "ncaa_wbb_matchup_stints": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_matchup_stints",
+   ""
+  ]
+ ],
+ "ncaa_wbb_shots": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_shots",
+   ""
+  ]
+ ],
+ "ncaa_wbb_rapm_within_team": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_rapm_within_team",
+   ""
+  ]
+ ],
+ "espn_nba_pbp": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_pbp",
+   ""
+  ]
+ ],
+ "espn_nba_player_boxscores": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_player_boxscore",
+   ""
+  ]
+ ],
+ "espn_nba_schedules": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_schedule",
+   ""
+  ]
+ ],
+ "espn_nba_team_boxscores": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_team_boxscore",
+   ""
+  ]
+ ],
+ "espn_nba_game_rosters": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_game_rosters",
+   ""
+  ]
+ ],
+ "espn_nba_officials": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_officials",
+   ""
+  ]
+ ],
+ "espn_nba_shots": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_shots",
+   ""
+  ]
+ ],
+ "espn_nba_standings": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_standings",
+   ""
+  ]
+ ],
+ "espn_nba_player_season_stats": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_player_season_stats",
+   ""
+  ]
+ ],
+ "espn_nba_team_season_stats": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_team_season_stats",
+   ""
+  ]
+ ],
+ "espn_nba_draft": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_draft",
+   ""
+  ]
+ ],
+ "espn_nba_rosters": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_rosters",
+   ""
+  ]
+ ],
+ "nba_stats_schedules": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_schedules",
+   ""
+  ]
+ ],
+ "nba_stats_coaches": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_coaches",
+   ""
+  ]
+ ],
+ "nba_stats_game_rosters": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_game_rosters",
+   ""
+  ]
+ ],
+ "nba_stats_lineups": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_lineups",
+   ""
+  ]
+ ],
+ "nba_stats_officials": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_officials",
+   ""
+  ]
+ ],
+ "nba_stats_pbp": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_pbp",
+   ""
+  ]
+ ],
+ "nba_stats_possessions": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_possessions",
+   ""
+  ]
+ ],
+ "nba_stats_game_lineups": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_game_lineups",
+   ""
+  ]
+ ],
+ "nba_stats_player_boxscores": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_player_boxscores",
+   ""
+  ]
+ ],
+ "nba_stats_player_game_logs": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_player_game_logs",
+   ""
+  ]
+ ],
+ "nba_stats_player_season_stats": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_player_season_stats",
+   ""
+  ]
+ ],
+ "nba_stats_rosters": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_rosters",
+   ""
+  ]
+ ],
+ "nba_stats_shots": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_shots",
+   ""
+  ]
+ ],
+ "nba_stats_standings": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_standings",
+   ""
+  ]
+ ],
+ "nba_stats_team_boxscores": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_team_boxscores",
+   ""
+  ]
+ ],
+ "nba_stats_team_season_stats": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_team_season_stats",
+   ""
+  ]
+ ],
+ "nba_crosswalk": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_player_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.nba",
+   "load_nba_schedule_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.nba",
+   "load_nba_team_crosswalk",
+   ""
+  ]
+ ],
+ "espn_nba_player_core": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_player_core",
+   ""
+  ]
+ ],
+ "nba_player_impact": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_player_impact",
+   ""
+  ]
+ ],
+ "espn_cfb_pbp": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_pbp",
+   ""
+  ]
+ ],
+ "cfb_ratings": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_ratings",
+   ""
+  ]
+ ],
+ "cfb_recruiting_proj": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_recruiting_proj",
+   ""
+  ]
+ ],
+ "cfb_recruits": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_recruits",
+   ""
+  ]
+ ],
+ "cfb_returning_production": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_returning_production",
+   ""
+  ]
+ ],
+ "espn_cfb_rosters": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_rosters",
+   ""
+  ]
+ ],
+ "cfb_schedules": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_schedule",
+   ""
+  ]
+ ],
+ "cfb_team_info": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_info",
+   ""
+  ]
+ ],
+ "espn_cfb_teams": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_teams",
+   ""
+  ]
+ ],
+ "cfb_team_talent": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_talent",
+   ""
+  ]
+ ],
+ "cfb_crosswalk": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_teams_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_schedule_crosswalk",
+   ""
+  ]
+ ],
+ "espn_cfb_team_box": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_box",
+   ""
+  ]
+ ],
+ "espn_cfb_player_box": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_player_box",
+   ""
+  ]
+ ],
+ "espn_cfb_drives": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_drives",
+   ""
+  ]
+ ],
+ "espn_cfb_play_participants": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_play_participants",
+   ""
+  ]
+ ],
+ "espn_cfb_game_rosters": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_game_rosters",
+   ""
+  ]
+ ],
+ "espn_cfb_linescores": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_linescores",
+   ""
+  ]
+ ],
+ "espn_cfb_betting": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_betting",
+   ""
+  ]
+ ],
+ "cfb_fpi_weekly": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_fpi_weekly",
+   ""
+  ]
+ ],
+ "espn_cfb_power_index": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_power_index",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_team": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_team",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_passing": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_passing",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_rushing": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_rushing",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_receiving": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_receiving",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_defensive": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_defensive",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_defensive_players": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_defensive_players",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_drives": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_drives",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_situational": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_situational",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_specialists": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_specialists",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_turnover": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_turnover",
+   ""
+  ]
+ ],
+ "espn_cfb_model_pbp": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_model_pbp",
+   ""
+  ]
+ ],
+ "espn_cfb_passing": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_passing",
+   ""
+  ]
+ ],
+ "espn_cfb_percentiles": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_percentiles",
+   ""
+  ]
+ ],
+ "espn_cfb_receiving": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_receiving",
+   ""
+  ]
+ ],
+ "espn_cfb_rushing": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_rushing",
+   ""
+  ]
+ ],
+ "espn_cfb_team_summaries": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_summaries",
+   ""
+  ]
+ ],
+ "espn_cfb_adv_team_gamelog": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_adv_team_gamelog",
+   ""
+  ]
+ ],
+ "cfb_ratings_weekly": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_ratings_weekly",
+   ""
+  ]
+ ],
+ "cfb_team_summaries_weekly": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_summaries_weekly",
+   ""
+  ]
+ ],
+ "cfbfastR_cfb_pbp": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_pbp_r",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_pbp": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_pbp",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_player_boxscores": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_player_boxscore",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_schedules": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_schedule",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_team_boxscores": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_team_boxscore",
+   ""
+  ]
+ ],
+ "mbb_ratings": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_ratings",
+   ""
+  ]
+ ],
+ "mbb_player_value": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_player_value",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_shots": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_shots",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_standings": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_standings",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_player_season_stats": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_player_season_stats",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_rosters": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_rosters",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_officials": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_officials",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_game_rosters": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_game_rosters",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_team_season_stats": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_team_season_stats",
+   ""
+  ]
+ ],
+ "mbb_crosswalk": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_player_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_schedule_crosswalk",
+   ""
+  ],
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_team_crosswalk",
+   ""
+  ]
+ ],
+ "espn_mens_college_basketball_player_core": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_player_core",
+   ""
+  ]
+ ],
+ "ncaa_mbb_pbp": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_pbp",
+   ""
+  ]
+ ],
+ "ncaa_mbb_schedule": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_schedule",
+   ""
+  ]
+ ],
+ "ncaa_mbb_player_box": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_player_box",
+   ""
+  ]
+ ],
+ "ncaa_mbb_team_box": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_team_box",
+   ""
+  ]
+ ],
+ "ncaa_mbb_rosters": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_rosters",
+   ""
+  ]
+ ],
+ "ncaa_mbb_team_rosters": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_team_rosters",
+   ""
+  ]
+ ],
+ "ncaa_mbb_team_ids": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_team_ids",
+   ""
+  ]
+ ],
+ "ncaa_mbb_possessions": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_possessions",
+   ""
+  ]
+ ],
+ "ncaa_mbb_lineups": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_lineups",
+   ""
+  ]
+ ],
+ "ncaa_mbb_matchup_stints": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_matchup_stints",
+   ""
+  ]
+ ],
+ "ncaa_mbb_shots": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_shots",
+   ""
+  ]
+ ],
+ "ncaa_mbb_rapm_within_team": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_rapm_within_team",
+   ""
+  ]
+ ],
+ "phf_pbp": [
+  [
+   "sportsdataverse.pwhl",
+   "load_phf_pbp",
+   ""
+  ]
+ ],
+ "phf_player_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_phf_player_boxscores",
+   ""
+  ]
+ ],
+ "phf_schedules": [
+  [
+   "sportsdataverse.pwhl",
+   "load_phf_schedules",
+   ""
+  ]
+ ],
+ "phf_team_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_phf_team_boxscores",
+   ""
+  ]
+ ],
+ "pwhl_game_info": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_game_info",
+   ""
+  ]
+ ],
+ "pwhl_game_rosters": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_game_rosters",
+   ""
+  ]
+ ],
+ "pwhl_shifts": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_shifts",
+   ""
+  ]
+ ],
+ "pwhl_goalie_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_goalie_boxscores",
+   ""
+  ]
+ ],
+ "pwhl_officials": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_officials",
+   ""
+  ]
+ ],
+ "pwhl_pbp": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_pbp",
+   ""
+  ]
+ ],
+ "pwhl_xg_pbp": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_xg_pbp",
+   ""
+  ]
+ ],
+ "pwhl_penalty_summary": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_penalty_summary",
+   ""
+  ]
+ ],
+ "pwhl_player_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_player_boxscores",
+   ""
+  ]
+ ],
+ "pwhl_rosters": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_rosters",
+   ""
+  ]
+ ],
+ "pwhl_schedules": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_schedules",
+   ""
+  ]
+ ],
+ "pwhl_scoring_summary": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_scoring_summary",
+   ""
+  ]
+ ],
+ "pwhl_shootout": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_shootout",
+   ""
+  ]
+ ],
+ "pwhl_shots_by_period": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_shots_by_period",
+   ""
+  ]
+ ],
+ "pwhl_skater_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_skater_boxscores",
+   ""
+  ]
+ ],
+ "pwhl_team_boxscores": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_team_boxscores",
+   ""
+  ]
+ ],
+ "pwhl_three_stars": [
+  [
+   "sportsdataverse.pwhl",
+   "load_pwhl_three_stars",
+   ""
+  ]
+ ],
+ "mlb_game_state": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_re24_matrix",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_we_table",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_wpa",
+   ""
+  ]
+ ],
+ "mlb_hitting_models": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_expected_stats",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_expected_hr",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_batter_projection",
+   ""
+  ]
+ ],
+ "mlb_fielding_models": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_oaa",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_catcher_framing",
+   ""
+  ]
+ ],
+ "mlb_pitching_models": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_xera",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_stuff_plus",
+   ""
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_command_plus",
+   ""
+  ]
+ ],
+ "ncaa_baseball_pbp": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_pbp",
+   ""
+  ]
+ ],
+ "ncaa_baseball_schedules": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_schedule",
+   ""
+  ]
+ ],
+ "nfl_players": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_players",
+   "source=\"sdv\""
+  ]
+ ],
+ "nfl_rosters": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_rosters",
+   "seasons=[SEASON], source=\"sdv\""
+  ]
+ ],
+ "nfl_player_stats": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_player_stats",
+   "source=\"sdv\""
+  ]
+ ],
+ "nfl_team_stats": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_team_stats",
+   "seasons=[SEASON], source=\"sdv\""
+  ]
+ ],
+ "nfl_model_pbp": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_pbp",
+   "seasons=[SEASON], source=\"sdv\""
+  ]
+ ],
+ "nfl_espn_qbr": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_espn_qbr",
+   "seasons=[SEASON], source=\"sdv\""
+  ]
+ ],
+ "nfl_ratings_weekly": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_ratings_weekly",
+   "seasons=[SEASON]"
+  ]
+ ]
+}

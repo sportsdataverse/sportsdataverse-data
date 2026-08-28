@@ -1,0 +1,1 @@
+Cached team/schedule/player crosswalk artifacts (keyed on espn_team_id) consumed by the NBA load_*_crosswalk() loaders.

@@ -1,0 +1,1 @@
+Per-season ESPN NBA team rosters (one row per athlete). Compiled by hoopR-nba-data/R/espn_nba_04_rosters_creation.R from hoopR-nba-raw. NOTE: ESPN's /teams/{id}/roster endpoint returns the current roster (ignores season), so season files are snapshots-as-of-scrape. Loader: hoopR::load_nba_rosters().

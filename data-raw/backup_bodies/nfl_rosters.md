@@ -1,0 +1,1 @@
+SDV-native NFL season rosters (ESPN-sourced; Python-built).

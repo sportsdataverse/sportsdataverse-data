@@ -1,0 +1,1 @@
+Player core biographical data (athlete ID, name, position, team, college, draft, height, weight, jersey, birthplace, experience, headshot).

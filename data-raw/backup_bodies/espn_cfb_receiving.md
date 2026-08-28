@@ -1,0 +1,1 @@
+College Football season receiving leaders (per-team, opponent-adjusted).

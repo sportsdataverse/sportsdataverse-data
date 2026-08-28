@@ -1,0 +1,1273 @@
+{
+ "Sports-Research-Papers": [
+  {
+   "file": "update-sports-analytics-library.yml",
+   "name": "Update Sports Analytics Library",
+   "crons": [
+    "17 10 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "update-sports-analytics-opportunities.yml",
+   "name": "Update Sports Analytics Opportunities",
+   "crons": [
+    "37 11 * * *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "baseballr": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "baseballr-data": [
+  {
+   "file": "daily_ncaa_baseball.yml",
+   "name": "Update NCAA Baseball Data",
+   "crons": [
+    "0 11 * 2-6 *",
+    "0 11 1 1,7-12 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "mlb_models_cron.yml",
+   "name": "MLB Model Datasets",
+   "crons": [
+    "30 10 * 4-10 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "cfb4th": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "cfbfastR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "cfbfastR-cfb-data": [
+  {
+   "file": "cfb_model_pipeline.yml",
+   "name": "CFB Model Pipeline",
+   "crons": [
+    "0 6 5 2 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "cfb_playoff_figures.yml",
+   "name": "CFB Playoff Net-Stats Figures",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "cfb_postweek.yml",
+   "name": "Skeet Post-Week Content",
+   "crons": [
+    "0 15 * 8-12 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "cfb_previews.yml",
+   "name": "Skeet Game Previews",
+   "crons": [
+    "0 14 * 9-11 6",
+    "0 22 * 9-11 1-5",
+    "0 14 * 12 *",
+    "0 14 1-20 1 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "cfb_ratings_cron.yml",
+   "name": "CFB Ratings",
+   "crons": [
+    "0 13 * 8 *",
+    "0 13 * 9-11 *",
+    "0 13 * 12 *",
+    "0 13 1-25 1 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "cfb_recruiting_proj_cron.yml",
+   "name": "CFB Recruiting Projections",
+   "crons": [
+    "0 12 5 12 *",
+    "0 12 5 1-8 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_cfb.yml",
+   "name": "Update CFB Data",
+   "crons": [
+    "0 11 * 8 *",
+    "0 11 * 9-11 *",
+    "0 11 * 12 *",
+    "0 11 1-25 1 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "cfbfastR-cfb-raw": [
+  {
+   "file": "cfbfastR_cfb_data_trigger.yml",
+   "name": "cfbfastR CFB Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "scrape_cfb_raw.yml",
+   "name": "Scrape CFB Raw Data",
+   "crons": [
+    "0 9 * 8 *",
+    "0 9 * 9-11 *",
+    "0 9 * 12 *",
+    "0 9 1-25 1 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "cfbfastR-data": [
+  {
+   "file": "daily_cfb.yml",
+   "name": "Update CFB Data",
+   "crons": [
+    "5 4 1 1-8 *",
+    "30 6 * 9-12 MON",
+    "30 6 * 9-12 SUN",
+    "0 16 * 9-12 SAT",
+    "15 20 * 9-12 SAT",
+    "5 4 * 1,12 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "update_rosters.yml",
+   "name": "Annual Roster Update",
+   "crons": [
+    "5 4 1 1-8 *",
+    "0 16 * 9-12 SAT",
+    "5 4 * 1,12 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "cfbplotR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "cfbseedR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "fastRhockey": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "fastRhockey-nhl-data": [
+  {
+   "file": "daily_nhl.yml",
+   "name": "Update NHL Data (R \u2014 retired)",
+   "crons": [
+    "0 9 * 10-12 *",
+    "0 9 * 5-6 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_nhl_python.yml",
+   "name": "Update NHL Data (Python)",
+   "crons": [
+    "0 9 * 10-12 *",
+    "0 9 * 1-4 *",
+    "0 9 * 5-6 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "fastRhockey-nhl-raw": [
+  {
+   "file": "fastRhockey_nhl_data_trigger.yml",
+   "name": "fastRhockey NHL Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "scrape_nhl_raw.yml",
+   "name": "Scrape NHL Raw Data",
+   "crons": [
+    "0 8 * 10-12 *",
+    "0 8 * 1-4 *",
+    "0 8 * 5-6 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "fastRhockey-pwhl-data": [
+  {
+   "file": "daily_pwhl.yml",
+   "name": "Update PWHL Data",
+   "crons": [
+    "0 9 * 11-12 *",
+    "0 9 * 4-5 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_pwhl_python.yml",
+   "name": "Update PWHL Data (Python)",
+   "crons": [
+    "0 9 * 11-12 *",
+    "0 9 * 1-3 *",
+    "0 9 * 4-5 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pwhl_xg_cron.yml",
+   "name": "PWHL xG",
+   "crons": [
+    "0 14 * 1-5 *",
+    "0 14 * 11,12 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "fastRhockey-pwhl-raw": [
+  {
+   "file": "fastRhockey_pwhl_data_trigger.yml",
+   "name": "fastRhockey PWHL Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "scrape_pwhl_raw.yml",
+   "name": "Scrape PWHL Raw Data",
+   "crons": [
+    "0 8 * 11-12 *",
+    "0 8 * 1-3 *",
+    "0 8 * 4-5 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "game-on-paper-app": [
+  {
+   "file": "deploy.yml",
+   "name": "deploy",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "game-on-paper-app-cloudflare": [
+  {
+   "file": "deploy.yml",
+   "name": "deploy",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-mbb-data": [
+  {
+   "file": "daily_mbb.yml",
+   "name": "Update MBB Data",
+   "crons": [
+    "0 7 18-31 10 *",
+    "0 7 * 11-12 *",
+    "0 7 * 1-3 *",
+    "0 7 1-30 4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "mbb_models_cron.yml",
+   "name": "MBB Model Datasets",
+   "crons": [
+    "0 13 * 11,12 *",
+    "0 13 * 1-4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-mbb-raw": [
+  {
+   "file": "hoopR_mbb_data_trigger.yaml",
+   "name": "hoopR MBB Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-nba-data": [
+  {
+   "file": "daily_nba.yml",
+   "name": "Update NBA Data",
+   "crons": [
+    "0 7 18-31 10 *",
+    "0 7 * 11-12 *",
+    "0 7 * 1-6 *",
+    "0 7 1-12 7 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-nba-raw": [
+  {
+   "file": "hoopR_nba_data_trigger.yaml",
+   "name": "hoopR NBA Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-nba-stats-data": [
+  {
+   "file": "annual_nba_stats_draft.yml",
+   "name": "Annual NBA Draft Update",
+   "crons": [
+    "0 8 27 6 *",
+    "0 8 29 6 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_nba_stats.yml",
+   "name": "Update NBA Stats Data",
+   "crons": [
+    "0 7 18-31 10 *",
+    "0 7 * 11-12 *",
+    "0 7 * 1-6 *",
+    "0 7 1-12 7 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "nba_models.yml",
+   "name": "NBA Model Datasets",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "hoopR-nba-stats-raw": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "mlbplotR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "ncaa-mbb-hoops-data": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "ncaa-mbb-hoops-raw": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "ncaa-mfb-football-data": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "ncaa-wbb-hoops-data": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "ncaa-wbb-hoops-raw": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "nfl-data": [
+  {
+   "file": "nfl_model_pipeline.yml",
+   "name": "NFL Model Pipeline",
+   "crons": [
+    "0 6 1 3 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "nfl_pbp_cron.yml",
+   "name": "NFL model_pbp build + publish",
+   "crons": [
+    "0 9 * 9-12,1,2 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "nfl_ratings_weekly.yml",
+   "name": "NFL Ratings Weekly",
+   "crons": [
+    "0 10 * 9-12,1-2 2"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "nfl_rosters_players_cron.yml",
+   "name": "NFL rosters + players + player-stats + team-stats + QBR build + publish",
+   "crons": [
+    "0 9 * 9-12,1,2 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "nfl-raw": [
+  {
+   "file": "scrape_nfl_raw.yml",
+   "name": "Scrape NFL Raw Data",
+   "crons": [
+    "45 11 * 8 *",
+    "45 11 * 9-12 *",
+    "45 11 * 1,2 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "odds-data": [
+  {
+   "file": "snapshot_odds.yml",
+   "name": "Snapshot Football Odds",
+   "crons": [
+    "30 9 * 1,2,8,9,10,11,12 *",
+    "5 * * 1,2,8,9,10,11,12 *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "oddsapiR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sdv-db": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sdv-next-clone": [
+  {
+   "file": "ci.yml",
+   "name": "CI",
+   "crons": [],
+   "dispatch": false
+  }
+ ],
+ "sdv-py": [
+  {
+   "file": "codegen.yml",
+   "name": "codegen",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "conda-build.yml",
+   "name": "conda-build",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "docs-deploy.yml",
+   "name": "docs-deploy",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "live-tests-cron.yml",
+   "name": "live-tests-cron",
+   "crons": [
+    "0 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "python-publish.yml",
+   "name": "publish",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "quality.yml",
+   "name": "quality",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "validation-cron.yml",
+   "name": "validation-cron",
+   "crons": [
+    "0 12 * * 1"
+   ],
+   "dispatch": true
+  }
+ ],
+ "softballR-data": [
+  {
+   "file": "update_ncaa_pbp.yml",
+   "name": "update_ncaa_pbp",
+   "crons": [
+    "0 5 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "update_ncaa_playerbox.yml",
+   "name": "update_ncaa_playerbox",
+   "crons": [
+    "0 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "update_ncaa_scoreboard.yml",
+   "name": "update_ncaa_scoreboard",
+   "crons": [
+    "0 5 * * *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "sportsdataverse-R": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sportsdataverse-data": [
+  {
+   "file": "cran-checks.yaml",
+   "name": "Check CRAN status",
+   "crons": [
+    "0 16 * * *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "sportsdataverse-js": [
+  {
+   "file": "ci.yml",
+   "name": "CI",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "npm-publish.yml",
+   "name": "Node.js Package",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sportsdataverse-org": [
+  {
+   "file": "ecosystem-status.yml",
+   "name": "ecosystem-status",
+   "crons": [
+    "30 9 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan-scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "sdv-toolkit-catalog.yml",
+   "name": "sdv-toolkit catalog",
+   "crons": [],
+   "dispatch": false
+  }
+ ],
+ "sportsdataverse-py": [
+  {
+   "file": "codegen.yml",
+   "name": "codegen",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "conda-build.yml",
+   "name": "conda-build",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "docs-deploy.yml",
+   "name": "docs-deploy",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "live-tests-cron.yml",
+   "name": "live-tests-cron",
+   "crons": [
+    "0 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "python-publish.yml",
+   "name": "publish",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "quality.yml",
+   "name": "quality",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "validation-cron.yml",
+   "name": "validation-cron",
+   "crons": [
+    "0 12 * * 1"
+   ],
+   "dispatch": true
+  }
+ ],
+ "sportsdataverse-web": [
+  {
+   "file": "cron.yml",
+   "name": "Update data",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sportyR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "lint.yaml",
+   "name": "lint",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": false
+  }
+ ],
+ "sportypy": [
+  {
+   "file": "package-coverage.yml",
+   "name": "package-coverage",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "upload-to-pypi.yml",
+   "name": "Upload sportypy to PyPI",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "wehoop": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wbb-data": [
+  {
+   "file": "daily_wbb.yml",
+   "name": "Update WBB Data",
+   "crons": [
+    "0 7 18-31 10 *",
+    "0 7 * 11-12 *",
+    "0 7 * 1-3 *",
+    "0 7 1-12 4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "wbb_models_cron.yml",
+   "name": "WBB Model Datasets",
+   "crons": [
+    "0 13 * 11,12 *",
+    "0 13 * 1-4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "weekly_output_parity.yml",
+   "name": "Weekly R/Python Output Parity",
+   "crons": [
+    "0 12 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "weekly_wbb.yml",
+   "name": "Weekly WBB Rosters Refresh",
+   "crons": [
+    "0 6 * * 0"
+   ],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wbb-raw": [
+  {
+   "file": "daily_wbb_raw.yml",
+   "name": "Daily WBB Raw Scrape",
+   "crons": [
+    "30 6 18-31 10 *",
+    "30 6 * 11-12 *",
+    "30 6 * 1-4 *",
+    "30 6 1-12 4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "wehoop_wbb_data_trigger.yaml",
+   "name": "wehoop WBB Data trigger",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wnba-data": [
+  {
+   "file": "annual_wnba_draft.yml",
+   "name": "Annual WNBA Draft",
+   "crons": [
+    "0 8 15 4 *",
+    "0 8 16 4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_wnba.yml",
+   "name": "Update WNBA Data",
+   "crons": [
+    "0 7 18-31 10 *",
+    "0 7 * 11-12 *",
+    "0 7 * 1-6 *",
+    "0 7 1-12 7 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "weekly_output_parity.yml",
+   "name": "Weekly R/Python Output Parity",
+   "crons": [
+    "0 9 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "weekly_wnba.yml",
+   "name": "Weekly WNBA Rosters Refresh",
+   "crons": [
+    "0 6 * * 0"
+   ],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wnba-raw": [
+  {
+   "file": "daily_wnba_raw.yml",
+   "name": "Daily WNBA Raw Scrape",
+   "crons": [
+    "30 6 1-12 5-10 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "wehoop_wnba_data_trigger.yml",
+   "name": "wehoop WNBA Data trigger",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "wehoop_wnba_draft_trigger.yml",
+   "name": "wehoop WNBA Draft trigger",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wnba-stats-data": [
+  {
+   "file": "annual_wnba_stats_draft.yml",
+   "name": "Annual WNBA Draft Update",
+   "crons": [
+    "0 8 15 4 *",
+    "0 8 16 4 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "daily_wnba_stats.yml",
+   "name": "Update WNBA Stats Data",
+   "crons": [
+    "0 7 * 5-9 *",
+    "0 7 1-20 10 *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "wnba_models.yml",
+   "name": "WNBA Model Datasets",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "wehoop-wnba-stats-raw": [
+  {
+   "file": "orphan_scripts.yml",
+   "name": "orphan-scripts",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ]
+}
