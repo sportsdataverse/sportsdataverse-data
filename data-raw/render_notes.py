@@ -21,17 +21,22 @@ ROOT = Path(os.environ.get("SDV_REPOS", "/mnt/sdv_repos"))
 
 from families import DATA_REPO, DL, FAMILIES, KIND, ORG  # noqa: E402
 
-INV = json.load(open(SP / "inventory2.json"))
-PYMAP = json.load(open(SP / "py_tag_loaders.json"))
-RMAP = json.load(open(SP / "r_tag_loaders.json"))
-CAT = json.load(open(SP / "db_catalog.json"))
-ORCH = json.load(open(SP / "orch_pipelines.json"))
-WORKFLOWS = json.load(open(SP / "workflows.json"))
+def load_json(name: str):
+    with open(SP / name) as fh:
+        return json.load(fh)
+
+
+INV = load_json("inventory2.json")
+PYMAP = load_json("py_tag_loaders.json")
+RMAP = load_json("r_tag_loaders.json")
+CAT = load_json("db_catalog.json")
+ORCH = load_json("orch_pipelines.json")
+WORKFLOWS = load_json("workflows.json")
 #: Every release description as it stood before this generator first ran, keyed
 #: by tag. Long entries are hand-written per-dataset prose (column dictionaries,
 #: model cards, methodology warnings) and are re-emitted verbatim rather than
 #: regenerated away — see the `## Dataset notes` section below.
-BACKUP = json.load(open(SP / "backup_bodies.json"))
+BACKUP = load_json("backup_bodies.json")
 
 BY_LOADER = defaultdict(list)
 for d in CAT:
@@ -520,7 +525,7 @@ def render(tag: str) -> str:
         dep.append(
             f"- **`{pkg}`** — {link or f'`{pkg}::{fn}()`'} reads this tag directly."
         )
-    for lg, nm, pcol in tables:
+    for lg, nm, _pcol in tables:
         dep.append(
             f"- **`sdv-db`** — registered in the sdv-db catalog and ingested into the `sportsdataverse` Postgres warehouse as "
             f"`{lg}.{nm}`, and served by the Data API at `/v1/{lg}/{nm}`."

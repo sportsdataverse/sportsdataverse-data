@@ -140,9 +140,6 @@ def parse_health() -> dict[tuple[str, str], dict]:
     return out
 
 
-SEASON = re.compile(r"(\d{4})(?=\.(?:parquet|csv\.gz|rds|csv)$)")
-
-
 def asset_stats(assets: list[dict]) -> dict:
     exts: dict[str, int] = defaultdict(int)
     stems: dict[str, int] = defaultdict(int)
@@ -186,13 +183,17 @@ def main() -> None:
         "|".join(re.escape(t) for t in sorted(tags, key=len, reverse=True))
     )
 
-    releases = {r["tag_name"]: r for r in json.load(open(SP / "releases_full.json"))}
-    catalog = json.load(open(SP / "db_catalog.json"))
+    def load_json(name: str):
+        with open(SP / name) as fh:
+            return json.load(fh)
+
+    releases = {r["tag_name"]: r for r in load_json("releases_full.json")}
+    catalog = load_json("db_catalog.json")
     by_loader: dict[str, list[dict]] = defaultdict(list)
     for d in catalog:
         if d["loader"]:
             by_loader[d["loader"]].append(d)
-    orch = json.load(open(SP / "orch_pipelines.json"))
+    orch = load_json("orch_pipelines.json")
     workflows = scan_workflows()
     health = parse_health()
 
@@ -226,7 +227,7 @@ def main() -> None:
         py, r, producers, wfs, dbref, downstream, docs = [], [], [], [], [], [], []
         py_modules: set[str] = set()
         for repo, items in hits.get(tag, {}).items():
-            for inner, lineno, content in items:
+            for inner, lineno, _content in items:
                 full = ROOT / repo / inner
                 low = inner.lower()
                 is_wf = low.startswith(".github/workflows/")
