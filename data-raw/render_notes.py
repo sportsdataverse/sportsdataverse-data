@@ -21,6 +21,7 @@ ROOT = Path(os.environ.get("SDV_REPOS", "/mnt/sdv_repos"))
 
 from families import DATA_REPO, DL, FAMILIES, KIND, ORG  # noqa: E402
 
+
 def load_json(name: str):
     with open(SP / name) as fh:
         return json.load(fh)
@@ -243,16 +244,34 @@ CRONTAB = SP / "crontab_snapshot.txt"
 
 
 def droplet_cron(repos: list[str]) -> list[str]:
+    """Host-scheduled runs for these repos, as schedule + script only.
+
+    The raw crontab line is deliberately NOT published: it carries absolute host
+    paths and log destinations, which say nothing useful to a data consumer and
+    describe the host's layout on a public page. What is worth publishing is
+    when the job runs and which in-repo script it invokes -- both already public.
+    """
     if not CRONTAB.exists():
         return []
+    script_re = re.compile(r"(?:^|[/\s])((?:scripts|bin)/[\w.-]+\.(?:sh|R|py))")
     out = []
     for ln in CRONTAB.read_text(errors="replace").splitlines():
-        if ln.startswith("#") or not ln.strip():
-            continue
+        ln = ln.strip()
+        if ln.startswith("#") or not ln or "=" in ln.split()[0]:
+            continue  # comments and MAILTO=/PATH= assignments
         for r in repos:
-            if f"/{r}" in ln:
-                out.append(ln.strip())
+            if f"/{r}" not in ln:
+                continue
+            fields = ln.split(None, 5)
+            if len(fields) < 6:
                 break
+            when = cron_english(" ".join(fields[:5]))
+            m = script_re.search(fields[5])
+            script = repo_link(r, m.group(1)) if m else None
+            out.append(
+                f"- **`{r}`** — {when}" + (f", running {script}" if script else "")
+            )
+            break
     return out
 
 
@@ -500,9 +519,7 @@ def render(tag: str) -> str:
             "**Droplet cron** — this pipeline also runs from the SportsDataverse host:"
         )
         L.append("")
-        L.append("```cron")
         L += dc[:4]
-        L.append("```")
         L.append("")
     if not wrows and not p and not dc:
         L.append(
