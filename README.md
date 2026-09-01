@@ -357,3 +357,22 @@ example `hoopR-nba-stats-data`, `baseballr-data`,
 `wehoop-data` archives. Release tags above with a clearly stale *Last
 updated* date are likewise no longer being refreshed. Treat data from
 these as historical snapshots.
+
+## Repository layout
+
+<!-- BEGIN GENERATED: layout -->
+
+```
+sportsdataverse-data/
+├── R/   # R pipeline stages and publish toolchain
+│   ├── gh_cli.R
+│   ├── upload.R
+│   └── zzz.R
+├── data-raw/
+├── docs/   # explainers, model reports and dataset docs
+│   └── superpowers/
+└── man/   # generated R documentation
+    └── figures/
+```
+
+<!-- END GENERATED: layout -->
