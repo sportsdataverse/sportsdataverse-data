@@ -205,6 +205,28 @@
    ""
   ]
  ],
+ "wnba_groups": [
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wnba",
+   "load_wnba_team_group_seasons",
+   ""
+  ]
+ ],
  "nhl_pbp_full": [
   [
    "sportsdataverse.nhl",
@@ -358,6 +380,28 @@
    ""
   ]
  ],
+ "nhl_groups": [
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nhl",
+   "load_nhl_team_group_seasons",
+   ""
+  ]
+ ],
  "espn_womens_college_basketball_pbp": [
   [
    "sportsdataverse.wbb",
@@ -473,6 +517,13 @@
    ""
   ]
  ],
+ "ncaa_wbb_rapm": [
+  [
+   "sportsdataverse.wbb",
+   "load_ncaa_wbb_rapm",
+   ""
+  ]
+ ],
  "ncaa_wbb_pbp": [
   [
    "sportsdataverse.wbb",
@@ -554,6 +605,28 @@
   [
    "sportsdataverse.wbb",
    "load_ncaa_wbb_rapm_within_team",
+   ""
+  ]
+ ],
+ "wbb_groups": [
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.wbb",
+   "load_wbb_team_group_seasons",
    ""
   ]
  ],
@@ -781,6 +854,28 @@
   [
    "sportsdataverse.nba",
    "load_nba_player_impact",
+   ""
+  ]
+ ],
+ "nba_groups": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nba",
+   "load_nba_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nba",
+   "load_nba_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nba",
+   "load_nba_team_group_seasons",
    ""
   ]
  ],
@@ -1062,10 +1157,200 @@
    ""
   ]
  ],
+ "espn_cfb_usage_players": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_players",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_position_groups": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_position_groups",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_tackles": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_tackles",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_position_group_tackles": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_position_group_tackles",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_teams": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_teams",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_drive_scripting": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_drive_scripting",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_st_kickers": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_st_kickers",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_st_punters": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_st_punters",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_st_returners": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_st_returners",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_st_blocks": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_st_blocks",
+   ""
+  ]
+ ],
+ "espn_cfb_usage_st_team": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_usage_st_team",
+   ""
+  ]
+ ],
+ "espn_cfb_team_tendencies": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_tendencies",
+   ""
+  ]
+ ],
+ "espn_cfb_coach_tendencies": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_coach_tendencies",
+   ""
+  ]
+ ],
+ "espn_cfb_coach_careers": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_coach_careers",
+   "NOSEASON"
+  ]
+ ],
  "cfbfastR_cfb_pbp": [
   [
    "sportsdataverse.cfb",
    "load_cfb_pbp_r",
+   ""
+  ]
+ ],
+ "ncaa_mfb_pbp": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_pbp",
+   ""
+  ]
+ ],
+ "ncaa_mfb_pbp_cfbfastr": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_pbp_cfbfastr",
+   ""
+  ]
+ ],
+ "ncaa_mfb_drives": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_drives",
+   ""
+  ]
+ ],
+ "ncaa_mfb_schedule": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_schedule",
+   ""
+  ]
+ ],
+ "ncaa_mfb_rosters": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_rosters",
+   ""
+  ]
+ ],
+ "ncaa_mfb_teams": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_teams",
+   ""
+  ]
+ ],
+ "ncaa_mfb_team_stats": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_team_stats",
+   ""
+  ]
+ ],
+ "ncaa_mfb_player_stats": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_player_stats",
+   ""
+  ]
+ ],
+ "ncaa_mfb_officials": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_officials",
+   ""
+  ]
+ ],
+ "ncaa_mfb_linescore": [
+  [
+   "sportsdataverse.cfb",
+   "load_ncaa_mfb_linescore",
+   ""
+  ]
+ ],
+ "cfb_groups": [
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.cfb",
+   "load_cfb_team_group_seasons",
    ""
   ]
  ],
@@ -1268,6 +1553,35 @@
    ""
   ]
  ],
+ "ncaa_mbb_rapm": [
+  [
+   "sportsdataverse.mbb",
+   "load_ncaa_mbb_rapm",
+   ""
+  ]
+ ],
+ "mbb_groups": [
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mbb",
+   "load_mbb_team_group_seasons",
+   ""
+  ]
+ ],
  "phf_pbp": [
   [
    "sportsdataverse.pwhl",
@@ -1432,6 +1746,27 @@
    ""
   ]
  ],
+ "mlb_pbp": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_pbp",
+   ""
+  ]
+ ],
+ "mlb_pitches": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_pitches",
+   ""
+  ]
+ ],
+ "mlb_runners": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_runners",
+   ""
+  ]
+ ],
  "mlb_hitting_models": [
   [
    "sportsdataverse.mlb",
@@ -1490,6 +1825,121 @@
    "sportsdataverse.mlb",
    "load_ncaa_baseball_schedule",
    ""
+  ]
+ ],
+ "ncaa_baseball_teams": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_teams",
+   ""
+  ]
+ ],
+ "ncaa_baseball_rosters": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_rosters",
+   ""
+  ]
+ ],
+ "ncaa_baseball_linescore": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_linescore",
+   ""
+  ]
+ ],
+ "ncaa_baseball_team_stats": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_team_stats",
+   ""
+  ]
+ ],
+ "ncaa_baseball_player_stats": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_player_stats",
+   ""
+  ]
+ ],
+ "ncaa_baseball_situational_stats": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_situational_stats",
+   ""
+  ]
+ ],
+ "ncaa_baseball_games": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_games",
+   ""
+  ]
+ ],
+ "mlb_groups": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_team_group_seasons",
+   ""
+  ]
+ ],
+ "ncaa_baseball_groups": [
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.mlb",
+   "load_ncaa_baseball_team_group_seasons",
+   ""
+  ]
+ ],
+ "nfl_groups": [
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_groups",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_group_seasons",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_group_aliases",
+   "NOSEASON"
+  ],
+  [
+   "sportsdataverse.nfl",
+   "load_nfl_team_group_seasons",
+   "seasons=[SEASON]"
   ]
  ],
  "nfl_players": [

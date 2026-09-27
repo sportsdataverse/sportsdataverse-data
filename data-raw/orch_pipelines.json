@@ -256,14 +256,19 @@
   "sport": "ncaa_mfb",
   "label": "NCAA MFB \u00b7 stats.ncaa.org",
   "season_min": 2013,
-  "season_max": 2025,
+  "season_max": 2026,
   "default_stages": [
    "raw.capture_fbs",
    "raw.capture_fcs",
    "raw.build",
    "data.publish"
   ],
-  "crons": [],
+  "crons": [
+   "0 10 * 8 *",
+   "0 10 * 9-11 *",
+   "0 10 1-20 12 *",
+   "0 10 1-20 1 *"
+  ],
   "schedule_active": false,
   "packages": [
    "sdv-py"
