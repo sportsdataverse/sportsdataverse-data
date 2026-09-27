@@ -246,6 +246,13 @@ PY_LOADER = re.compile(
 #: the docstring. Verified by reading each one — `load_nfl_players` defaults to
 #: nflverse's asset and only reads this release when asked for the SDV source.
 PY_EXTRA = {
+    # hand-written NFL loaders (NFL is not a generated-loader league); NOSEASON = season-less file
+    "nfl_groups": [
+        ["sportsdataverse.nfl", "load_nfl_groups", "NOSEASON"],
+        ["sportsdataverse.nfl", "load_nfl_group_seasons", "NOSEASON"],
+        ["sportsdataverse.nfl", "load_nfl_group_aliases", "NOSEASON"],
+        ["sportsdataverse.nfl", "load_nfl_team_group_seasons", "seasons=[SEASON]"],
+    ],
     "nfl_players": [["sportsdataverse.nfl", "load_nfl_players", 'source="sdv"']],
     "nfl_rosters": [
         ["sportsdataverse.nfl", "load_nfl_rosters", 'seasons=[SEASON], source="sdv"']
@@ -284,7 +291,7 @@ def step_py_loaders() -> None:
     venv = ROOT / "sportsdataverse-py" / ".venv" / "bin" / "python"
     if venv.exists():
         code = (
-            "import json,sys,importlib\n"
+            "import json,sys,importlib,inspect\n"
             "found=json.load(sys.stdin)\n"
             "out={};cache={}\n"
             "for t,v in found.items():\n"
@@ -294,7 +301,12 @@ def step_py_loaders() -> None:
             "            try: cache[pkg]=importlib.import_module(pkg)\n"
             "            except Exception as e: cache[pkg]=e\n"
             "        m=cache[pkg]\n"
-            "        if not isinstance(m,Exception) and hasattr(m,fn): keep.append([pkg,fn,sig])\n"
+            "        if isinstance(m,Exception) or not hasattr(m,fn): continue\n"
+            "        try:\n"
+            "            ps=inspect.signature(getattr(m,fn)).parameters.values()\n"
+            "            takes=any(p.name=='seasons' or p.kind in (p.VAR_POSITIONAL,p.VAR_KEYWORD) for p in ps)\n"
+            "        except (TypeError,ValueError): takes=True\n"
+            "        keep.append([pkg,fn,sig if (takes or sig) else 'NOSEASON'])\n"
             "    if keep: out[t]=keep\n"
             "print(json.dumps(out))"
         )
@@ -350,16 +362,23 @@ def step_r_loaders() -> None:
         "|".join(re.escape(t) for t in sorted(tags, key=len, reverse=True))
     )
     hits: dict[str, set] = defaultdict(set)
+    takes_seasons: dict[tuple, bool] = {}
     for pkg in R_PKGS:
         d = ROOT / pkg / "R"
         if not d.is_dir():
             continue
         for f in d.glob("*.R"):
             cur = None
+            formals = None  # the text of the current function's formals, until its body opens
             for line in f.read_text(errors="replace").splitlines():
                 m = R_DEF.match(line)
                 if m:
-                    cur = m.group(1)
+                    cur, formals = m.group(1), ""
+                if formals is not None:
+                    formals += line.split("{", 1)[0]
+                    if "{" in line:
+                        takes_seasons[(pkg, cur)] = re.search(r"\bseasons\b", formals) is not None
+                        formals = None
                 if line.lstrip().startswith("#"):
                     continue  # roxygen mentions are documentation, not a read
                 if cur and cur.startswith("load_"):
@@ -386,7 +405,7 @@ def step_r_loaders() -> None:
         ranked = sorted(v, key=lambda x: (-score(t, x[1]), x[1]))
         top = score(t, ranked[0][1])
         keep = [
-            list(x)
+            [*x, takes_seasons.get((x[0], x[1]), True)]
             for x in ranked
             if score(t, x[1]) >= max(0.34, top - 0.2)
             and x[1] in exports.get(x[0], set())
