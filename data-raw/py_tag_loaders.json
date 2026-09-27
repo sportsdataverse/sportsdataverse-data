@@ -1920,6 +1920,13 @@
    ""
   ]
  ],
+ "mlb_parks": [
+  [
+   "sportsdataverse.mlb",
+   "load_mlb_park_dimensions",
+   "NOSEASON"
+  ]
+ ],
  "nfl_groups": [
   [
    "sportsdataverse.nfl",
