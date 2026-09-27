@@ -576,6 +576,8 @@ KIND = {
     "coaches": "coaches, one row per coach per game",
     "power_index": "ESPN's power index (FPI) ratings",
     "percentiles": "team percentile ranks across the summary measures",
+    "league_averages": "season baselines: the mean, median, standard deviation and n of every published team and player metric, per level, over the same qualified population the ranks and percentiles use",
+    "rolling_windows": "rolling event-count windows: each player's and team's form over its last N events vs the previous N, the season start and its career baseline, with delta ranks and sample sizes, one asset per season",
     "team_summaries": "team season summaries",
     "team_summaries_weekly": "team season summaries snapshotted weekly",
     "ratings": "team ratings",
