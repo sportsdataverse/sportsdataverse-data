@@ -390,19 +390,23 @@ def render(tag: str) -> str:
     pys = PYMAP.get(tag, [])
     for mod, fn, sig in pys[:4]:
         # curated entries carry a ready-made call example; scanned ones carry a signature
-        args = (
-            sig.replace("SEASON", str(ls))
-            if ("SEASON" in sig or '"sdv"' in sig)
-            else f"seasons=[{ls}]"
-        )
+        if sig == "NOSEASON":  # a season-less file: the loader takes no seasons
+            args = ""
+        else:
+            args = (
+                sig.replace("SEASON", str(ls))
+                if ("SEASON" in sig or '"sdv"' in sig)
+                else f"seasons=[{ls}]"
+            )
         rows.append(f"| Python | `from {mod} import {fn}`<br>`{fn}({args})` |")
     if not pys:
         rows.append(
             "| Python | *no `sportsdataverse-py` loader yet — read the asset URL directly* |"
         )
     rs = RMAP.get(tag, [])
-    for pkg, fn, _f in rs[:4]:
-        rows.append(f"| R | `{pkg}::{fn}(seasons = {ls})` |")
+    for pkg, fn, _f, *takes in rs[:4]:
+        arg = "" if takes and takes[0] is False else f"seasons = {ls}"
+        rows.append(f"| R | `{pkg}::{fn}({arg})` |")
     if not rs:
         rows.append(
             "| R | *no SportsDataverse R loader — read the asset URL directly* |"
@@ -537,7 +541,7 @@ def render(tag: str) -> str:
             f"- **`sportsdataverse-py`** — {src or chr(96) + mod + chr(46) + fn + chr(40) + chr(41) + chr(96)}"
             f" reads this tag directly ([API docs](https://py.sportsdataverse.org/))."
         )
-    for pkg, fn, fl in rs:
+    for pkg, fn, fl, *_ in rs:
         link = repo_link(pkg, f"R/{fl}", f"{pkg}::{fn}()")
         dep.append(
             f"- **`{pkg}`** — {link or f'`{pkg}::{fn}()`'} reads this tag directly."
