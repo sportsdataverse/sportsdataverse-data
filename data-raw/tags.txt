@@ -184,6 +184,7 @@ mlb_fielding_models
 mlb_game_state
 mlb_groups
 mlb_hitting_models
+mlb_parks
 mlb_pbp
 mlb_pitches
 mlb_pitching_models

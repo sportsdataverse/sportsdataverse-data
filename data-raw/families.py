@@ -64,7 +64,27 @@ _GROUPS: list[tuple[str, dict]] = [
     for lg, (title, key) in _GROUP_LEAGUES.items()
 ]
 
-FAMILIES: list[tuple[str, dict]] = _GROUPS + [
+_PARKS: list[tuple[str, dict]] = [
+    (
+        "mlb_parks",
+        {
+            "title": "MLB ballpark dimensions by venue and season",
+            "provider": "the MLB Stats API's per-season venue `fieldInfo`, with cited curated corrections where it lags a fence move",
+            "raw": ("sdv-reference-data", "`fetch()` in `sdv_reference/parks/mlb.py` snapshots the venues into `raw/mlb_parks/`"),
+            "build": ("sdv-reference-data", "`scripts/pipeline/20_build_tables.sh mlb_parks` (offline, from `raw/` and `curated/mlb_park_overrides.csv`)"),
+            "publish": "`scripts/pipeline/30_publish_releases.sh mlb_parks` in sdv-reference-data",
+            "season_key": "the single calendar year",
+            "note": (
+                "A **reference table**, not observations: one row per MLB-used venue per season (2001 on; the API repeats one undated "
+                "record per venue before that), with the seven outfield fence distances in feet, capacity, turf, roof, azimuth, "
+                "elevation, location and the Retrosheet park id. Where the API lags a real fence change (Camden 2022, Petco 2013-14, "
+                "T-Mobile, Comerica), a cited correction wins. Schema: sdv-reference-data `CONTRACT.md`."
+            ),
+        },
+    ),
+]
+
+FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + [
     # --- identity crosswalks: reference tables, not models. Matched first so the
     # --- broader `nba_` / `mbb_` model prefixes below do not claim them.
     (
@@ -101,7 +121,7 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + [
             "title": "Men's college basketball identity crosswalks",
             "provider": "the ESPN and provider ids already captured for this league",
             "raw": ("hoopR-mbb-raw", "the league's existing raw capture — no separate scrape"),
-            "build": ("hoopR-mbb-data", "`R/mbb_11_team_crosswalk_creation.R`, `mbb_12_schedule_crosswalk_creation.R`, `mbb_13_player_crosswalk_creation.R`"),
+            "build": ("hoopR-mbb-data", "`python/espn_mbb_11_team_crosswalk_creation.py` (team, via the sportsdataverse-py builder), `R/mbb_12_schedule_crosswalk_creation.R`, `R/mbb_13_player_crosswalk_creation.R`"),
             "publish": "uploaded to this tag by the same build that writes it",
             "orch": "mbb",
             "r_pkg": "hoopR",
@@ -115,7 +135,7 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + [
             "title": "Women's college basketball identity crosswalks",
             "provider": "the ESPN and provider ids already captured for this league",
             "raw": ("wehoop-wbb-raw", "the league's existing raw capture — no separate scrape"),
-            "build": ("wehoop-wbb-data", "`R/wbb_13_team_crosswalk_creation.R`, `wbb_14_schedule_crosswalk_creation.R`, `wbb_15_player_crosswalk_creation.R`"),
+            "build": ("wehoop-wbb-data", "`python/espn_wbb_13_team_crosswalk_creation.py`, `espn_wbb_14_schedule_crosswalk_creation.py`, `espn_wbb_15_player_crosswalk_creation.py` (the R scripts remain as a fallback)"),
             "publish": "uploaded to this tag by the same build that writes it",
             "orch": "wbb",
             "r_pkg": "wehoop",
