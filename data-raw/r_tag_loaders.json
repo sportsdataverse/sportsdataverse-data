@@ -951,14 +951,6 @@
    true
   ]
  ],
- "wnba_stats_leaguedash": [
-  [
-   "wehoop",
-   "load_wnba_stats_leaguedash",
-   "load_wnba_stats.R",
-   true
-  ]
- ],
  "wnba_stats_player_season_stats": [
   [
    "wehoop",
@@ -971,6 +963,14 @@
    "load_wnba_stats_player_stats_manifest",
    "load_wnba_stats.R",
    false
+  ]
+ ],
+ "wnba_stats_leaguedash": [
+  [
+   "wehoop",
+   "load_wnba_stats_leaguedash",
+   "load_wnba_stats.R",
+   true
   ]
  ],
  "wnba_stats_lineups": [
