@@ -27,7 +27,44 @@ DL = f"{DATA_REPO}/releases/download"
 #   py_mod      sportsdataverse-py subpackage
 #   note        anything a consumer must know (season key, gaps, freezes)
 
-FAMILIES: list[tuple[str, dict]] = [
+# --- conference / division reference ({league}_groups), built by sdv-reference-data. Listed
+# --- first: family_of() takes the first matching prefix, and `nba_` / `mlb_` families follow.
+_GROUP_LEAGUES = {
+    "cfb": ("College football", "the **starting** year (2025 = fall 2025)"),
+    "mbb": ("Men's college basketball", "the **ending** year (2025 = 2024-25)"),
+    "wbb": ("Women's college basketball", "the **ending** year (2025 = 2024-25)"),
+    "nfl": ("NFL", "the **starting** year (2025 = the 2025 season)"),
+    "nba": ("NBA", "the **ending** year (2025 = 2024-25)"),
+    "wnba": ("WNBA", "the single calendar year"),
+    "mlb": ("MLB", "the single calendar year"),
+    "nhl": ("NHL", "the **ending** year (2025 = 2024-25)"),
+    "ncaa_baseball": ("College baseball", "the single (spring) year"),
+    "ncaa_softball": ("College softball", "the single (spring) year"),
+}
+_GROUPS: list[tuple[str, dict]] = [
+    (
+        f"{lg}_groups",
+        {
+            "title": f"{title} conference, division and subdivision reference",
+            "provider": "the league's membership source and every source's names and ids for its groups (see the build repo)",
+            "raw": ("sdv-reference-data", f"`fetch()` in `sdv_reference/leagues/{lg}.py` snapshots the sources into `raw/{lg}/`"),
+            "build": ("sdv-reference-data", f"`scripts/pipeline/20_build_tables.sh {lg}` (offline, from `raw/` and cited `curated/` rows)"),
+            "publish": f"`scripts/pipeline/30_publish_releases.sh {lg}` in sdv-reference-data",
+            "season_key": key,
+            "note": (
+                "A **reference table**, not observations. Four tables: `groups` (one row per SDV group lineage, "
+                "`{league}:{slug}`), `group_seasons` (each group's name, abbreviation and parent **as of that season**), "
+                "`group_aliases` (every source's ids and names for a group, with validity windows) and "
+                "`team_group_seasons` (each team's subdivision, conference and division by season, one file per season). "
+                "Historical names come from dated, cited rows: ESPN, stats.ncaa.org and CFBD all show today's names for "
+                "past seasons. Schema: sdv-reference-data `CONTRACT.md`."
+            ),
+        },
+    )
+    for lg, (title, key) in _GROUP_LEAGUES.items()
+]
+
+FAMILIES: list[tuple[str, dict]] = _GROUPS + [
     # --- identity crosswalks: reference tables, not models. Matched first so the
     # --- broader `nba_` / `mbb_` model prefixes below do not claim them.
     (
