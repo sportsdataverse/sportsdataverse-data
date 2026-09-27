@@ -1839,6 +1839,14 @@
    true
   ]
  ],
+ "mlb_parks": [
+  [
+   "baseballr",
+   "load_mlb_park_dimensions",
+   "load_parks.R",
+   false
+  ]
+ ],
  "ncaa_softball_groups": [
   [
    "softballR",
