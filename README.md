@@ -12,10 +12,11 @@ BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg?style=flat-s
 <!-- badges: end -->
 
 This repository is the **release store** of the
-[SportsDataverse](https://sportsdataverse.org): every `load_*()`
-function in the SportsDataverse R packages and in `sportsdataverse-py`
-reads its data from the GitHub releases published here. This page shows
-how fresh each release is, which repository produces it, and whether the
+[SportsDataverse](https://sportsdataverse.org): the `load_*()` functions
+in the SportsDataverse R packages and in `sportsdataverse-py` read their
+data from the GitHub releases published here (the nflverse-parity NFL
+loaders read the nflverse-data releases instead). This page shows how
+fresh each release is, which repository produces it, and whether the
 pipelines behind it are passing.
 
 Live status:
