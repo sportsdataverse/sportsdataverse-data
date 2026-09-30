@@ -1,5 +1,11 @@
 """Curated per-family metadata for sportsdataverse-data release notes.
 
+Source of truth for WHICH repo produces a tag: ``status/producers.json`` in
+sportsdataverse/.github (its ordered ``rules``; the nightly ``status/summary.json``
+resolves every live tag). This file only adds release-note prose, and each family's
+``build`` repo must agree with that map (``repo: null`` there = no public producer,
+so no ``raw``/``build`` here). ``python3 families.py`` checks the agreement.
+
 Everything here is checked against the repos: the raw/data repo names and stage
 scripts come from ``sdv-orch/sdv_orch/registry.py``, the workflow filenames from
 each repo's ``.github/workflows/``, and the package names from the R DESCRIPTION
@@ -84,7 +90,60 @@ _PARKS: list[tuple[str, dict]] = [
     ),
 ]
 
-FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + [
+# --- ESPN league-wide snapshots, published for every league by cfbfastR-cfb-data. Listed
+# --- before the per-league `espn_*_` families below, which would otherwise claim them.
+_SNAPSHOT_LEAGUES = {
+    "cfb": "college football",
+    "nfl": "NFL",
+    "nba": "NBA",
+    "wnba": "WNBA",
+    "mbb": "men's college basketball",
+    "wbb": "women's college basketball",
+    "nhl": "NHL",
+    "mlb": "MLB",
+}
+_SNAPSHOTS: list[tuple[str, dict]] = [
+    (
+        f"espn_{lg}_{kind}",
+        {
+            "title": f"ESPN {_SNAPSHOT_LEAGUES[lg]} {what} (daily snapshot)",
+            "provider": "ESPN's league-wide endpoint, one request per league",
+            "build": (
+                "cfbfastR-cfb-data",
+                f"`python/espn_{kind}_daily_snapshot.py`, run daily for every league by `espn_daily_snapshots.yml`",
+            ),
+            "publish": "the same snapshot script with `--publish`",
+            "orch": None,
+            "r_pkg": None,
+            "py_mod": None,
+            "note": "ESPN reports **current state only**, so history exists only as these daily snapshots; each row carries the `as_of_date` it was captured.",
+        },
+    )
+    for kind, what, leagues in (
+        ("injuries", "injury report", tuple(_SNAPSHOT_LEAGUES)),
+        ("depthcharts", "depth charts", ("nfl", "nba", "mlb")),
+    )
+    for lg in leagues
+]
+
+# --- legacy ESPN box-score tags of the CFBD-side cfbfastR-data build (its stages are switched off).
+_CFB_LEGACY_BOX: list[tuple[str, dict]] = [
+    (
+        f"espn_cfb_{side}_boxscores",
+        {
+            "title": f"ESPN college football {side} box scores (legacy)",
+            "provider": "ESPN college-football API",
+            "build": ("cfbfastR-data", "the legacy R box-score stages, currently switched off"),
+            "publish": "`piggyback::pb_upload()` from the R build",
+            "orch": None,
+            "r_pkg": "cfbfastR",
+            "py_mod": "sportsdataverse.cfb",
+        },
+    )
+    for side in ("player", "team")
+]
+
+FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + _SNAPSHOTS + _CFB_LEGACY_BOX + [
     # --- identity crosswalks: reference tables, not models. Matched first so the
     # --- broader `nba_` / `mbb_` model prefixes below do not claim them.
     (
@@ -333,6 +392,17 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + [
         },
     ),
     (
+        "nhl_xg_models",
+        {
+            "title": "NHL expected-goals model artifacts",
+            "provider": "NHL play-by-play, fitted into an expected-goals model",
+            "publish": "no publishing code exists in any public repository; the assets are read by `fastRhockey-nhl-raw` and `sportsdataverse-py`",
+            "orch": None,
+            "r_pkg": None,
+            "py_mod": "sportsdataverse.nhl",
+        },
+    ),
+    (
         "nhl_",
         {
             "title": "NHL",
@@ -374,14 +444,12 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + [
         {
             "title": "PHF / NWHL (archived)",
             "provider": "PHF (formerly NWHL) HockeyTech feeds",
-            "raw": ("fastRhockey-nhl-raw", "historical capture, no longer running"),
-            "build": ("fastRhockey-nhl-data", "historical build, no longer running"),
             "publish": "frozen — the assets are final",
             "orch": None,
             "r_pkg": "fastRhockey",
             "py_mod": None,
             "archived": True,
-            "note": "The PHF ceased operations in 2023 and its assets were folded into the PWHL. These files are a **frozen archive**: they will not be updated. `fastRhockey`'s `load_phf_*` and `phf_*` functions are formally deprecated. For current women's professional hockey use the `pwhl_*` releases.",
+            "note": "The PHF ceased operations in 2023 and its assets were folded into the PWHL. No public producer code writes these tags. These files are a **frozen archive**: they will not be updated. `fastRhockey`'s `load_phf_*` and `phf_*` functions are formally deprecated. For current women's professional hockey use the `pwhl_*` releases.",
         },
     ),
     (
@@ -486,6 +554,35 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + [
             "r_pkg": "baseballr",
             "py_mod": "sportsdataverse.mlb",
             "season_key": "season = the calendar year.",
+        },
+    ),
+    (
+        "nfl_ngs_",
+        {
+            "title": "NFL Next Gen Stats",
+            "provider": "the public NFL Next Gen Stats API",
+            "raw": ("nfl-ngs-raw", "`scripts/daily_ngs_scraper.sh`, run by `scrape_ngs_raw.yml`"),
+            "build": ("nfl-ngs-data", "`scripts/daily_ngs_data_processor.sh`, run by `daily_ngs.yml`"),
+            "publish": "`scripts/daily_ngs_data_processor.sh` (publishes by default)",
+            "orch": None,
+            "r_pkg": None,
+            "py_mod": "sportsdataverse.nfl",
+            "season_key": "season = the STARTING year of the season (2024 = the 2024-25 playoffs).",
+            "note": "Read these with `load_nfl_ngs(seasons, dataset=)`. They are a different source from `load_nfl_nextgen_stats`, which reads the nflverse release.",
+        },
+    ),
+    (
+        "espn_nfl_",
+        {
+            "title": "ESPN NFL",
+            "provider": "ESPN NFL API",
+            "raw": ("nfl-raw", "`scripts/daily_nfl_scraper.sh` into `nfl/json/{season}/`"),
+            "build": ("nfl-data", "`scripts/espn_nfl_data.sh`, run by `espn_nfl_cron.yml`"),
+            "publish": "`PUBLISH=1 bash scripts/espn_nfl_data.sh` uploads each season to its `espn_nfl_*` tag",
+            "orch": None,
+            "r_pkg": None,
+            "py_mod": "sportsdataverse.nfl",
+            "season_key": "season = the STARTING year of the season (2024 = the 2024-25 playoffs).",
         },
     ),
     (
@@ -677,3 +774,30 @@ KIND = {
     "receiving": "receiving statistics",
     "games": "game-level records, one row per game",
 }
+
+
+if __name__ == "__main__":
+    # Check every live tag's family against the nightly status snapshot, the source of truth.
+    # Exit codes: 0 = every tag agrees, 1 = at least one mismatch, 2 = the snapshot could not be read
+    # (so a network or parse failure is never mistaken for a producer mismatch).
+    import json
+    import sys
+    import urllib.error
+    import urllib.request
+
+    url = "https://raw.githubusercontent.com/sportsdataverse/.github/main/status/summary.json"
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            tags = json.load(r)["release_tags"]
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError) as e:
+        print(f"could not read the status snapshot at {url}: {e!r}", file=sys.stderr)
+        raise SystemExit(2) from e
+    bad = []
+    for t in tags:
+        meta = next((m for prefix, m in FAMILIES if t["tag"].startswith(prefix)), None)
+        build = meta.get("build") if meta else None
+        mine = f"sportsdataverse/{build[0]}" if build else None
+        if mine != t["producer"]:
+            bad.append(f"{t['tag']}: families.py={mine} status={t['producer']}")
+    print("\n".join(bad) or f"OK: {len(tags)} tags agree with status/summary.json")
+    raise SystemExit(1 if bad else 0)
