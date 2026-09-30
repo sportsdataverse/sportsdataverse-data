@@ -634,6 +634,7 @@ KIND = {
     "power_index": "ESPN's power index (FPI) ratings",
     "percentiles": "team percentile ranks across the summary measures",
     "league_averages": "season baselines: the mean, median, standard deviation and n of every published team and player metric, per level, over the same qualified population the ranks and percentiles use",
+    "team_opponent_splits": "by-opponent team splits: one row per team per game with the opponent, EPA per play, success rate, points for and against and plays; college covers every game (FCS opponents and bowls included), NFL the regular season only, where game_id is empty before 2002 and nflverse_game_id identifies every game",
     "rolling_windows": "rolling event-count windows: each player's and team's form over its last N events vs the previous N, the season start and its career baseline, with delta ranks and sample sizes, one asset per season",
     "team_summaries": "team season summaries",
     "team_summaries_weekly": "team season summaries snapshotted weekly",
