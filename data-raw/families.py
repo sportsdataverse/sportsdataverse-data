@@ -778,12 +778,20 @@ KIND = {
 
 if __name__ == "__main__":
     # Check every live tag's family against the nightly status snapshot, the source of truth.
+    # Exit codes: 0 = every tag agrees, 1 = at least one mismatch, 2 = the snapshot could not be read
+    # (so a network or parse failure is never mistaken for a producer mismatch).
     import json
+    import sys
+    import urllib.error
     import urllib.request
 
     url = "https://raw.githubusercontent.com/sportsdataverse/.github/main/status/summary.json"
-    with urllib.request.urlopen(url) as r:
-        tags = json.load(r)["release_tags"]
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            tags = json.load(r)["release_tags"]
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError) as e:
+        print(f"could not read the status snapshot at {url}: {e!r}", file=sys.stderr)
+        raise SystemExit(2) from e
     bad = []
     for t in tags:
         meta = next((m for prefix, m in FAMILIES if t["tag"].startswith(prefix)), None)
