@@ -176,11 +176,24 @@ def step_hits() -> None:
         self_dir = str(HERE.relative_to(ROOT)) + "/"
     except ValueError:  # toolchain checked out outside SDV_REPOS
         self_dir = "\0"
+    # Only files a checkout TRACKS can be linked at blob/main: a worktree, a nested
+    # .claude/worktrees/<name>, a scratch dir or an untracked file is not on main.
     repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else {}
+    tracked: dict[str, set[str]] = {}
+    for name in repos:
+        ls = subprocess.run(["git", "-C", str(ROOT / name), "ls-files", "-z"], capture_output=True, text=True)
+        tracked[name] = set(ls.stdout.split("\0"))
+
+    def on_main(ln: str) -> bool:
+        if not repos:
+            return True
+        repo, _, rest = ln.partition("/")
+        return repo in tracked and rest.split(":", 1)[0] in tracked[repo]
+
     keep = [
         ln
         for ln in out.stdout.replace(str(ROOT) + "/", "").splitlines()
-        if not ln.startswith(self_dir) and (not repos or ln.split("/", 1)[0] in repos)
+        if not ln.startswith(self_dir) and on_main(ln)
     ]
     (HERE / "tag_hits.txt").write_text("\n".join(keep) + "\n")
     print(f"  -> tag_hits.txt ({len(keep)} references)")
