@@ -178,14 +178,18 @@ def step_hits() -> None:
         self_dir = "\0"
     # Only files a checkout TRACKS can be linked at blob/main: a worktree, a nested
     # .claude/worktrees/<name>, a scratch dir or an untracked file is not on main.
-    repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else {}
+    # A missing repos.json (the `repos` step never ran) keeps every hit, with a
+    # warning; an existing one is authoritative, so an empty mapping keeps none.
+    repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else None
+    if repos is None:
+        warn("no repos.json: run the repos step first; keeping hits from every directory")
     tracked: dict[str, set[str]] = {}
-    for name in repos:
+    for name in repos or {}:
         ls = subprocess.run(["git", "-C", str(ROOT / name), "ls-files", "-z"], capture_output=True, text=True)
         tracked[name] = set(ls.stdout.split("\0"))
 
     def on_main(ln: str) -> bool:
-        if not repos:
+        if repos is None:
             return True
         repo, _, rest = ln.partition("/")
         return repo in tracked and rest.split(":", 1)[0] in tracked[repo]
