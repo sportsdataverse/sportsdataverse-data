@@ -19,8 +19,11 @@ bash push_notes.sh            # publish
 ```
 
 `collect_inputs.py` takes step names if you only need part of a refresh, e.g.
-`python3 collect_inputs.py releases workflows`. Steps are `releases`, `hits`,
-`db_catalog`, `orch`, `workflows`, `py_loaders`, `r_loaders`. A step that cannot
+`python3 collect_inputs.py releases workflows`. Steps are `releases`, `repos`, `hits`,
+`db_catalog`, `orch`, `workflows`, `py_loaders`, `r_loaders`. `repos` records each
+checkout's GitHub home and whether it is private (`repos.json`): links go through the
+home, a private repo is named but never linked, and `hits` ignores anything outside a
+real checkout (worktrees, scratch directories). A step that cannot
 reach its source warns and leaves the previous file alone, so a partial refresh
 degrades to a stale input rather than an empty one.
 

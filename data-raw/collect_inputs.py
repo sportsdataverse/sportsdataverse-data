@@ -86,6 +86,34 @@ def step_releases() -> None:
 
 
 # --- 2. every source-file reference to a release tag ------------------------
+def step_repos() -> None:
+    """Every real checkout under ROOT (a `.git` DIRECTORY: a worktree has a `.git`
+    file and is not a repo of its own) with its GitHub home and whether it is
+    private. render_notes links through the home, never a guessed org (baseballr
+    lives under BillPetti), and never links a private repo. The tag scan keeps
+    only hits inside these checkouts, so worktrees and scratch dirs drop out."""
+    repos: dict[str, dict] = {}
+    for d in sorted(ROOT.iterdir()):
+        if not (d / ".git").is_dir():
+            continue
+        url = subprocess.run(
+            ["git", "-C", str(d), "remote", "get-url", "origin"], capture_output=True, text=True
+        ).stdout.strip()
+        m = re.search(r"github\.com[:/]([^/]+/[^/]+?)(?:\.git)?$", url)
+        if not m:
+            continue
+        home = m.group(1)
+        out = subprocess.run(
+            ["gh", "api", f"repos/{home}", "--jq", ".private"], capture_output=True, text=True
+        )
+        private = {"true": True, "false": False}.get(out.stdout.strip())
+        if private is None:
+            warn(f"{d.name}: cannot read {home} (private? assuming yes)")
+            private = True
+        repos[d.name] = {"home": home, "private": private}
+    write("repos.json", repos)
+
+
 def step_hits() -> None:
     tagfile = HERE / "tags.txt"
     if not tagfile.exists():
@@ -148,10 +176,11 @@ def step_hits() -> None:
         self_dir = str(HERE.relative_to(ROOT)) + "/"
     except ValueError:  # toolchain checked out outside SDV_REPOS
         self_dir = "\0"
+    repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else {}
     keep = [
         ln
         for ln in out.stdout.replace(str(ROOT) + "/", "").splitlines()
-        if not ln.startswith(self_dir)
+        if not ln.startswith(self_dir) and (not repos or ln.split("/", 1)[0] in repos)
     ]
     (HERE / "tag_hits.txt").write_text("\n".join(keep) + "\n")
     print(f"  -> tag_hits.txt ({len(keep)} references)")
@@ -417,6 +446,7 @@ def step_r_loaders() -> None:
 
 STEPS = {
     "releases": step_releases,
+    "repos": step_repos,
     "hits": step_hits,
     "db_catalog": step_db_catalog,
     "orch": step_orch,

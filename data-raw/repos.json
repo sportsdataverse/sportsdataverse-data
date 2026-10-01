@@ -1,0 +1,322 @@
+{
+ ".github": {
+  "home": "sportsdataverse/.github",
+  "private": false
+ },
+ "ClaudeCowork": {
+  "home": "saiemgilani/ClaudeCowork",
+  "private": true
+ },
+ "Sports-Research-Papers": {
+  "home": "saiemgilani/Sports-Research-Papers",
+  "private": false
+ },
+ "baseballr": {
+  "home": "BillPetti/baseballr",
+  "private": false
+ },
+ "baseballr-data": {
+  "home": "sportsdataverse/baseballr-data",
+  "private": false
+ },
+ "cfb4th": {
+  "home": "sportsdataverse/cfb4th",
+  "private": false
+ },
+ "cfbfastR": {
+  "home": "sportsdataverse/cfbfastR",
+  "private": false
+ },
+ "cfbfastR-cfb-data": {
+  "home": "sportsdataverse/cfbfastR-cfb-data",
+  "private": false
+ },
+ "cfbfastR-cfb-raw": {
+  "home": "sportsdataverse/cfbfastR-cfb-raw",
+  "private": false
+ },
+ "cfbfastR-data": {
+  "home": "sportsdataverse/cfbfastR-data",
+  "private": false
+ },
+ "cfbfastR-models": {
+  "home": "sportsdataverse/cfbfastR-models",
+  "private": true
+ },
+ "cfbplotR": {
+  "home": "sportsdataverse/cfbplotR",
+  "private": false
+ },
+ "cfbseedR": {
+  "home": "sportsdataverse/cfbseedR",
+  "private": false
+ },
+ "dotfiles_saiemgilani": {
+  "home": "saiemgilani/dotfiles",
+  "private": true
+ },
+ "fastRhockey": {
+  "home": "sportsdataverse/fastRhockey",
+  "private": false
+ },
+ "fastRhockey-nhl-data": {
+  "home": "sportsdataverse/fastRhockey-nhl-data",
+  "private": false
+ },
+ "fastRhockey-nhl-raw": {
+  "home": "sportsdataverse/fastRhockey-nhl-raw",
+  "private": false
+ },
+ "fastRhockey-pwhl-data": {
+  "home": "sportsdataverse/fastRhockey-pwhl-data",
+  "private": false
+ },
+ "fastRhockey-pwhl-raw": {
+  "home": "sportsdataverse/fastRhockey-pwhl-raw",
+  "private": false
+ },
+ "game-on-paper-app": {
+  "home": "saiemgilani/game-on-paper-app",
+  "private": false
+ },
+ "game-on-paper-app-cloudflare": {
+  "home": "blackcb/game-on-paper-app",
+  "private": false
+ },
+ "gop-explainers": {
+  "home": "saiemgilani/gop-explainers",
+  "private": true
+ },
+ "hoopR": {
+  "home": "sportsdataverse/hoopR",
+  "private": false
+ },
+ "hoopR-kp-data": {
+  "home": "sportsdataverse/hoopR-kp-data",
+  "private": false
+ },
+ "hoopR-mbb-data": {
+  "home": "sportsdataverse/hoopR-mbb-data",
+  "private": false
+ },
+ "hoopR-mbb-raw": {
+  "home": "sportsdataverse/hoopR-mbb-raw",
+  "private": false
+ },
+ "hoopR-nba-data": {
+  "home": "sportsdataverse/hoopR-nba-data",
+  "private": false
+ },
+ "hoopR-nba-raw": {
+  "home": "sportsdataverse/hoopR-nba-raw",
+  "private": false
+ },
+ "hoopR-nba-stats-data": {
+  "home": "sportsdataverse/hoopR-nba-stats-data",
+  "private": false
+ },
+ "hoopR-nba-stats-raw": {
+  "home": "sportsdataverse/hoopR-nba-stats-raw",
+  "private": false
+ },
+ "mlbplotR": {
+  "home": "camdenk/mlbplotR",
+  "private": false
+ },
+ "ncaa-mbb-hoops-data": {
+  "home": "sportsdataverse/ncaa-mbb-hoops-data",
+  "private": false
+ },
+ "ncaa-mbb-hoops-raw": {
+  "home": "sportsdataverse/ncaa-mbb-hoops-raw",
+  "private": false
+ },
+ "ncaa-mfb-football-data": {
+  "home": "sportsdataverse/ncaa-mfb-football-data",
+  "private": false
+ },
+ "ncaa-mfb-football-raw": {
+  "home": "sportsdataverse/ncaa-mfb-football-raw",
+  "private": false
+ },
+ "ncaa-softball-raw": {
+  "home": "sportsdataverse/ncaa-softball-raw",
+  "private": false
+ },
+ "ncaa-wbb-hoops-data": {
+  "home": "sportsdataverse/ncaa-wbb-hoops-data",
+  "private": false
+ },
+ "ncaa-wbb-hoops-raw": {
+  "home": "sportsdataverse/ncaa-wbb-hoops-raw",
+  "private": false
+ },
+ "nfl-data": {
+  "home": "sportsdataverse/nfl-data",
+  "private": false
+ },
+ "nfl-ngs-data": {
+  "home": "sportsdataverse/nfl-ngs-data",
+  "private": false
+ },
+ "nfl-ngs-raw": {
+  "home": "sportsdataverse/nfl-ngs-raw",
+  "private": false
+ },
+ "nfl-raw": {
+  "home": "sportsdataverse/nfl-raw",
+  "private": false
+ },
+ "odds-data": {
+  "home": "sportsdataverse/odds-data",
+  "private": true
+ },
+ "oddsapiR": {
+  "home": "sportsdataverse/oddsapiR",
+  "private": false
+ },
+ "pff-cfb-data": {
+  "home": "sportsdataverse/pff-cfb-data",
+  "private": true
+ },
+ "pff-cfb-raw": {
+  "home": "sportsdataverse/pff-cfb-raw",
+  "private": true
+ },
+ "pff-nfl-data": {
+  "home": "sportsdataverse/pff-nfl-data",
+  "private": true
+ },
+ "pff-nfl-raw": {
+  "home": "sportsdataverse/pff-nfl-raw",
+  "private": true
+ },
+ "psql-to-models": {
+  "home": "AlbertoV5/psql-to-models",
+  "private": false
+ },
+ "saiem-blog": {
+  "home": "saiemgilani/saiem-blog",
+  "private": false
+ },
+ "sdv-assets": {
+  "home": "sportsdataverse/sdv-assets",
+  "private": false
+ },
+ "sdv-assets-private": {
+  "home": "sportsdataverse/sdv-assets-private",
+  "private": true
+ },
+ "sdv-db": {
+  "home": "sportsdataverse/sdv-db",
+  "private": true
+ },
+ "sdv-internal-refs": {
+  "home": "sportsdataverse/sdv-internal-refs",
+  "private": true
+ },
+ "sdv-next-clone": {
+  "home": "saiemgilani/sdv-next-clone",
+  "private": true
+ },
+ "sdv-orch": {
+  "home": "sportsdataverse/sdv-orch",
+  "private": true
+ },
+ "sdv-py": {
+  "home": "sportsdataverse/sportsdataverse-py",
+  "private": false
+ },
+ "sdv-reference-data": {
+  "home": "sportsdataverse/sdv-reference-data",
+  "private": false
+ },
+ "sdv-swagger": {
+  "home": "saiemgilani/sdv-swagger",
+  "private": false
+ },
+ "sdv_discord_bot": {
+  "home": "sportsdataverse/sdv_discord_bot",
+  "private": false
+ },
+ "sdvmodels": {
+  "home": "sportsdataverse/sdvmodels",
+  "private": false
+ },
+ "sdvplotR": {
+  "home": "sportsdataverse/sdvplotR",
+  "private": false
+ },
+ "softballR": {
+  "home": "sportsdataverse/softballR",
+  "private": false
+ },
+ "softballR-data": {
+  "home": "sportsdataverse/softballR-data",
+  "private": false
+ },
+ "sportsdataverse-R": {
+  "home": "sportsdataverse/sportsdataverse-R",
+  "private": false
+ },
+ "sportsdataverse-data": {
+  "home": "sportsdataverse/sportsdataverse-data",
+  "private": false
+ },
+ "sportsdataverse-js": {
+  "home": "sportsdataverse/sportsdataverse-js",
+  "private": false
+ },
+ "sportsdataverse-org": {
+  "home": "sportsdataverse/.github",
+  "private": false
+ },
+ "sportsdataverse-py": {
+  "home": "sportsdataverse/sportsdataverse-py",
+  "private": false
+ },
+ "sportsdataverse-web": {
+  "home": "sportsdataverse/sportsdataverse-web",
+  "private": false
+ },
+ "sportyR": {
+  "home": "sportsdataverse/sportyR",
+  "private": false
+ },
+ "sportypy": {
+  "home": "sportsdataverse/sportypy",
+  "private": false
+ },
+ "universe": {
+  "home": "sportsdataverse/universe",
+  "private": false
+ },
+ "wehoop": {
+  "home": "sportsdataverse/wehoop",
+  "private": false
+ },
+ "wehoop-wbb-data": {
+  "home": "sportsdataverse/wehoop-wbb-data",
+  "private": false
+ },
+ "wehoop-wbb-raw": {
+  "home": "sportsdataverse/wehoop-wbb-raw",
+  "private": false
+ },
+ "wehoop-wnba-data": {
+  "home": "sportsdataverse/wehoop-wnba-data",
+  "private": false
+ },
+ "wehoop-wnba-raw": {
+  "home": "sportsdataverse/wehoop-wnba-raw",
+  "private": false
+ },
+ "wehoop-wnba-stats-data": {
+  "home": "sportsdataverse/wehoop-wnba-stats-data",
+  "private": false
+ },
+ "wehoop-wnba-stats-raw": {
+  "home": "sportsdataverse/wehoop-wnba-stats-raw",
+  "private": false
+ }
+}
