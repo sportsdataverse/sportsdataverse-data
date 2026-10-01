@@ -758,6 +758,10 @@ KIND = {
     "recruits": "recruiting classes, one row per recruit",
     "recruiting_proj": "recruiting projections",
     "returning_production": "returning production estimates",
+    "team_portal": "transfer movement per team: D-I transfers in and out from ESPN roster diffs (season S-1 to S), the portal share of the roster, and recruit-star talent moved in, out and net, one asset per season (2015+, the first season with full rosters on both sides)",
+    # full-tag keys (they win over the trailing token in render_notes.kind_of)
+    "nba_stats_metric_curves": "rate curves along shot distance: field goal percentage by distance bucket, each bucket with attempts, successes and rate, for the league, every team and every player (stats.nba.com ids), one asset per season keyed by the season's ending year",
+    "wnba_stats_metric_curves": "rate curves along shot distance: field goal percentage by distance bucket, each bucket with attempts, successes and rate, for the league, every team and every player (stats.wnba.com ids), one asset per season",
     "team_talent": "247Sports team talent composite",
     "players": "the player reference table",
     "adv_team": "advanced team box score",

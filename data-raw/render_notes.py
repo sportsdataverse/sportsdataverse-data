@@ -105,8 +105,10 @@ def family_of(tag: str) -> tuple[str, dict]:
 
 
 def kind_of(tag: str, prefix: str) -> str:
+    # a full-tag key wins: the same trailing token can mean different data per
+    # league (nba_stats_metric_curves is shots, cfb_metric_curves is football)
     rest = tag[len(prefix) :] if prefix else tag
-    return KIND.get(rest, "")
+    return KIND.get(tag) or KIND.get(rest, "")
 
 
 CRON_MONTH = {
