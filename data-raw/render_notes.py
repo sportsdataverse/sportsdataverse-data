@@ -58,17 +58,35 @@ def exists(repo_path: str) -> bool:
     return (ROOT / repo_path).exists()
 
 
+REPOS = load_json("repos.json")
+
+
+def repo_home(repo: str) -> str | None:
+    """`https://github.com/<owner>/<name>` for a checkout, or None when it is private
+    (a link into a private repo is a dead link for every reader)."""
+    info = REPOS.get(repo)
+    if info is None:
+        # a local directory that is not a checkout (a worktree, a scratch dir) is
+        # nobody's GitHub repo; a name with no directory here is an org repo by name
+        return None if (ROOT / repo).exists() else f"{ORG}/{repo}"
+    return None if info["private"] else f"https://github.com/{info['home']}"
+
+
 def repo_link(
     repo: str, path: str | None = None, label: str | None = None
 ) -> str | None:
-    """Markdown link to a repo or a file inside it, only if the path really exists."""
+    """Markdown link to a repo or a file inside it, only if the path really exists
+    and the repo is public."""
+    home = repo_home(repo)
+    if home is None:
+        return None
     if path:
         if not exists(f"{repo}/{path}"):
             return None
-        return f"[`{label or path}`]({ORG}/{repo}/blob/main/{path})"
+        return f"[`{label or path}`]({home}/blob/main/{path})"
     if not (ROOT / repo).exists():
         return None
-    return f"[`{label or repo}`]({ORG}/{repo})"
+    return f"[`{label or repo}`]({home})"
 
 
 def human_bytes(n: int) -> str:
@@ -497,7 +515,7 @@ def render(tag: str) -> str:
         L.append("")
     if p:
         L.append(
-            f"**Orchestrator** — registered in [`sdv-orch`]({ORG}/sdv-orch) as pipeline "
+            f"**Orchestrator** — registered in {repo_link('sdv-orch') or '`sdv-orch`'} as pipeline "
             f"`{orch_key}` ({p['label']}), seasons {p['season_min']}–{p['season_max']}."
         )
         L.append("")
