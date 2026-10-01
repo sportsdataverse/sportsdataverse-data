@@ -733,6 +733,8 @@ KIND = {
     "league_averages": "season baselines: the mean, median, standard deviation and n of every published team and player metric, per level, over the same qualified population the ranks and percentiles use",
     "team_opponent_splits": "by-opponent team splits: one row per team per game with the opponent, EPA per play, success rate, points for and against and plays; college covers every game (FCS opponents and bowls included), NFL the regular season only, where game_id is empty before 2002 and nflverse_game_id identifies every game",
     "rolling_windows": "rolling event-count windows: each player's and team's form over its last N events vs the previous N, the season start and its career baseline, with delta ranks and sample sizes, one asset per season",
+    "poll_analytics": "weekly AP, Coaches and CFP poll history with each team's rank, previous rank, move, entry and exit flags, weeks ranked, points and first-place votes, one asset per season (2004+; every run refetches the season from ESPN)",
+    "poll_week_summary": "per-poll week summaries: volatility (population sd of rank change with unranked = 26), chaos (sum of absolute rank changes), entries and exits, one asset per season (2004+)",
     "metric_curves": "rate curves along a continuous axis: FG% by kick distance, completion% and EPA by air-yards bucket, 4th-down conversion by yards to go and success by down x distance, each bucket with attempts, successes, rate and EPA per attempt, for the league, every team and every credited player, one asset per season (FG curves 2004+, air-yards curves 2025+)",
     "team_summaries": "team season summaries",
     "team_summaries_weekly": "team season summaries snapshotted weekly",
