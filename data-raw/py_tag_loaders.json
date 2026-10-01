@@ -770,6 +770,13 @@
    ""
   ]
  ],
+ "nba_stats_game_matchups": [
+  [
+   "sportsdataverse.nba",
+   "load_nba_stats_game_matchups",
+   ""
+  ]
+ ],
  "nba_stats_player_boxscores": [
   [
    "sportsdataverse.nba",

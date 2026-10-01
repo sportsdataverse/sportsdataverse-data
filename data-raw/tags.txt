@@ -13,6 +13,7 @@ cfb_returning_production
 cfb_rolling_windows
 cfb_schedules
 cfb_team_info
+cfb_team_opponent_splits
 cfb_team_summaries_weekly
 cfb_team_talent
 cfbfastR_cfb_pbp
@@ -196,6 +197,7 @@ nba_stats_coaches
 nba_stats_draft
 nba_stats_draft_combine
 nba_stats_game_lineups
+nba_stats_game_matchups
 nba_stats_game_rosters
 nba_stats_hustle
 nba_stats_leaguedash
@@ -294,6 +296,7 @@ nfl_receiving
 nfl_rolling_windows
 nfl_rosters
 nfl_rushing
+nfl_team_opponent_splits
 nfl_team_stats
 nfl_team_summaries
 nhl_game_info
