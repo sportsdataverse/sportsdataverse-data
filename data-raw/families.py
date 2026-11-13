@@ -396,7 +396,7 @@ FAMILIES: list[tuple[str, dict]] = _GROUPS + _PARKS + _SNAPSHOTS + _CFB_LEGACY_B
         {
             "title": "NHL expected-goals model artifacts",
             "provider": "NHL play-by-play, fitted into an expected-goals model",
-            "publish": "no publishing code exists in any public repository; the assets are read by `fastRhockey-nhl-raw` and `sportsdataverse-py`",
+            "publish": "`nhl_data_build.xg_publish` in `fastRhockey-nhl-data` (built from the committed `models/` champion, manifest last)",
             "orch": None,
             "r_pkg": None,
             "py_mod": "sportsdataverse.nhl",
