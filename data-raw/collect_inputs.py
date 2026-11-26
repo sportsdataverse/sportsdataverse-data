@@ -94,6 +94,11 @@ def step_repos() -> None:
     only hits inside these checkouts, so worktrees and scratch dirs drop out."""
     repos: dict[str, dict] = {}
     failed: list[str] = []
+    read_ok = 0
+    previous: dict[str, dict] = {}
+    for name in ("repos.json", "repos_private.json"):
+        if (HERE / name).exists():
+            previous.update(json.loads((HERE / name).read_text()))
     for d in sorted(ROOT.iterdir()):
         if not (d / ".git").is_dir():
             continue
@@ -109,14 +114,17 @@ def step_repos() -> None:
         )
         private = {"true": True, "false": False}.get(out.stdout.strip())
         if private is None:
-            failed.append(d.name)
-            continue
+            failed.append(f"{d.name} ({(out.stderr.strip().splitlines() or ['?'])[-1][:80]})")
+            if d.name in previous:  # never guess: keep what was last read for this repo
+                repos[d.name] = previous[d.name]
+            continue  # never read before: leave it out (treated like a non-checkout)
         repos[d.name] = {"home": home, "private": private}
-    if failed:
-        # an unreadable visibility must not be guessed: "assume private" would drop a public repo
-        # from the committed file, and an outage would commit an empty one. Keep the previous pair.
-        warn(f"cannot read visibility of {len(failed)} repos ({', '.join(failed[:5])}...); repos.json left unchanged")
+        read_ok += 1
+    if failed and not read_ok:  # an outage: nothing was read, so keep both files as they are
+        warn(f"cannot read visibility of any repo ({failed[0]}); repos.json left unchanged")
         return
+    if failed:
+        warn(f"cannot read visibility of {len(failed)} repos, kept their previous entries: {'; '.join(failed[:5])}")
     # repos.json is committed to this PUBLIC repo, so it lists public checkouts only.
     # Private ones (still needed: never linked, but their tag hits count) stay on
     # this host in the gitignored repos_private.json.
