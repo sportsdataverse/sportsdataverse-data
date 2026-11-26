@@ -25,7 +25,7 @@ checkout's GitHub home: public checkouts in `repos.json` (committed), private on
 `repos_private.json` (gitignored, host-only; run `python3 collect_inputs.py repos` once on a new
 host). Links go through the home, a private repo is named but never linked, and `hits` ignores
 anything outside a real checkout (worktrees, scratch directories). `workflows` lists public
-checkouts only. If any repo's visibility can't be read, `repos` keeps the previous files. A step that cannot
+checkouts only. If a repo's visibility can't be read, `repos` reuses that repo's previous entry when its GitHub home is unchanged and leaves it out otherwise. Only a total outage (no repo read) leaves both files as they were. A step that cannot
 reach its source warns and leaves the previous file alone, so a partial refresh
 degrades to a stale input rather than an empty one.
 

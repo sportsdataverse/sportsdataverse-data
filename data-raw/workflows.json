@@ -29,9 +29,7 @@
   {
    "file": "star-history.yml",
    "name": "Star history",
-   "crons": [
-    "'17 6 * * *'}], watch: {types: [started]}, workflow_dispatch: }"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -91,10 +89,7 @@
   {
    "file": "daily_ncaa_baseball.yml",
    "name": "Update NCAA Baseball Data",
-   "crons": [
-    "0 11 * 2-6 *",
-    "0 11 1 1,7-12 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -227,7 +222,6 @@
    "file": "cfb_fpi_weekly.yml",
    "name": "CFB FPI Weekly",
    "crons": [
-    "ESPN posts the new week on its own",
     "0 14 * 8 *",
     "0 14 * 9-11 *",
     "0 14 * 12 *",
@@ -331,12 +325,7 @@
   {
    "file": "scrape_cfb_raw.yml",
    "name": "Scrape CFB Raw Data",
-   "crons": [
-    "0 9 * 8 *",
-    "0 9 * 9-11 *",
-    "0 9 * 12 *",
-    "0 9 1-25 1 *"
-   ],
+   "crons": [],
    "dispatch": true
   }
  ],
@@ -481,10 +470,7 @@
   {
    "file": "daily_nhl.yml",
    "name": "Update NHL Data (R \u2014 retired)",
-   "crons": [
-    "0 9 * 10-12 *",
-    "0 9 * 5-6 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -560,10 +546,7 @@
   {
    "file": "daily_pwhl.yml",
    "name": "Update PWHL Data",
-   "crons": [
-    "0 9 * 11-12 *",
-    "0 9 * 4-5 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -933,9 +916,7 @@
   {
    "file": "daily_ncaa_mfb_data.yml",
    "name": "Update NCAA MFB Data",
-   "crons": [
-    "the raw repo pushes only when its daily capture finds something, so a"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -1650,9 +1631,7 @@
   {
    "file": "star-history.yml",
    "name": "Star history",
-   "crons": [
-    "'17 6 * * *'}], watch: {types: [started]}, workflow_dispatch: }"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {

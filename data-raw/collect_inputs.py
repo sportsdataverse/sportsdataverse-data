@@ -115,7 +115,7 @@ def step_repos() -> None:
         private = {"true": True, "false": False}.get(out.stdout.strip())
         if private is None:
             failed.append(f"{d.name} ({(out.stderr.strip().splitlines() or ['?'])[-1][:80]})")
-            if d.name in previous:  # never guess: keep what was last read for this repo
+            if previous.get(d.name, {}).get("home") == home:  # never guess: keep the last read of this same repo
                 repos[d.name] = previous[d.name]
             continue  # never read before: leave it out (treated like a non-checkout)
         repos[d.name] = {"home": home, "private": private}
@@ -278,10 +278,21 @@ def step_orch() -> None:
 # --- 5. GitHub Actions workflows and their schedules ------------------------
 # The cron value carries a trailing comment in most of these workflows, so the
 # expression has to be captured rather than "everything to end of line".
-CRON = re.compile(
-    r"""cron:\s*(?:["']([^"']+)["']|([^\s#][^#\n]*?))\s*(?:#.*)?$""", re.M
-)
 WF_NAME = re.compile(r"^name:\s*[\"']?(.+?)[\"']?\s*$", re.M)
+
+
+def _crons(body: str) -> list[str]:
+    """`on.schedule[].cron` from the parsed workflow. A regex over the text also matched flow-style
+    YAML (`schedule: [{cron: ...}]`) and comments that mention "cron:"."""
+    import yaml  # PyYAML; YAML 1.1 reads the bare `on:` key as True
+
+    try:
+        doc = yaml.safe_load(body) or {}
+    except yaml.YAMLError:
+        return []
+    on = doc.get("on", doc.get(True)) if isinstance(doc, dict) else None
+    sched = on.get("schedule") if isinstance(on, dict) else None
+    return [str(x["cron"]).strip() for x in sched or [] if isinstance(x, dict) and "cron" in x]
 
 
 def step_workflows() -> None:
@@ -302,7 +313,7 @@ def step_workflows() -> None:
             {
                 "file": wf.name,
                 "name": nm.group(1).strip() if nm else wf.stem,
-                "crons": [(a or b).strip() for a, b in CRON.findall(body)],
+                "crons": _crons(body),
                 "dispatch": "workflow_dispatch" in body,
             }
         )
