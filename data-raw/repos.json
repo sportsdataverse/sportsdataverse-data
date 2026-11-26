@@ -3,10 +3,6 @@
   "home": "sportsdataverse/.github",
   "private": false
  },
- "ClaudeCowork": {
-  "home": "saiemgilani/ClaudeCowork",
-  "private": true
- },
  "Sports-Research-Papers": {
   "home": "saiemgilani/Sports-Research-Papers",
   "private": false
@@ -43,10 +39,6 @@
   "home": "sportsdataverse/cfbfastR-data",
   "private": false
  },
- "cfbfastR-models": {
-  "home": "sportsdataverse/cfbfastR-models",
-  "private": true
- },
  "cfbplotR": {
   "home": "sportsdataverse/cfbplotR",
   "private": false
@@ -54,10 +46,6 @@
  "cfbseedR": {
   "home": "sportsdataverse/cfbseedR",
   "private": false
- },
- "dotfiles_saiemgilani": {
-  "home": "saiemgilani/dotfiles",
-  "private": true
  },
  "fastRhockey": {
   "home": "sportsdataverse/fastRhockey",
@@ -83,17 +71,9 @@
   "home": "saiemgilani/game-on-paper-app",
   "private": false
  },
- "gop-explainers": {
-  "home": "saiemgilani/gop-explainers",
-  "private": true
- },
  "hoopR": {
   "home": "sportsdataverse/hoopR",
   "private": false
- },
- "hoopR-kp-data": {
-  "home": "sportsdataverse/hoopR-kp-data",
-  "private": true
  },
  "hoopR-mbb-data": {
   "home": "sportsdataverse/hoopR-mbb-data",
@@ -167,29 +147,9 @@
   "home": "sportsdataverse/nfl-raw",
   "private": false
  },
- "odds-data": {
-  "home": "sportsdataverse/odds-data",
-  "private": true
- },
  "oddsapiR": {
   "home": "sportsdataverse/oddsapiR",
   "private": false
- },
- "pff-cfb-data": {
-  "home": "sportsdataverse/pff-cfb-data",
-  "private": true
- },
- "pff-cfb-raw": {
-  "home": "sportsdataverse/pff-cfb-raw",
-  "private": true
- },
- "pff-nfl-data": {
-  "home": "sportsdataverse/pff-nfl-data",
-  "private": true
- },
- "pff-nfl-raw": {
-  "home": "sportsdataverse/pff-nfl-raw",
-  "private": true
  },
  "psql-to-models": {
   "home": "AlbertoV5/psql-to-models",
@@ -206,26 +166,6 @@
  "sdv-assets": {
   "home": "sportsdataverse/sdv-assets",
   "private": false
- },
- "sdv-assets-private": {
-  "home": "sportsdataverse/sdv-assets-private",
-  "private": true
- },
- "sdv-db": {
-  "home": "sportsdataverse/sdv-db",
-  "private": true
- },
- "sdv-internal-refs": {
-  "home": "sportsdataverse/sdv-internal-refs",
-  "private": true
- },
- "sdv-next-clone": {
-  "home": "saiemgilani/sdv-next-clone",
-  "private": true
- },
- "sdv-orch": {
-  "home": "sportsdataverse/sdv-orch",
-  "private": true
  },
  "sdv-py": {
   "home": "sportsdataverse/sportsdataverse-py",

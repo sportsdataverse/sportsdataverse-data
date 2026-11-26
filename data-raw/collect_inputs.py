@@ -93,6 +93,12 @@ def step_repos() -> None:
     lives under BillPetti), and never links a private repo. The tag scan keeps
     only hits inside these checkouts, so worktrees and scratch dirs drop out."""
     repos: dict[str, dict] = {}
+    failed: list[str] = []
+    read_ok = 0
+    previous: dict[str, dict] = {}
+    for name in ("repos.json", "repos_private.json"):
+        if (HERE / name).exists():
+            previous.update(json.loads((HERE / name).read_text()))
     for d in sorted(ROOT.iterdir()):
         if not (d / ".git").is_dir():
             continue
@@ -108,10 +114,23 @@ def step_repos() -> None:
         )
         private = {"true": True, "false": False}.get(out.stdout.strip())
         if private is None:
-            warn(f"{d.name}: cannot read {home} (private? assuming yes)")
-            private = True
+            failed.append(f"{d.name} ({(out.stderr.strip().splitlines() or ['?'])[-1][:80]})")
+            if previous.get(d.name, {}).get("home") == home:
+                # never publish an unconfirmed repo: keep it, but as private (unlinked, not in workflows.json)
+                repos[d.name] = {**previous[d.name], "private": True}
+            continue  # never read before: leave it out (treated like a non-checkout)
         repos[d.name] = {"home": home, "private": private}
-    write("repos.json", repos)
+        read_ok += 1
+    if failed and not read_ok:  # an outage: nothing was read, so keep both files as they are
+        warn(f"cannot read visibility of any repo ({failed[0]}); repos.json left unchanged")
+        return
+    if failed:
+        warn(f"cannot read visibility of {len(failed)} repos, kept their previous entries: {'; '.join(failed[:5])}")
+    # repos.json is committed to this PUBLIC repo, so it lists public checkouts only.
+    # Private ones (still needed: never linked, but their tag hits count) stay on
+    # this host in the gitignored repos_private.json.
+    write("repos.json", {k: v for k, v in repos.items() if not v["private"]})
+    write("repos_private.json", {k: v for k, v in repos.items() if v["private"]})
 
 
 def step_hits() -> None:
@@ -181,6 +200,11 @@ def step_hits() -> None:
     # A missing repos.json (the `repos` step never ran) keeps every hit, with a
     # warning; an existing one is authoritative, so an empty mapping keeps none.
     repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else None
+    if repos is not None:
+        if (HERE / "repos_private.json").exists():
+            repos.update(json.loads((HERE / "repos_private.json").read_text()))
+        else:
+            warn("no repos_private.json (run the repos step on this host): hits in private repos are dropped")
     if repos is None:
         warn("no repos.json: run the repos step first; keeping hits from every directory")
     tracked: dict[str, set[str]] = {}
@@ -255,23 +279,47 @@ def step_orch() -> None:
 # --- 5. GitHub Actions workflows and their schedules ------------------------
 # The cron value carries a trailing comment in most of these workflows, so the
 # expression has to be captured rather than "everything to end of line".
-CRON = re.compile(
-    r"""cron:\s*(?:["']([^"']+)["']|([^\s#][^#\n]*?))\s*(?:#.*)?$""", re.M
-)
 WF_NAME = re.compile(r"^name:\s*[\"']?(.+?)[\"']?\s*$", re.M)
 
 
+def _crons(body: str) -> list[str]:
+    """`on.schedule[].cron` from the parsed workflow. A regex over the text also matched flow-style
+    YAML (`schedule: [{cron: ...}]`) and comments that mention "cron:"."""
+    import yaml  # PyYAML (checked in step_workflows); YAML 1.1 reads the bare `on:` key as True
+
+    try:
+        doc = yaml.safe_load(body) or {}
+    except yaml.YAMLError:
+        return []
+    on = doc.get("on", doc.get(True)) if isinstance(doc, dict) else None
+    sched = on.get("schedule") if isinstance(on, dict) else None
+    return [str(x["cron"]).strip() for x in sched or [] if isinstance(x, dict) and "cron" in x]
+
+
 def step_workflows() -> None:
+    # workflows.json is committed to this public repo: public checkouts only (no private repos,
+    # worktrees or scratch dirs). render_notes only ever shows rows for linkable repos anyway.
+    if not (HERE / "repos.json").exists():
+        warn("no repos.json: run the repos step first; workflows.json left unchanged")
+        return
+    try:
+        import yaml  # noqa: F401  (used by _crons)
+    except ImportError:
+        warn("PyYAML is not installed (pip install pyyaml); workflows.json left unchanged")
+        return
+    public = set(json.loads((HERE / "repos.json").read_text()))
     out: dict[str, list[dict]] = {}
     for wf in sorted(ROOT.glob("*/.github/workflows/*.y*ml")):
         repo = wf.relative_to(ROOT).parts[0]
+        if repo not in public:
+            continue
         body = wf.read_text(errors="replace")
         nm = WF_NAME.search(body)
         out.setdefault(repo, []).append(
             {
                 "file": wf.name,
                 "name": nm.group(1).strip() if nm else wf.stem,
-                "crons": [(a or b).strip() for a, b in CRON.findall(body)],
+                "crons": _crons(body),
                 "dispatch": "workflow_dispatch" in body,
             }
         )

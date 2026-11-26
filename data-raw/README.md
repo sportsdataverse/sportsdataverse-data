@@ -21,9 +21,11 @@ bash push_notes.sh            # publish
 `collect_inputs.py` takes step names if you only need part of a refresh, e.g.
 `python3 collect_inputs.py releases workflows`. Steps are `releases`, `repos`, `hits`,
 `db_catalog`, `orch`, `workflows`, `py_loaders`, `r_loaders`. `repos` records each
-checkout's GitHub home and whether it is private (`repos.json`): links go through the
-home, a private repo is named but never linked, and `hits` ignores anything outside a
-real checkout (worktrees, scratch directories). A step that cannot
+checkout's GitHub home: public checkouts in `repos.json` (committed), private ones in
+`repos_private.json` (gitignored, host-only; run `python3 collect_inputs.py repos` once on a new
+host). Links go through the home, a private repo is named but never linked, and `hits` ignores
+anything outside a real checkout (worktrees, scratch directories). `workflows` lists public
+checkouts only. If a repo's visibility can't be read, `repos` keeps that repo as private (unlinked, not in `workflows.json`) when its GitHub home is unchanged and leaves it out otherwise, so an unconfirmed repo is never published. Only a total outage (no repo read) leaves both files as they were. A step that cannot
 reach its source warns and leaves the previous file alone, so a partial refresh
 degrades to a stale input rather than an empty one.
 

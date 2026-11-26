@@ -1,6 +1,12 @@
 {
  ".github": [
   {
+   "file": "api-spec-sync.yml",
+   "name": "api-spec-sync",
+   "crons": [],
+   "dispatch": false
+  },
+  {
    "file": "ecosystem-status.yml",
    "name": "ecosystem-status",
    "crons": [
@@ -17,6 +23,18 @@
   {
    "file": "sdv-toolkit-catalog.yml",
    "name": "sdv-toolkit catalog",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "status-tests.yml",
+   "name": "status-tests",
    "crons": [],
    "dispatch": false
   }
@@ -59,16 +77,19 @@
    "name": "R-hub",
    "crons": [],
    "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
   }
  ],
  "baseballr-data": [
   {
    "file": "daily_ncaa_baseball.yml",
    "name": "Update NCAA Baseball Data",
-   "crons": [
-    "0 11 * 2-6 *",
-    "0 11 1 1,7-12 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -92,6 +113,22 @@
    "dispatch": true
   }
  ],
+ "blazing-the-nets": [
+  {
+   "file": "check.yml",
+   "name": "check",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "network.yml",
+   "name": "network",
+   "crons": [
+    "0 11 * * 1"
+   ],
+   "dispatch": true
+  }
+ ],
  "cfb4th": [
   {
    "file": "R-CMD-check.yaml",
@@ -106,102 +143,24 @@
    "name": "pkgdown",
    "crons": [],
    "dispatch": true
-  }
- ],
- "cfbdata-if0-wt": [
-  {
-   "file": "cfb_fpi_weekly.yml",
-   "name": "CFB FPI Weekly",
-   "crons": [
-    "ESPN posts the new week on its own",
-    "0 14 * 8 *",
-    "0 14 * 9-11 *",
-    "0 14 * 12 *",
-    "0 14 1-25 1 *"
-   ],
-   "dispatch": true
   },
   {
-   "file": "cfb_model_pipeline.yml",
-   "name": "CFB Model Pipeline",
-   "crons": [
-    "0 6 5 2 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_playoff_figures.yml",
-   "name": "CFB Playoff Net-Stats Figures",
+   "file": "rhub.yaml",
+   "name": "R-hub",
    "crons": [],
    "dispatch": true
   },
   {
-   "file": "cfb_postweek.yml",
-   "name": "Skeet Post-Week Content",
+   "file": "star-history.yml",
+   "name": "Star history",
    "crons": [
-    "0 15 * 8-12 1"
+    "17 6 * * *"
    ],
    "dispatch": true
   },
   {
-   "file": "cfb_previews.yml",
-   "name": "Skeet Game Previews",
-   "crons": [
-    "0 14 * 9-11 6",
-    "0 22 * 9-11 1-5",
-    "0 14 * 12 *",
-    "0 14 1-20 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_ratings_cron.yml",
-   "name": "CFB Ratings",
-   "crons": [
-    "0 13 * 8 *",
-    "0 13 * 9-11 *",
-    "0 13 * 12 *",
-    "0 13 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_recruiting_proj_cron.yml",
-   "name": "CFB Recruiting Projections",
-   "crons": [
-    "0 12 5 12 *",
-    "0 12 5 1-8 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "daily_cfb.yml",
-   "name": "Update CFB Data",
-   "crons": [
-    "0 11 * 8 *",
-    "0 11 * 9-11 *",
-    "0 11 * 12 *",
-    "0 11 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "espn_daily_snapshots.yml",
-   "name": "ESPN Daily Snapshots",
-   "crons": [
-    "0 13 * * *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
    "crons": [],
    "dispatch": true
   }
@@ -234,6 +193,28 @@
    "name": "R-hub",
    "crons": [],
    "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "url-check.yaml",
+   "name": "url-check",
+   "crons": [
+    "0 13 * * Mon"
+   ],
+   "dispatch": true
   }
  ],
  "cfbfastR-cfb-data": [
@@ -241,7 +222,6 @@
    "file": "cfb_fpi_weekly.yml",
    "name": "CFB FPI Weekly",
    "crons": [
-    "ESPN posts the new week on its own",
     "0 14 * 8 *",
     "0 14 * 9-11 *",
     "0 14 * 12 *",
@@ -305,306 +285,7 @@
   {
    "file": "daily_cfb.yml",
    "name": "Update CFB Data",
-   "crons": [
-    "0 11 * 8 *",
-    "0 11 * 9-11 *",
-    "0 11 * 12 *",
-    "0 11 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "espn_daily_snapshots.yml",
-   "name": "ESPN Daily Snapshots",
-   "crons": [
-    "0 13 * * *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
    "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "cfbfastR-cfb-data-wt-cutoff": [
-  {
-   "file": "cfb_fpi_weekly.yml",
-   "name": "CFB FPI Weekly",
-   "crons": [
-    "ESPN posts the new week on its own",
-    "0 14 * 8 *",
-    "0 14 * 9-11 *",
-    "0 14 * 12 *",
-    "0 14 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_model_pipeline.yml",
-   "name": "CFB Model Pipeline",
-   "crons": [
-    "0 6 5 2 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_playoff_figures.yml",
-   "name": "CFB Playoff Net-Stats Figures",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_postweek.yml",
-   "name": "Skeet Post-Week Content",
-   "crons": [
-    "0 15 * 8-12 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_previews.yml",
-   "name": "Skeet Game Previews",
-   "crons": [
-    "0 14 * 9-11 6",
-    "0 22 * 9-11 1-5",
-    "0 14 * 12 *",
-    "0 14 1-20 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_ratings_cron.yml",
-   "name": "CFB Ratings",
-   "crons": [
-    "0 13 * 8 *",
-    "0 13 * 9-11 *",
-    "0 13 * 12 *",
-    "0 13 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_recruiting_proj_cron.yml",
-   "name": "CFB Recruiting Projections",
-   "crons": [
-    "0 12 5 12 *",
-    "0 12 5 1-8 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "daily_cfb.yml",
-   "name": "Update CFB Data",
-   "crons": [
-    "0 11 * 8 *",
-    "0 11 * 9-11 *",
-    "0 11 * 12 *",
-    "0 11 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "espn_daily_snapshots.yml",
-   "name": "ESPN Daily Snapshots",
-   "crons": [
-    "0 13 * * *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "cfbfastR-cfb-data-wt-fbsclass": [
-  {
-   "file": "cfb_fpi_weekly.yml",
-   "name": "CFB FPI Weekly",
-   "crons": [
-    "ESPN posts the new week on its own",
-    "0 14 * 8 *",
-    "0 14 * 9-11 *",
-    "0 14 * 12 *",
-    "0 14 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_model_pipeline.yml",
-   "name": "CFB Model Pipeline",
-   "crons": [
-    "0 6 5 2 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_playoff_figures.yml",
-   "name": "CFB Playoff Net-Stats Figures",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_postweek.yml",
-   "name": "Skeet Post-Week Content",
-   "crons": [
-    "0 15 * 8-12 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_previews.yml",
-   "name": "Skeet Game Previews",
-   "crons": [
-    "0 14 * 9-11 6",
-    "0 22 * 9-11 1-5",
-    "0 14 * 12 *",
-    "0 14 1-20 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_ratings_cron.yml",
-   "name": "CFB Ratings",
-   "crons": [
-    "0 13 * 8 *",
-    "0 13 * 9-11 *",
-    "0 13 * 12 *",
-    "0 13 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_recruiting_proj_cron.yml",
-   "name": "CFB Recruiting Projections",
-   "crons": [
-    "0 12 5 12 *",
-    "0 12 5 1-8 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "daily_cfb.yml",
-   "name": "Update CFB Data",
-   "crons": [
-    "0 11 * 8 *",
-    "0 11 * 9-11 *",
-    "0 11 * 12 *",
-    "0 11 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "espn_daily_snapshots.yml",
-   "name": "ESPN Daily Snapshots",
-   "crons": [
-    "0 13 * * *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "cfbfastR-cfb-data-wt-leakfix": [
-  {
-   "file": "cfb_fpi_weekly.yml",
-   "name": "CFB FPI Weekly",
-   "crons": [
-    "ESPN posts the new week on its own",
-    "0 14 * 8 *",
-    "0 14 * 9-11 *",
-    "0 14 * 12 *",
-    "0 14 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_model_pipeline.yml",
-   "name": "CFB Model Pipeline",
-   "crons": [
-    "0 6 5 2 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_playoff_figures.yml",
-   "name": "CFB Playoff Net-Stats Figures",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_postweek.yml",
-   "name": "Skeet Post-Week Content",
-   "crons": [
-    "0 15 * 8-12 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_previews.yml",
-   "name": "Skeet Game Previews",
-   "crons": [
-    "0 14 * 9-11 6",
-    "0 22 * 9-11 1-5",
-    "0 14 * 12 *",
-    "0 14 1-20 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_ratings_cron.yml",
-   "name": "CFB Ratings",
-   "crons": [
-    "0 13 * 8 *",
-    "0 13 * 9-11 *",
-    "0 13 * 12 *",
-    "0 13 1-25 1 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "cfb_recruiting_proj_cron.yml",
-   "name": "CFB Recruiting Projections",
-   "crons": [
-    "0 12 5 12 *",
-    "0 12 5 1-8 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "daily_cfb.yml",
-   "name": "Update CFB Data",
-   "crons": [
-    "0 11 * 8 *",
-    "0 11 * 9-11 *",
-    "0 11 * 12 *",
-    "0 11 1-25 1 *"
-   ],
    "dispatch": true
   },
   {
@@ -644,12 +325,7 @@
   {
    "file": "scrape_cfb_raw.yml",
    "name": "Scrape CFB Raw Data",
-   "crons": [
-    "0 9 * 8 *",
-    "0 9 * 9-11 *",
-    "0 9 * 12 *",
-    "0 9 1-25 1 *"
-   ],
+   "crons": [],
    "dispatch": true
   }
  ],
@@ -694,6 +370,20 @@
    "name": "pkgdown",
    "crons": [],
    "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
   }
  ],
  "cfbseedR": [
@@ -714,6 +404,20 @@
   {
    "file": "rhub.yaml",
    "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
    "crons": [],
    "dispatch": true
   }
@@ -738,16 +442,35 @@
    "name": "R-hub",
    "crons": [],
    "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "urlchecker.yaml",
+   "name": "urlchecker",
+   "crons": [
+    "0 13 1 * *"
+   ],
+   "dispatch": true
   }
  ],
  "fastRhockey-nhl-data": [
   {
    "file": "daily_nhl.yml",
    "name": "Update NHL Data (R \u2014 retired)",
-   "crons": [
-    "0 9 * 10-12 *",
-    "0 9 * 5-6 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -823,10 +546,7 @@
   {
    "file": "daily_pwhl.yml",
    "name": "Update PWHL Data",
-   "crons": [
-    "0 9 * 11-12 *",
-    "0 9 * 4-5 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -911,560 +631,12 @@
    "dispatch": false
   },
   {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
+   "file": "prune-pr-previews.yml",
+   "name": "Prune PR previews",
+   "crons": [
+    "23 9 * * 1"
+   ],
    "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "game-on-paper-app-cloudflare": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "gop-bug1-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-colors-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-drivewidth-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-f1-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-glossary-fix-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-groups-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-headerlinks-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-if2t4-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-livebadge-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-nfl-wt": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-nfl243-wt": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-nflfix-wt": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-pin-wt": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-players-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-propdiet-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-roadmap-a-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-roadmap-b-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-seo-wt": [
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "purge-game-cache.yml",
-   "name": "purge-game-cache",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "test.yml",
-   "name": "test",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "gop-tables-wt": [
-  {
-   "file": "copilot-setup-steps.yml",
-   "name": "Copilot setup steps",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy.yml",
-   "name": "deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "pr-evidence.yml",
-   "name": "pr-evidence",
-   "crons": [],
-   "dispatch": false
   },
   {
    "file": "purge-game-cache.yml",
@@ -1497,6 +669,12 @@
    "dispatch": true
   },
   {
+   "file": "intl-parity.yaml",
+   "name": "intl-parity",
+   "crons": [],
+   "dispatch": true
+  },
+  {
    "file": "pkgdown.yaml",
    "name": "pkgdown",
    "crons": [],
@@ -1506,6 +684,28 @@
    "file": "rhub.yaml",
    "name": "R-hub",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "url-check.yaml",
+   "name": "url-check",
+   "crons": [
+    "0 13 * * Mon"
+   ],
    "dispatch": true
   }
  ],
@@ -1662,36 +862,6 @@
    "dispatch": true
   }
  ],
- "hoopR-xwalk-wt": [
-  {
-   "file": "R-CMD-check.yaml",
-   "name": "R-CMD-check",
-   "crons": [
-    "30 12 * * Fri"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "api-sync.yaml",
-   "name": "api-sync",
-   "crons": [
-    "0 11 * * *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "pkgdown.yaml",
-   "name": "pkgdown",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "rhub.yaml",
-   "name": "R-hub",
-   "crons": [],
-   "dispatch": true
-  }
- ],
  "mlbplotR": [
   {
    "file": "R-CMD-check.yaml",
@@ -1746,9 +916,7 @@
   {
    "file": "daily_ncaa_mfb_data.yml",
    "name": "Update NCAA MFB Data",
-   "crons": [
-    "the raw repo pushes only when its daily capture finds something, so a"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -1839,7 +1007,7 @@
    "file": "espn_nfl_cron.yml",
    "name": "espn_nfl processed-game datasets",
    "crons": [
-    "30 10 * 9-12,1,2 2"
+    "0 20 * 9-12,1,2 *"
    ],
    "dispatch": true
   },
@@ -1855,7 +1023,7 @@
    "file": "nfl_pbp_cron.yml",
    "name": "NFL model_pbp build + publish",
    "crons": [
-    "0 20 * 9-12,1,2 2"
+    "0 20 * 9-12,1,2 *"
    ],
    "dispatch": true
   },
@@ -1863,7 +1031,7 @@
    "file": "nfl_ratings_weekly.yml",
    "name": "NFL Ratings Weekly",
    "crons": [
-    "0 10 * 9-12,1-2 2"
+    "0 14 * 9-12,1-2 2"
    ],
    "dispatch": true
   },
@@ -1871,7 +1039,8 @@
    "file": "nfl_rosters_players_cron.yml",
    "name": "NFL rosters + players + player-stats + team-stats + QBR build + publish",
    "crons": [
-    "0 9 * 9-12,1,2 1"
+    "0 9 * 9-12,1,2 1",
+    "30 20 * 9-12,1,2 *"
    ],
    "dispatch": true
   },
@@ -1962,73 +1131,13 @@
    "dispatch": true
   }
  ],
- "nfldata-thin-wt": [
-  {
-   "file": "espn_nfl_cron.yml",
-   "name": "espn_nfl processed-game datasets",
-   "crons": [
-    "30 10 * 9-12,1,2 2"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "nfl_model_pipeline.yml",
-   "name": "NFL Model Pipeline",
-   "crons": [
-    "0 6 1 3 *"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "nfl_pbp_cron.yml",
-   "name": "NFL model_pbp build + publish",
-   "crons": [
-    "0 20 * 9-12,1,2 2"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "nfl_ratings_weekly.yml",
-   "name": "NFL Ratings Weekly",
-   "crons": [
-    "0 10 * 9-12,1-2 2"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "nfl_rosters_players_cron.yml",
-   "name": "NFL rosters + players + player-stats + team-stats + QBR build + publish",
-   "crons": [
-    "0 9 * 9-12,1,2 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "odds-data": [
-  {
-   "file": "snapshot_odds.yml",
-   "name": "Snapshot Football Odds",
-   "crons": [],
-   "dispatch": true
-  }
- ],
  "oddsapiR": [
   {
    "file": "R-CMD-check.yaml",
    "name": "R-CMD-check",
-   "crons": [],
+   "crons": [
+    "30 12 * * Fri"
+   ],
    "dispatch": true
   },
   {
@@ -2042,46 +1151,20 @@
    "name": "R-hub",
    "crons": [],
    "dispatch": true
-  }
- ],
- "pff-cfb-data": [
+  },
   {
-   "file": "data-watch.yml",
-   "name": "data-watch",
+   "file": "star-history.yml",
+   "name": "Star history",
    "crons": [
-    "0 12 * * 1"
+    "17 6 * * *"
    ],
    "dispatch": true
   },
   {
-   "file": "tests.yml",
-   "name": "tests",
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
    "crons": [],
-   "dispatch": false
-  }
- ],
- "pff-cfb-raw": [
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "pff-nfl-data": [
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": false
-  }
- ],
- "pff-nfl-raw": [
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": false
+   "dispatch": true
   }
  ],
  "saiem-blog": [
@@ -2110,40 +1193,14 @@
    "dispatch": false
   }
  ],
- "sdv-db": [
+ "saiemgilani": [
   {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
+   "file": "profile.yml",
+   "name": "profile",
+   "crons": [
+    "23 7 * * *"
+   ],
    "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "sdv-db-players-wt": [
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "sdv-next-clone": [
-  {
-   "file": "ci.yml",
-   "name": "CI",
-   "crons": [],
-   "dispatch": false
   }
  ],
  "sdv-py": [
@@ -2172,11 +1229,25 @@
    "dispatch": true
   },
   {
+   "file": "docs-index.yml",
+   "name": "docs-index",
+   "crons": [
+    "17 6 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
    "file": "live-tests-cron.yml",
    "name": "live-tests-cron",
    "crons": [
     "0 13 * * 1"
    ],
+   "dispatch": true
+  },
+  {
+   "file": "live-tests.yml",
+   "name": "live tests",
+   "crons": [],
    "dispatch": true
   },
   {
@@ -2192,132 +1263,36 @@
    "dispatch": true
   },
   {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
    "file": "tests.yml",
    "name": "tests",
    "crons": [],
    "dispatch": true
   },
   {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdv-py-wt-adjepa": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
+   "file": "theme-drift.yml",
+   "name": "theme-drift",
    "crons": [
     "0 13 * * 1"
    ],
    "dispatch": true
   },
   {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdv-py-wt-adjepa-legacy": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
+   "file": "tutorials-refresh.yml",
+   "name": "tutorials-refresh",
    "crons": [
     "0 13 * * 1"
    ],
    "dispatch": true
   },
   {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
    "file": "validation-cron.yml",
    "name": "validation-cron",
    "crons": [
@@ -2326,271 +1301,7 @@
    "dispatch": true
   }
  ],
- "sdv-py-wt-duprows": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdv-py-wt-havoc": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdv-py-wt-rushsign": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdv-py-wt-wp": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvdata-if0-wt": [
-  {
-   "file": "cran-checks.yaml",
-   "name": "Check CRAN status",
-   "crons": [
-    "0 16 * * *"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvdb-if0-wt": [
-  {
-   "file": "orphan_scripts.yml",
-   "name": "orphan-scripts",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  }
- ],
- "sdvplotR": [
+ "sdvmodels": [
   {
    "file": "R-CMD-check.yaml",
    "name": "R-CMD-check",
@@ -2606,6 +1317,136 @@
    "dispatch": true
   },
   {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sdvplot": [
+  {
+   "file": "automation-example.yml",
+   "name": "automation-example",
+   "crons": [
+    "30 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "docs-build.yml",
+   "name": "docs-build",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "docs-deploy.yml",
+   "name": "docs-deploy",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "drift.yml",
+   "name": "drift",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "live-tests-cron.yml",
+   "name": "live-tests-cron",
+   "crons": [
+    "0 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "quality.yml",
+   "name": "quality",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "release.yml",
+   "name": "release",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "tests.yml",
+   "name": "tests",
+   "crons": [],
+   "dispatch": true
+  }
+ ],
+ "sdvplot-js": [
+  {
+   "file": "ci.yml",
+   "name": "ci",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "release.yml",
+   "name": "release",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  }
+ ],
+ "sdvplotR": [
+  {
+   "file": "R-CMD-check.yaml",
+   "name": "R-CMD-check",
+   "crons": [
+    "30 12 * * Fri"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "automation-example.yaml",
+   "name": "automation-example",
+   "crons": [
+    "30 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "pkgdown.yaml",
+   "name": "pkgdown",
+   "crons": [
+    "23 9 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
    "file": "pr-commands.yaml",
    "name": "pr-commands",
    "crons": [],
@@ -2615,6 +1456,14 @@
    "file": "rhub.yaml",
    "name": "R-hub",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
    "dispatch": true
   },
   {
@@ -2632,363 +1481,19 @@
    "dispatch": true
   }
  ],
- "sdvpy-557": [
+ "softballR": [
   {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
+   "file": "star-history.yml",
+   "name": "Star history",
    "crons": [
-    "0 13 * * 1"
+    "17 6 * * *"
    ],
    "dispatch": true
   },
   {
-   "file": "python-publish.yml",
-   "name": "publish",
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
    "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvpy-autodoc-wt": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvpy-fix-fox-polls": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvpy-fix-loader-season": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvpy-if0-wt": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
-   "dispatch": true
-  }
- ],
- "sdvpy-if1-wt": [
-  {
-   "file": "codegen.yml",
-   "name": "codegen",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "conda-build.yml",
-   "name": "conda-build",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "deploy-gop.yml",
-   "name": "dispatch Game on Paper deploy (package pushes to main)",
-   "crons": [],
-   "dispatch": false
-  },
-  {
-   "file": "docs-deploy.yml",
-   "name": "docs-deploy",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "live-tests-cron.yml",
-   "name": "live-tests-cron",
-   "crons": [
-    "0 13 * * 1"
-   ],
-   "dispatch": true
-  },
-  {
-   "file": "python-publish.yml",
-   "name": "publish",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "quality.yml",
-   "name": "quality",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "tests.yml",
-   "name": "tests",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "validation-cron.yml",
-   "name": "validation-cron",
-   "crons": [
-    "0 12 * * 1"
-   ],
    "dispatch": true
   }
  ],
@@ -3032,6 +1537,20 @@
    "name": "pkgdown",
    "crons": [],
    "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
   }
  ],
  "sportsdataverse-data": [
@@ -3049,12 +1568,36 @@
    "file": "ci.yml",
    "name": "CI",
    "crons": [],
-   "dispatch": false
+   "dispatch": true
+  },
+  {
+   "file": "live-smoke.yml",
+   "name": "Live smoke",
+   "crons": [
+    "17 9 * * 1"
+   ],
+   "dispatch": true
   },
   {
    "file": "npm-publish.yml",
    "name": "Node.js Package",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "vendor-sync.yml",
+   "name": "Vendor sync (sdv-py)",
+   "crons": [
+    "0 14 * * 1"
+   ],
    "dispatch": true
   }
  ],
@@ -3082,6 +1625,18 @@
   {
    "file": "sdv-toolkit-catalog.yml",
    "name": "sdv-toolkit catalog",
+   "crons": [],
+   "dispatch": false
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "status-tests.yml",
+   "name": "status-tests",
    "crons": [],
    "dispatch": false
   }
@@ -3112,11 +1667,25 @@
    "dispatch": true
   },
   {
+   "file": "docs-index.yml",
+   "name": "docs-index",
+   "crons": [
+    "17 6 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
    "file": "live-tests-cron.yml",
    "name": "live-tests-cron",
    "crons": [
     "0 13 * * 1"
    ],
+   "dispatch": true
+  },
+  {
+   "file": "live-tests.yml",
+   "name": "live tests",
+   "crons": [],
    "dispatch": true
   },
   {
@@ -3132,9 +1701,33 @@
    "dispatch": true
   },
   {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
    "file": "tests.yml",
    "name": "tests",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "theme-drift.yml",
+   "name": "theme-drift",
+   "crons": [
+    "0 13 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "tutorials-refresh.yml",
+   "name": "tutorials-refresh",
+   "crons": [
+    "0 13 * * 1"
+   ],
    "dispatch": true
   },
   {
@@ -3177,13 +1770,19 @@
    "file": "R-CMD-check.yaml",
    "name": "R-CMD-check",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "labeler.yaml",
+   "name": "labeler",
+   "crons": [],
    "dispatch": false
   },
   {
    "file": "lint.yaml",
    "name": "lint",
    "crons": [],
-   "dispatch": false
+   "dispatch": true
   },
   {
    "file": "pkgdown.yaml",
@@ -3192,18 +1791,90 @@
    "dispatch": true
   },
   {
+   "file": "release.yaml",
+   "name": "release",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "rhub.yaml",
+   "name": "R-hub",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "sysdata.yaml",
+   "name": "sysdata",
+   "crons": [],
+   "dispatch": true
+  },
+  {
    "file": "test-coverage.yaml",
    "name": "test-coverage",
    "crons": [],
-   "dispatch": false
+   "dispatch": true
   }
  ],
  "sportypy": [
   {
+   "file": "dimensions-drift.yml",
+   "name": "dimensions-drift",
+   "crons": [
+    "41 7 * * 1"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "docs-build.yml",
+   "name": "docs-build",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "docs-deploy.yml",
+   "name": "docs-deploy",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "labeler.yml",
+   "name": "labeler",
+   "crons": [],
+   "dispatch": false
+  },
+  {
    "file": "package-coverage.yml",
    "name": "package-coverage",
    "crons": [],
-   "dispatch": false
+   "dispatch": true
+  },
+  {
+   "file": "quality.yml",
+   "name": "quality",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "release.yml",
+   "name": "release",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
   },
   {
    "file": "upload-to-pypi.yml",
@@ -3231,6 +1902,28 @@
    "file": "rhub.yaml",
    "name": "R-hub",
    "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "star-history.yml",
+   "name": "Star history",
+   "crons": [
+    "17 6 * * *"
+   ],
+   "dispatch": true
+  },
+  {
+   "file": "test-coverage.yaml",
+   "name": "test-coverage",
+   "crons": [],
+   "dispatch": true
+  },
+  {
+   "file": "urlchecker.yaml",
+   "name": "urlchecker",
+   "crons": [
+    "0 13 1 * *"
+   ],
    "dispatch": true
   }
  ],
@@ -3410,10 +2103,7 @@
   {
    "file": "daily_wnba_stats.yml",
    "name": "Update WNBA Stats Data",
-   "crons": [
-    "0 14 * 5-9 *",
-    "0 14 1-20 10 *"
-   ],
+   "crons": [],
    "dispatch": true
   },
   {
@@ -3447,26 +2137,10 @@
    "name": "tests",
    "crons": [],
    "dispatch": true
-  }
- ],
- "wehoop-xwalk-wt": [
-  {
-   "file": "R-CMD-check.yaml",
-   "name": "R-CMD-check",
-   "crons": [
-    "30 12 * * Fri"
-   ],
-   "dispatch": true
   },
   {
-   "file": "pkgdown.yaml",
-   "name": "pkgdown",
-   "crons": [],
-   "dispatch": true
-  },
-  {
-   "file": "rhub.yaml",
-   "name": "R-hub",
+   "file": "wehoop_wnba_stats_data_trigger.yml",
+   "name": "wehoop WNBA Stats Data trigger",
    "crons": [],
    "dispatch": true
   }
