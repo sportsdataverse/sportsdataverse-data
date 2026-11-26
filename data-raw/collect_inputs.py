@@ -93,6 +93,7 @@ def step_repos() -> None:
     lives under BillPetti), and never links a private repo. The tag scan keeps
     only hits inside these checkouts, so worktrees and scratch dirs drop out."""
     repos: dict[str, dict] = {}
+    failed: list[str] = []
     for d in sorted(ROOT.iterdir()):
         if not (d / ".git").is_dir():
             continue
@@ -108,9 +109,14 @@ def step_repos() -> None:
         )
         private = {"true": True, "false": False}.get(out.stdout.strip())
         if private is None:
-            warn(f"{d.name}: cannot read {home} (private? assuming yes)")
-            private = True
+            failed.append(d.name)
+            continue
         repos[d.name] = {"home": home, "private": private}
+    if failed:
+        # an unreadable visibility must not be guessed: "assume private" would drop a public repo
+        # from the committed file, and an outage would commit an empty one. Keep the previous pair.
+        warn(f"cannot read visibility of {len(failed)} repos ({', '.join(failed[:5])}...); repos.json left unchanged")
+        return
     # repos.json is committed to this PUBLIC repo, so it lists public checkouts only.
     # Private ones (still needed: never linked, but their tag hits count) stay on
     # this host in the gitignored repos_private.json.
@@ -185,8 +191,11 @@ def step_hits() -> None:
     # A missing repos.json (the `repos` step never ran) keeps every hit, with a
     # warning; an existing one is authoritative, so an empty mapping keeps none.
     repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else None
-    if repos is not None and (HERE / "repos_private.json").exists():
-        repos.update(json.loads((HERE / "repos_private.json").read_text()))
+    if repos is not None:
+        if (HERE / "repos_private.json").exists():
+            repos.update(json.loads((HERE / "repos_private.json").read_text()))
+        else:
+            warn("no repos_private.json (run the repos step on this host): hits in private repos are dropped")
     if repos is None:
         warn("no repos.json: run the repos step first; keeping hits from every directory")
     tracked: dict[str, set[str]] = {}
@@ -268,9 +277,17 @@ WF_NAME = re.compile(r"^name:\s*[\"']?(.+?)[\"']?\s*$", re.M)
 
 
 def step_workflows() -> None:
+    # workflows.json is committed to this public repo: public checkouts only (no private repos,
+    # worktrees or scratch dirs). render_notes only ever shows rows for linkable repos anyway.
+    if not (HERE / "repos.json").exists():
+        warn("no repos.json: run the repos step first; workflows.json left unchanged")
+        return
+    public = set(json.loads((HERE / "repos.json").read_text()))
     out: dict[str, list[dict]] = {}
     for wf in sorted(ROOT.glob("*/.github/workflows/*.y*ml")):
         repo = wf.relative_to(ROOT).parts[0]
+        if repo not in public:
+            continue
         body = wf.read_text(errors="replace")
         nm = WF_NAME.search(body)
         out.setdefault(repo, []).append(
