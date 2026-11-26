@@ -19,6 +19,10 @@
   "home": "sportsdataverse/baseballr-data",
   "private": false
  },
+ "blazing-the-nets": {
+  "home": "saiemgilani/blazing-the-nets",
+  "private": false
+ },
  "cfb4th": {
   "home": "sportsdataverse/cfb4th",
   "private": false
@@ -79,10 +83,6 @@
   "home": "saiemgilani/game-on-paper-app",
   "private": false
  },
- "game-on-paper-app-cloudflare": {
-  "home": "blackcb/game-on-paper-app",
-  "private": false
- },
  "gop-explainers": {
   "home": "saiemgilani/gop-explainers",
   "private": true
@@ -93,7 +93,7 @@
  },
  "hoopR-kp-data": {
   "home": "sportsdataverse/hoopR-kp-data",
-  "private": false
+  "private": true
  },
  "hoopR-mbb-data": {
   "home": "sportsdataverse/hoopR-mbb-data",
@@ -199,6 +199,10 @@
   "home": "saiemgilani/saiem-blog",
   "private": false
  },
+ "saiemgilani": {
+  "home": "saiemgilani/saiemgilani",
+  "private": false
+ },
  "sdv-assets": {
   "home": "sportsdataverse/sdv-assets",
   "private": false
@@ -241,6 +245,14 @@
  },
  "sdvmodels": {
   "home": "sportsdataverse/sdvmodels",
+  "private": false
+ },
+ "sdvplot": {
+  "home": "sportsdataverse/sdvplot",
+  "private": false
+ },
+ "sdvplot-js": {
+  "home": "sportsdataverse/sdvplot-js",
   "private": false
  },
  "sdvplotR": {
