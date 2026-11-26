@@ -115,8 +115,9 @@ def step_repos() -> None:
         private = {"true": True, "false": False}.get(out.stdout.strip())
         if private is None:
             failed.append(f"{d.name} ({(out.stderr.strip().splitlines() or ['?'])[-1][:80]})")
-            if previous.get(d.name, {}).get("home") == home:  # never guess: keep the last read of this same repo
-                repos[d.name] = previous[d.name]
+            if previous.get(d.name, {}).get("home") == home:
+                # never publish an unconfirmed repo: keep it, but as private (unlinked, not in workflows.json)
+                repos[d.name] = {**previous[d.name], "private": True}
             continue  # never read before: leave it out (treated like a non-checkout)
         repos[d.name] = {"home": home, "private": private}
         read_ok += 1
@@ -284,7 +285,7 @@ WF_NAME = re.compile(r"^name:\s*[\"']?(.+?)[\"']?\s*$", re.M)
 def _crons(body: str) -> list[str]:
     """`on.schedule[].cron` from the parsed workflow. A regex over the text also matched flow-style
     YAML (`schedule: [{cron: ...}]`) and comments that mention "cron:"."""
-    import yaml  # PyYAML; YAML 1.1 reads the bare `on:` key as True
+    import yaml  # PyYAML (checked in step_workflows); YAML 1.1 reads the bare `on:` key as True
 
     try:
         doc = yaml.safe_load(body) or {}
@@ -300,6 +301,11 @@ def step_workflows() -> None:
     # worktrees or scratch dirs). render_notes only ever shows rows for linkable repos anyway.
     if not (HERE / "repos.json").exists():
         warn("no repos.json: run the repos step first; workflows.json left unchanged")
+        return
+    try:
+        import yaml  # noqa: F401  (used by _crons)
+    except ImportError:
+        warn("PyYAML is not installed (pip install pyyaml); workflows.json left unchanged")
         return
     public = set(json.loads((HERE / "repos.json").read_text()))
     out: dict[str, list[dict]] = {}
