@@ -58,7 +58,8 @@ def exists(repo_path: str) -> bool:
     return (ROOT / repo_path).exists()
 
 
-REPOS = load_json("repos.json")
+# public checkouts (committed) + private ones (host-only, gitignored; see collect_inputs.step_repos)
+REPOS = {**load_json("repos.json"), **(load_json("repos_private.json") if (SP / "repos_private.json").exists() else {})}
 
 
 def repo_home(repo: str) -> str | None:

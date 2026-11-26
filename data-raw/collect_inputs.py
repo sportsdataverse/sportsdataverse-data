@@ -111,7 +111,11 @@ def step_repos() -> None:
             warn(f"{d.name}: cannot read {home} (private? assuming yes)")
             private = True
         repos[d.name] = {"home": home, "private": private}
-    write("repos.json", repos)
+    # repos.json is committed to this PUBLIC repo, so it lists public checkouts only.
+    # Private ones (still needed: never linked, but their tag hits count) stay on
+    # this host in the gitignored repos_private.json.
+    write("repos.json", {k: v for k, v in repos.items() if not v["private"]})
+    write("repos_private.json", {k: v for k, v in repos.items() if v["private"]})
 
 
 def step_hits() -> None:
@@ -181,6 +185,8 @@ def step_hits() -> None:
     # A missing repos.json (the `repos` step never ran) keeps every hit, with a
     # warning; an existing one is authoritative, so an empty mapping keeps none.
     repos = json.loads((HERE / "repos.json").read_text()) if (HERE / "repos.json").exists() else None
+    if repos is not None and (HERE / "repos_private.json").exists():
+        repos.update(json.loads((HERE / "repos_private.json").read_text()))
     if repos is None:
         warn("no repos.json: run the repos step first; keeping hits from every directory")
     tracked: dict[str, set[str]] = {}

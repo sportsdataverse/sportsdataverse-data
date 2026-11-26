@@ -2,6 +2,7 @@
 # and always reproducible from the sibling repos plus the GitHub API.
 releases_full.json
 tag_hits.txt
+repos_private.json
 inventory.json
 inventory2.json
 crontab_snapshot.txt
